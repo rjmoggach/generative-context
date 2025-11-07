@@ -1,0 +1,12 @@
+{
+    "files.exclude": {
+        "**.pyc": true
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "prettier.prettierPath": "/opt/homebrew/bin/prettier",
+    "prettier.tabWidth": 4,
+    "markdownlint.run": "onSave"
+}
