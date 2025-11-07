@@ -1,7 +1,7 @@
 # Generative AI Context Library
 
-**Version**: 3.1
-**Updated**: 2025-11-07
+**Version**: 0.1
+**Released**: 2025-11-07
 
 Production-ready knowledge base for generative AI workflows. Designed for Custom GPT integration and artist teams.
 
@@ -192,17 +192,14 @@ See `docs/prompting.md` for complete guide.
 
 ## Maintenance
 
-- **Adding models**: Follow `process/process-model-template.md`
+- **Adding models**: Follow `process/meta-generator-model-context.md`
 - **Updating docs**: Log changes in `CHANGELOG.md`
-- **File naming**: `model-[type]-[name].md` (kebab-case)
+- **File naming**:
+  - Models: `model-[type]-[name].md` (kebab-case)
+  - Process: `meta-generator-[TYPE]-[SUBTYPE].md`
 
 ---
 
 ## Version History
 
-- **v3.1** (2025-11-07): Added 3 video models (Runway, Veo, Luma), restructured all to consistent template
-- **v3.0** (2025-11-06): Flat structure, semantic prefixes
-- **v2.0** (2025-11-06): Organized folders, Quick Reference tables
-- **v1.0** (2025-11-06): Initial library creation
-
-See `CHANGELOG.md` for detailed changes.
+See `CHANGELOG.md` for version history and detailed changes.
