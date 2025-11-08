@@ -17,17 +17,16 @@ Production-ready knowledge base for generative AI workflows. Designed for Custom
 
 ### For Custom GPT Setup
 
-**CRITICAL FIRST STEP:** Create a show context document
-1. Use `process/meta-generator-show-context.md` to create your show's visual specification
-2. Save as `show-context-[YOUR-PROJECT].md`
+**CRITICAL FIRST STEP:** Deploy the Project Context Assistant
+1. Use `prompts/system-prompt-project-context-assistant.md` for Custom GPT instructions
+2. Have a conversation to generate `project-context-<show-code>.md`
+3. Upload to knowledge base
 
 **Then:**
 1. Upload all `context/model-*.md` files to knowledge base (9 models)
-2. Upload `docs/prompting.md` to knowledge base
-3. Upload your `show-context-[YOUR-PROJECT].md` to knowledge base
-4. Choose a system prompt:
-   - Quick start: `process/meta-generator-system-prompt-template.md`
-   - Custom: Use `process/meta-generator-system-prompt.md`
+2. Upload all `context/guide-*.md` and `context/reference-*.md` files
+3. Deploy Shot Assistant: `prompts/system-prompt-shot-assistant.md`
+4. Upload your `project-context-<show-code>.md` to Shot Assistant knowledge base
 5. See `docs/01-setup-custom-gpt.md` for detailed steps
 
 ### For Pickaxe No-Code Apps
@@ -60,7 +59,7 @@ context/
 ├── guide-prompting-general.md         # Universal prompting principles
 ├── guide-prompting-framework.md       # Six-layer prompting framework
 ├── guide-prompting-framework.json     # Structured prompting data
-├── guide-context-question-framework.md # Deep questioning for visual style
+├── guide-context-questioning.md        # Deep questioning for visual style
 ├── reference-film-grammar.md          # Comprehensive film grammar
 ├── reference-film-movements.md        # Cinema history and movements
 ├── reference-visual-cinematographers.md # Master cinematographers
@@ -74,14 +73,13 @@ docs/
 ├── 03-model-selection.md      # Choosing the right model
 └── 04-six-layer-framework.md  # Quick video prompting reference
 
-process/
-├── README.md                                          # Process workflow guide
-├── meta-generator-show-context.md                     # Generate show contexts (36 questions)
-├── meta-generator-show-context-template.md            # Show context template
-├── meta-generator-show-context-example-automotive.md  # Show context example
-├── meta-generator-system-prompt.md                    # Generate GPT prompts
-├── meta-generator-system-prompt-template.md           # GPT prompt template
-└── meta-generator-model-context.md                    # Model documentation template
+prompts/
+├── README.md                                   # System prompt guide
+├── system-prompt-project-context-assistant.md  # GPT: Generate project contexts
+├── system-prompt-shot-assistant.md             # GPT: Generate shot prompts
+├── system-prompt-model-context-generator.md    # GPT: Document new models
+├── system-prompt-template.md                   # Template for new prompts
+└── meta-generator-system-prompt.md             # Create new system prompts
 
 pickaxe/
 ├── generate-pickaxe.md                # Meta-prompt for standard Pickaxe apps
@@ -223,11 +221,12 @@ See `docs/prompting.md` for complete guide.
 
 ## Maintenance
 
-- **Adding models**: Follow `process/meta-generator-model-context.md`
+- **Adding models**: Use Model Context Generator GPT (`prompts/system-prompt-model-context-generator.md`)
 - **Updating docs**: Log changes in `CHANGELOG.md`
 - **File naming**:
   - Models: `model-[type]-[name].md` (kebab-case)
-  - Process: `meta-generator-[TYPE]-[SUBTYPE].md`
+  - System prompts: `system-prompt-[function].md`
+  - Meta-generators: `meta-generator-[type].md`
 
 ---
 

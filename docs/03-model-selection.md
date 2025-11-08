@@ -2,7 +2,7 @@
 
 Choose the right generative AI model for your task. This guide provides decision trees and comparison data.
 
-**PREREQUISITE**: Before selecting models, create a show context document (`process/meta-generator-show-context.md`). This defines your visual requirements and will guide model selection.
+**PREREQUISITE**: Before selecting models, create a show context document (`prompts/meta-generator-show-context.md`). This defines your visual requirements and will guide model selection.
 
 ---
 

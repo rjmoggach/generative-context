@@ -16,13 +16,13 @@ Step-by-step deployment of the generative AI knowledge base as a Custom GPT.
 
 **Before uploading anything to Custom GPT**, create your show's visual specification:
 
-1. Open `process/meta-generator-show-context.md`
+1. Open `prompts/meta-generator-show-context.md`
 2. Copy entire contents and paste into ChatGPT or Claude
 3. Answer 20 essential questions about your project
 4. Save output as `show-context-[YOUR-PROJECT].md`
 5. This defines your visual language and ensures consistency
 
-**Example:** See `process/meta-generator-show-context-example-automotive.md`
+**Example:** See `prompts/meta-generator-show-context-example-automotive.md`
 
 ---
 
@@ -56,14 +56,14 @@ Upload these files to the Custom GPT knowledge base:
 ## Step 2: Configure System Prompt
 
 **Option A - Use Generic Template (Quick Start):**
-1. Open `process/meta-generator-system-prompt-template.md`
+1. Open `prompts/meta-generator-system-prompt-template.md`
 2. Copy the entire contents
 3. Paste into Custom GPT "Instructions" field
 4. Customize project context section
 
 **Option B - Create Custom Prompt (Recommended for Production):**
-1. See `process/README.md` for detailed workflow
-2. Use `process/meta-generator-system-prompt.md` to generate custom instructions
+1. See `prompts/README.md` for detailed workflow
+2. Use `prompts/meta-generator-system-prompt.md` to generate custom instructions
 
 ### Key Customizations
 

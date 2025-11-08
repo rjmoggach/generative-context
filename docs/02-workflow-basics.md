@@ -2,7 +2,7 @@
 
 Production workflows for different asset types. Each workflow shows model selection and parameter guidance.
 
-**IMPORTANT**: Before starting any workflow, create a show context document using `process/meta-generator-show-context.md`. This defines your visual language and ensures all prompts maintain consistency.
+**IMPORTANT**: Before starting any workflow, create a show context document using `prompts/meta-generator-show-context.md`. This defines your visual language and ensures all prompts maintain consistency.
 
 ---
 
@@ -331,7 +331,7 @@ Times assume familiarity with tools and prompting techniques.
 
 ## Best Practices
 
-1. **Create show context FIRST** - Define visual language before generating (use `process/meta-generator-show-context.md`)
+1. **Create show context FIRST** - Define visual language before generating (use `prompts/meta-generator-show-context.md`)
 2. **Use standard prompt prefix** - Start every prompt with prefix from your show context
 3. **Always save prompts** - Document what works for reuse
 4. **Use seeds for consistency** - When model supports it (Midjourney)

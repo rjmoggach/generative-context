@@ -37,4 +37,4 @@ All notable changes to the Generative AI Context Library will be documented in t
 **File Structure:**
 - `context/` - 9 model documentation files
 - `docs/` - Setup guides, workflows, model selection
-- `process/` - 7 meta-generators and templates
+- `prompts/` - 7 meta-generators and templates
