@@ -42,11 +42,11 @@ Pickaxe is a no-code platform for creating custom AI apps with strict formatting
 
 For advanced video generation with film grammar principles:
 
-1. See `cinematic_prompting/` for the complete framework
-2. Includes classical film grammar (Arijon, Spottiswoode)
-3. 27 cinematographic references (Kubrick, Fincher, Romanek, etc.)
-4. Structured CUSTOM/SELECT fields for both manual prompting and app development
-5. Quick reference: `docs/04-six-layer-framework.md`
+1. **Core framework**: `context/guide-prompting-framework.md` - Six-layer framework with templates
+2. **Structured data**: `context/guide-prompting-framework.json` - CUSTOM/SELECT fields for apps
+3. **Film grammar**: `context/reference-film-grammar.md` - Arijon & Spottiswoode principles
+4. **Visual references**: `context/reference-visual-*.md` - Directors, cinematographers, photographers
+5. **Quick reference**: `docs/04-six-layer-framework.md` - Practical video prompting guide
 
 ---
 
@@ -54,31 +54,34 @@ For advanced video generation with film grammar principles:
 
 ```
 context/
-├── model-image-*.md      # Image generation models (4 models)
-├── model-video-*.md      # Video generation models (4 models)
-└── model-editing-*.md    # Image editing models (1 model)
+├── model-image-*.md                   # Image generation models (4 models)
+├── model-video-*.md                   # Video generation models (4 models)
+├── model-editing-*.md                 # Image editing models (1 model)
+├── guide-prompting-general.md         # Universal prompting principles
+├── guide-prompting-framework.md       # Six-layer prompting framework
+├── guide-prompting-framework.json     # Structured prompting data
+├── guide-context-question-framework.md # Deep questioning for visual style
+├── reference-film-grammar.md          # Comprehensive film grammar
+├── reference-film-movements.md        # Cinema history and movements
+├── reference-visual-cinematographers.md # Master cinematographers
+├── reference-visual-film-directors.md  # Auteur film directors
+├── reference-visual-commercial-directors.md # Commercial directors
+└── reference-visual-photographers.md   # Still photography masters
 
 docs/
 ├── 01-setup-custom-gpt.md     # Custom GPT deployment guide
 ├── 02-workflow-basics.md      # Common production workflows
 ├── 03-model-selection.md      # Choosing the right model
-├── 04-six-layer-framework.md  # Quick video prompting reference
-└── prompting.md               # Universal prompting principles
+└── 04-six-layer-framework.md  # Quick video prompting reference
 
 process/
 ├── README.md                                          # Process workflow guide
-├── meta-generator-show-context.md                     # Generate show contexts (20 questions)
+├── meta-generator-show-context.md                     # Generate show contexts (36 questions)
 ├── meta-generator-show-context-template.md            # Show context template
 ├── meta-generator-show-context-example-automotive.md  # Show context example
 ├── meta-generator-system-prompt.md                    # Generate GPT prompts
 ├── meta-generator-system-prompt-template.md           # GPT prompt template
 └── meta-generator-model-context.md                    # Model documentation template
-
-cinematic_prompting/
-├── README.md               # Framework overview and guide
-├── film_grammar.md         # Comprehensive film grammar principles
-├── prompt_structure.md     # Flexible framework with 6 templates
-└── prompt_structure.json   # Structured CUSTOM/SELECT data
 
 pickaxe/
 ├── generate-pickaxe.md                # Meta-prompt for standard Pickaxe apps
