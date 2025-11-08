@@ -30,6 +30,24 @@ Production-ready knowledge base for generative AI workflows. Designed for Custom
    - Custom: Use `process/meta-generator-system-prompt.md`
 5. See `docs/01-setup-custom-gpt.md` for detailed steps
 
+### For Pickaxe No-Code Apps
+
+Pickaxe is a no-code platform for creating custom AI apps with strict formatting constraints.
+
+1. Use `pickaxe/generate-pickaxe.md` for standard conversational Pickaxe apps
+2. Use `pickaxe/generate-pickaxe-multiquestion.md` for multi-question sequential Q&A apps
+3. These meta-prompts generate system prompts optimized for Pickaxe's lightweight interface
+
+### For Video/Cinematic Prompting
+
+For advanced video generation with film grammar principles:
+
+1. See `cinematic_prompt_generation/` for the complete framework
+2. Includes classical film grammar (Arijon, Spottiswoode)
+3. 27 cinematographic references (Kubrick, Fincher, Romanek, etc.)
+4. Structured CUSTOM/SELECT fields for both manual prompting and app development
+5. Quick reference: `docs/04-six-layer-framework.md`
+
 ---
 
 ## Documentation Structure
@@ -41,11 +59,11 @@ context/
 └── model-editing-*.md    # Image editing models (1 model)
 
 docs/
-├── 01-setup-custom-gpt.md    # Custom GPT deployment guide
-├── 02-workflow-basics.md     # Common production workflows
-├── 03-model-selection.md     # Choosing the right model
-├── prompting.md              # Universal prompting principles
-└── example-*.md              # Real workflow examples
+├── 01-setup-custom-gpt.md     # Custom GPT deployment guide
+├── 02-workflow-basics.md      # Common production workflows
+├── 03-model-selection.md      # Choosing the right model
+├── 04-six-layer-framework.md  # Quick video prompting reference
+└── prompting.md               # Universal prompting principles
 
 process/
 ├── README.md                                          # Process workflow guide
@@ -55,6 +73,16 @@ process/
 ├── meta-generator-system-prompt.md                    # Generate GPT prompts
 ├── meta-generator-system-prompt-template.md           # GPT prompt template
 └── meta-generator-model-context.md                    # Model documentation template
+
+cinematic_prompt_generation/
+├── README.md                  # Framework overview and guide
+├── film_grammar.md            # Comprehensive film grammar principles
+├── six_layer_framework.md     # Flexible framework with 6 templates
+└── prompt_generation.json     # Structured CUSTOM/SELECT data
+
+pickaxe/
+├── generate-pickaxe.md                # Meta-prompt for standard Pickaxe apps
+└── generate-pickaxe-multiquestion.md  # Meta-prompt for multi-question apps
 ```
 
 ---

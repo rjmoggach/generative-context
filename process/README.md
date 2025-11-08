@@ -44,6 +44,22 @@ All files follow the pattern: `meta-generator-[TYPE]-[SUBTYPE].md`
 - **When**: Adding new models to the library
 - **Use**: Follow structure to create new `context/model-[type]-[name].md`
 
+### Pickaxe App System Prompts
+
+Located in `../pickaxe/` directory (meta-generators for Pickaxe no-code platform)
+
+**generate-pickaxe.md** (Standard Conversational)
+- **What**: Meta-prompt for generating Pickaxe app system prompts (conversational interface)
+- **When**: Creating a Pickaxe app with standard Q&A format
+- **Use**: Copy → paste into ChatGPT/Claude → get Pickaxe-optimized system prompt
+
+**generate-pickaxe-multiquestion.md** (Multi-Question Sequential)
+- **What**: Meta-prompt for generating Pickaxe app system prompts (multi-question format)
+- **When**: Creating a Pickaxe app with sequential Q&A (multiple independent questions)
+- **Use**: Copy → paste into ChatGPT/Claude → get Pickaxe-optimized system prompt
+
+**Note:** Pickaxe has strict formatting constraints (no emojis, no tables, character limits, lightweight interface). These meta-generators create system prompts that adapt content for Pickaxe's platform.
+
 ---
 
 ## Workflow: Creating a Show Context (Do This FIRST!)
@@ -147,6 +163,8 @@ The GPT system prompt will say: "Refer to show-context-[PROJECT].md for visual s
 | `meta-generator-system-prompt.md` | Generate GPT prompts | After show context |
 | `meta-generator-system-prompt-template.md` | GPT prompt template | Quick setup |
 | `meta-generator-model-context.md` | Model doc template | Add new models |
+| `../pickaxe/generate-pickaxe.md` | Generate Pickaxe prompts | Pickaxe conversational apps |
+| `../pickaxe/generate-pickaxe-multiquestion.md` | Generate Pickaxe prompts | Pickaxe multi-question apps |
 
 ---
 

@@ -142,7 +142,9 @@ Generate a concise markdown document (max 500 lines):
 
 **Standard Prompt Prefix:**
 ```
+
 [EXACT TEXT TO START EVERY PROMPT]
+
 ```
 
 **Required Parameters:** [--ar X:X --s XXX, etc.]
