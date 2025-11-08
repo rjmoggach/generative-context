@@ -1,6 +1,6 @@
 # Video Prompt Engineering Framework Analysis
 
-**COMPREHENSIVE VERSION**: For the complete framework with film grammar principles, 27 cinematographic references, and structured CUSTOM/SELECT fields for app development, see `../cinematic_prompt_generation/`
+**COMPREHENSIVE VERSION**: For the complete framework with film grammar principles, 27 cinematographic references, and structured CUSTOM/SELECT fields for app development, see `../cinematic_prompting/`
 
 **This document**: Quick reference for practical video prompting across AI models.
 

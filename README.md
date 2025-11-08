@@ -42,7 +42,7 @@ Pickaxe is a no-code platform for creating custom AI apps with strict formatting
 
 For advanced video generation with film grammar principles:
 
-1. See `cinematic_prompt_generation/` for the complete framework
+1. See `cinematic_prompting/` for the complete framework
 2. Includes classical film grammar (Arijon, Spottiswoode)
 3. 27 cinematographic references (Kubrick, Fincher, Romanek, etc.)
 4. Structured CUSTOM/SELECT fields for both manual prompting and app development
@@ -74,11 +74,11 @@ process/
 ├── meta-generator-system-prompt-template.md           # GPT prompt template
 └── meta-generator-model-context.md                    # Model documentation template
 
-cinematic_prompt_generation/
-├── README.md                  # Framework overview and guide
-├── film_grammar.md            # Comprehensive film grammar principles
-├── six_layer_framework.md     # Flexible framework with 6 templates
-└── prompt_generation.json     # Structured CUSTOM/SELECT data
+cinematic_prompting/
+├── README.md               # Framework overview and guide
+├── film_grammar.md         # Comprehensive film grammar principles
+├── prompt_structure.md     # Flexible framework with 6 templates
+└── prompt_structure.json   # Structured CUSTOM/SELECT data
 
 pickaxe/
 ├── generate-pickaxe.md                # Meta-prompt for standard Pickaxe apps

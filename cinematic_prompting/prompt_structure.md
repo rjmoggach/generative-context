@@ -1,6 +1,8 @@
-# The Six-Layer Framework for Cinematic AI Video Generation (v2.0)
+# The Six-Layer Framework for Cinematic AI Video Generation
 
-This framework integrates the principles of classical film grammar from Arijon and Spottiswoode with modern AI video generation techniques. It provides a comprehensive structure for crafting prompts that cover the entire gamut of cinematic possibility.
+This framework integrates the principles of classical film grammar from Arijon and Spottiswoode 
+with modern AI video generation techniques. It provides a comprehensive structure for crafting 
+prompts that cover the entire gamut of cinematic possibility.
 
 ---
 
@@ -89,14 +91,17 @@ This layer defines the temporal aspects of the shot, including its duration, rhy
 ### When to Use Which Layers
 
 **Minimal Prompt (Layers 1-2 only)**: Quick iteration, simple shots, test generations
+
 - Subject + Action + Shot/Framing
 - Example: "A chef preparing sushi, Medium Close Up"
 
 **Moderate Prompt (Layers 1-4)**: Most production work, balanced detail
+
 - Add Camera Movement + Lighting
 - Suitable for 80% of prompts
 
 **Complex Prompt (All 6 Layers)**: Hero shots, key sequences, precise vision
+
 - Use when exact technical control is required
 - Commercial work, final deliverables
 
