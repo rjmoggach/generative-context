@@ -1,0 +1,482 @@
+{
+  "framework": {
+    "layer1_subject_action_narrative": {
+      "CUSTOM_USER_INPUT": {
+        "subject": "REQUIRED: Describe your subject (person, object, scene, location)",
+        "action": "REQUIRED: What is happening or what movement is occurring",
+        "setting": "REQUIRED: Where does this take place (location, environment, context)",
+        "narrative_intent": "OPTIONAL: The emotional tone or purpose (e.g., 'with quiet determination', 'conveying isolation')"
+      },
+      "dialogue_staging_techniques": {
+        "description": "SELECT ONLY if scene involves dialogue between characters",
+        "two_player": [
+          "face to face shot/reverse shot",
+          "players side by side",
+          "players behind one another",
+          "telephone conversation with opposed diagonals",
+          "players reflected in a mirror"
+        ],
+        "three_player": [
+          "standard triangular staging",
+          "internal reverse camera positions",
+          "pivoting point focus"
+        ],
+        "multi_player": [
+          "common visual axis",
+          "right angle camera sites",
+          "groups around a table",
+          "subdividing groups into sectors"
+        ]
+      }
+    },
+    "layer2_composition_framing": {
+      "shot_distances": {
+        "description": "SELECT ONE: How close is the camera to the subject",
+        "options": [
+          "Big Close Up (BCU) - head only",
+          "Close Up (CU) - head and shoulders",
+          "Close Shot (CS) - head, shoulders, chest",
+          "Medium Close Up (MCU) - chest to head",
+          "Medium Shot (MS) - waist and up",
+          "Medium Full Shot (MFS) - knees and up",
+          "Full Shot (FS) - entire figure with feet",
+          "Long Shot (LS) - figure with ample background",
+          "Extreme Long Shot (ELS) - vast landscape, small or absent figure"
+        ]
+      },
+      "camera_angles": {
+        "description": "SELECT ONE: Vertical angle of camera relative to subject",
+        "options": [
+          "eye level - neutral perspective",
+          "low angle - power, dominance",
+          "high angle - vulnerability, weakness",
+          "Dutch Angle/Canted Angle - unease, disorientation",
+          "Bird's Eye View - god-like overhead perspective",
+          "Worm's Eye View - extreme upward angle"
+        ]
+      },
+      "composition_principles": {
+        "description": "OPTIONAL: SELECT if specific compositional approach is needed",
+        "options": [
+          "Triangle Principle",
+          "Rule of Thirds",
+          "Symmetrical Composition",
+          "Asymmetrical Composition",
+          "Diagonal Composition",
+          "Foreground/Background Layering",
+          "Centered Composition",
+          "Negative Space Composition"
+        ]
+      },
+      "framing_precision": {
+        "description": "OPTIONAL: SELECT for specific framing instructions",
+        "options": [
+          "cutting height under the waist",
+          "cutting height under the knees",
+          "ample headroom for subject",
+          "minimal headroom (tight framing)",
+          "negative space to the left of frame",
+          "negative space to the right of frame",
+          "avoid cutting at joints"
+        ]
+      }
+    },
+    "layer3_camera_dynamics": {
+      "basic_movements": {
+        "description": "SELECT ONE or NONE: How does the camera move",
+        "options": [
+          "static shot - no camera movement",
+          "tracking shot - camera follows subject laterally",
+          "panning shot - camera rotates horizontally on axis",
+          "tilting shot - camera rotates vertically on axis",
+          "dolly forward - camera moves toward subject",
+          "dolly backward - camera moves away from subject",
+          "crane shot - camera moves vertically on crane",
+          "handheld shot - organic, unstable movement",
+          "Steadicam shot - smooth stabilized movement",
+          "orbital shot - camera circles around subject"
+        ]
+      },
+      "combination_movements": {
+        "description": "OPTIONAL: SELECT for complex camera moves",
+        "options": [
+          "Dolly Zoom (Vertigo Effect) - dolly + zoom in opposite directions",
+          "Circular Tracking Shot - smooth 360 degree circle",
+          "Arc Shot - camera moves in curved path",
+          "Tracking shot with a pan - lateral move + rotation",
+          "Crane with tilt - vertical movement + angle change"
+        ]
+      },
+      "focus_manipulation": {
+        "description": "OPTIONAL: SELECT to control focus",
+        "options": [
+          "rack focus - shift focus from foreground to background",
+          "deep focus - everything in frame sharp",
+          "shallow focus - only subject in focus, background blurred",
+          "soft focus - deliberate blur for dreamy effect"
+        ]
+      },
+      "movement_quality": {
+        "description": "OPTIONAL: SELECT to define movement style",
+        "options": [
+          "slow and deliberate movement",
+          "fast and energetic movement",
+          "chaotic and unstable handheld movement",
+          "smooth and gliding Steadicam movement",
+          "whip pan - very fast horizontal rotation",
+          "floating ethereal movement"
+        ]
+      }
+    },
+    "layer4_lighting_color_atmosphere": {
+      "lighting_styles": {
+        "description": "SELECT ONE: Overall lighting approach",
+        "options": [
+          "High Key lighting - bright, even, low contrast",
+          "Low Key lighting - dark, high contrast, dramatic shadows",
+          "Chiaroscuro lighting - extreme light/dark contrast",
+          "Rembrandt lighting - triangle of light on cheek",
+          "Butterfly lighting - light above and in front",
+          "Three-Point lighting - key, fill, back lights",
+          "dramatic lighting - strong contrasts and shadows",
+          "soft diffused lighting - gentle, even illumination",
+          "hard directional lighting - sharp shadows",
+          "natural lighting - ambient, realistic",
+          "practical lighting - visible light sources in scene",
+          "silhouette lighting - backlit subject, dark foreground"
+        ]
+      },
+      "time_of_day": {
+        "description": "OPTIONAL: SELECT for natural light quality",
+        "options": [
+          "golden hour - warm sunset/sunrise light",
+          "blue hour - twilight, cool tones",
+          "midday sun - harsh overhead light",
+          "twilight - dim ambient light",
+          "harsh noon lighting - strong shadows",
+          "overcast day - soft even lighting",
+          "night - artificial or moonlight",
+          "dawn - cool early morning light",
+          "dusk - warm fading daylight"
+        ]
+      },
+      "color_theory": {
+        "description": "OPTIONAL: SELECT for color palette approach",
+        "options": [
+          "monochromatic color scheme - single color variations",
+          "saturated color palette - vivid, intense colors",
+          "desaturated and muted colors - subdued, faded",
+          "teal and orange color grading - cinematic standard",
+          "complementary colors - opposite color wheel",
+          "analogous colors - adjacent color wheel",
+          "warm color palette - reds, oranges, yellows",
+          "cool color palette - blues, greens, purples",
+          "black and white - monochrome",
+          "sepia tone - vintage brown tint",
+          "high contrast color - bold color separation",
+          "pastel colors - soft, light tones"
+        ]
+      },
+      "atmospheric_effects": {
+        "description": "OPTIONAL: SELECT to add environmental texture",
+        "options": [
+          "volumetric fog - thick visible fog with light rays",
+          "light haze - subtle atmospheric diffusion",
+          "heavy rain - visible rain and water effects",
+          "light drizzle - subtle rain",
+          "snow falling - visible snowflakes",
+          "dust particles suspended in air",
+          "smoke - theatrical or ambient",
+          "steam - visible vapor",
+          "anamorphic lens flares - horizontal light streaks",
+          "natural lens flares - sun or light reflections",
+          "35mm film grain - subtle texture",
+          "16mm film grain - heavy texture",
+          "heat haze distortion - shimmering air",
+          "bokeh - out of focus light circles",
+          "god rays - visible light beams",
+          "neon light reflections - colorful reflections on surfaces",
+          "wet pavement reflections - mirror-like ground",
+          "mist - light fog layer",
+          "overcast diffusion - soft cloud cover"
+        ]
+      }
+    },
+    "layer5_technical_specs_lens": {
+      "lens_types": {
+        "description": "OPTIONAL: SELECT for specific lens focal length",
+        "options": [
+          "14mm fisheye lens - extreme wide, spherical distortion",
+          "16mm ultra wide-angle - very wide field of view",
+          "24mm wide-angle lens - wide environmental context",
+          "35mm wide-angle lens - natural wide perspective",
+          "50mm natural perspective lens - mimics human eye",
+          "85mm portrait lens - flattering compression",
+          "100mm medium telephoto - moderate compression",
+          "135mm telephoto lens - strong background compression",
+          "200mm telephoto - very compressed depth",
+          "macro lens - extreme close-up detail",
+          "anamorphic lens - widescreen with characteristic flares",
+          "tilt-shift lens - selective focus plane"
+        ]
+      },
+      "optical_characteristics": {
+        "description": "OPTIONAL: SELECT for specific lens properties",
+        "options": [
+          "shallow depth of field - strong background blur",
+          "deep depth of field - everything in focus",
+          "beautiful bokeh - smooth out of focus areas",
+          "pronounced lens flare - visible light artifacts",
+          "minimal lens flare - clean optical rendering",
+          "barrel distortion - wide lens curvature",
+          "compressed background - telephoto depth compression",
+          "chromatic aberration - color fringing (vintage look)",
+          "vignetting - darkened frame edges",
+          "sharp corner to corner - edge to edge sharpness",
+          "dreamy soft edges - soft focus periphery"
+        ]
+      },
+      "film_stock_format": {
+        "description": "OPTIONAL: SELECT for film/digital aesthetic",
+        "options": [
+          "shot on 35mm film - standard cinematic film look",
+          "shot on 16mm film - grainier, documentary feel",
+          "shot on Super 8 - home movie aesthetic",
+          "IMAX 70mm quality - maximum resolution and clarity",
+          "Kodak Portra 400 color science - warm film tones",
+          "Kodak Vision3 500T - cinematic film stock",
+          "Fujifilm Velvia - vibrant saturated colors",
+          "vintage 1970s film stock look - faded retro aesthetic",
+          "vintage 1980s film stock - nostalgic color shift",
+          "grainy 16mm documentary style - raw, authentic",
+          "crisp digital Arri Alexa look - clean digital cinema",
+          "RED digital cinema - sharp digital",
+          "Sony Venice color science - modern digital",
+          "VHS tape aesthetic - lo-fi retro video",
+          "Betacam SP - broadcast video look"
+        ]
+      },
+      "resolution_quality": {
+        "description": "OPTIONAL: SELECT for output quality markers",
+        "options": [
+          "8k resolution",
+          "4k ultra high quality",
+          "1080p high definition",
+          "professional cinematography",
+          "award-winning composition",
+          "broadcast quality",
+          "cinema quality",
+          "ultra high fidelity",
+          "sharp and detailed",
+          "pristine image quality"
+        ]
+      }
+    },
+    "layer6_editing_pacing_transitions": {
+      "pacing_and_rhythm": {
+        "description": "OPTIONAL: SELECT for temporal control",
+        "options": [
+          "slow motion (60fps)",
+          "slow motion (120fps)",
+          "extreme slow motion (240fps)",
+          "fast motion (time lapse)",
+          "ramping speed effect - slow to fast or reverse",
+          "real-time pacing - normal speed",
+          "energetic and fast-paced",
+          "contemplative and slow rhythm",
+          "suspenseful pacing",
+          "urgent tempo"
+        ]
+      },
+      "editing_techniques": {
+        "description": "OPTIONAL: SELECT for multi-shot sequences only",
+        "options": [
+          "parallel editing between two scenes",
+          "cross-cutting between locations",
+          "match cut on action - cut during movement",
+          "match cut on composition - similar framing",
+          "jarring jump cut - temporal discontinuity",
+          "insert shot of a key detail",
+          "cutaway to a reaction",
+          "cutaway to environment",
+          "montage sequence showing passage of time",
+          "shot/reverse shot pattern",
+          "eyeline match - following character's gaze",
+          "graphic match - similar shapes across cut"
+        ]
+      },
+      "transitions": {
+        "description": "OPTIONAL: SELECT for how shot begins or ends",
+        "options": [
+          "hard cut - instant transition",
+          "slow fade to black",
+          "slow fade from black",
+          "fade to white",
+          "smooth dissolve - gradual blend between shots",
+          "cross dissolve",
+          "energetic wipe transition",
+          "iris out - circular closing",
+          "iris in - circular opening",
+          "smash cut to a loud scene - abrupt shock",
+          "L-cut - audio precedes video",
+          "J-cut - video precedes audio",
+          "whip pan transition - blur between shots",
+          "match dissolve - similar subjects blend"
+        ]
+      },
+      "montage_theory": {
+        "description": "OPTIONAL: SELECT for conceptual editing approaches (multi-shot only)",
+        "options": [
+          "rhythmical montage - tempo builds emotion",
+          "implicational montage - create symbolic meaning between shots",
+          "ideological montage - convey political/social message",
+          "intellectual montage - combine shots to form new idea",
+          "metric montage - cuts at regular intervals",
+          "tonal montage - emotional consistency across shots",
+          "overtonal montage - cumulative sensory impact"
+        ]
+      }
+    }
+  },
+  "model_specifics": {
+    "kling_2_5": {
+      "strengths": [
+        "athletic movement",
+        "character animation",
+        "motion fluidity",
+        "action rendering"
+      ],
+      "recommended_layers": [1, 2, 3, 4],
+      "prompt_structure": [
+        "detailed visual description",
+        "camera movement",
+        "professional cinematography",
+        "specific style reference",
+        "lighting conditions",
+        "high quality markers"
+      ]
+    },
+    "sora_2_pro": {
+      "strengths": [
+        "multi-shot storytelling",
+        "seamless multi-angle sequences",
+        "spatial consistency"
+      ],
+      "recommended_layers": [1, 2, 6],
+      "prompt_template": "Establishing wide shot of [scene], slowly pushing into a medium shot of [subject] doing [action], then cutting to close-up of [detail], rack focus to [second_detail]. [technical_specs], [transitions_note]."
+    },
+    "alibaba_wan_2_5": {
+      "strengths": [
+        "lip sync",
+        "dialogue",
+        "multilingual content",
+        "character narratives"
+      ],
+      "recommended_layers": [1, 2, 4],
+      "prompt_template_dialogue": "[visual_description]. The character says '[dialogue]' with [tone_emotion]. [lip_sync_details], [gestures], [expressions]."
+    },
+    "google_veo_3_1": {
+      "strengths": [
+        "premium production",
+        "exact creative vision",
+        "commercial/art projects",
+        "fine-tuned control"
+      ],
+      "recommended_layers": [1, 2, 3, 4, 5, 6],
+      "json_template": {
+        "scene": "CUSTOM: Describe the complete scene",
+        "movement": "SELECT from layer3_camera_dynamics",
+        "angle": "SELECT from layer2_camera_angles",
+        "lens": "SELECT from layer5_lens_types",
+        "speed": "SELECT from layer6_pacing_and_rhythm",
+        "lighting": "SELECT from layer4_lighting_styles",
+        "atmosphere": "SELECT from layer4_atmospheric_effects",
+        "color_grading": "SELECT from layer4_color_theory",
+        "style": "CUSTOM: Overall aesthetic reference",
+        "duration": "CUSTOM: Desired length in seconds",
+        "negative_prompt": "CUSTOM: What to avoid"
+      }
+    }
+  },
+  "advanced_techniques": {
+    "negative_prompts": {
+      "general": [
+        "blurry",
+        "low quality",
+        "distorted faces",
+        "warped hands",
+        "unnatural anatomy",
+        "text artifacts",
+        "watermark",
+        "shaky camera (unless intentional)",
+        "poor lighting",
+        "overexposed",
+        "underexposed",
+        "artifacts",
+        "glitches"
+      ],
+      "model_specific_implementation": {
+        "veo_3_json": "Use the 'negative_prompt' field in JSON structure",
+        "kling": "Add to main prompt with 'avoid', 'without', or 'do not use' phrasing",
+        "sora": "Be explicit about what you want (e.g., 'very focused and crisp' instead of 'not blurry')",
+        "wan": "Focus on positive descriptors for dialogue quality"
+      }
+    },
+    "style_reference_stacking": {
+      "description": "Combine visual references from multiple films for unique aesthetics",
+      "example_films": [
+        "Blade Runner 2049 - neon noir, heavy atmosphere",
+        "Seven (Fincher) - dark desaturated, rain-soaked, overhead fluorescents",
+        "Gone Girl (Fincher) - cold clinical perfection, amber tungsten interiors",
+        "Zodiac (Fincher) - period-accurate amber warmth, meticulous framing",
+        "Heat - cool blue LA nights, urban realism",
+        "The Grand Budapest Hotel - symmetrical pastel compositions",
+        "Children of Men - gritty handheld realism",
+        "2001: A Space Odyssey (Kubrick) - clean symmetrical futurism, wide-angle precision",
+        "The Shining (Kubrick) - symmetrical one-point perspective, institutional lighting",
+        "Barry Lyndon (Kubrick) - natural candlelight, painterly compositions",
+        "Mad Max Fury Road - oversaturated desert action",
+        "Her - soft pastel future, natural light",
+        "Drive - neon noir, synth aesthetic",
+        "Amélie - warm saturated whimsy",
+        "Roma - natural black and white, documentary realism",
+        "The Revenant - harsh natural light, rugged realism",
+        "Moonlight - saturated bold primary colors, naturalistic",
+        "Top Gun Maverick - glossy high-contrast, punchy skintones",
+        "Mission Impossible Fallout - crisp sharp action, glossy commercial sheen",
+        "The Social Network (Fincher) - cold digital precision, teal shadows",
+        "Nomadland - soft natural golden hour, intimate realism",
+        "Gattaca - golden amber retro-futurism, architectural symmetry",
+        "Lawrence of Arabia - epic desert vistas, natural sun flares, 70mm grandeur",
+        "Inception - crisp high-contrast, tilted perspectives, cool blue-grey palette",
+        "Johnny Cash 'Hurt' - high-contrast black shadows, intimate closeups",
+        "Nine Inch Nails 'Closer' - sepia monochrome, film decay artifacts",
+        "Jay-Z '99 Problems' - stark black and white, urban grit"
+      ],
+      "prompt_template": "[shot_description], aesthetic combining [film_1] color grading + [film_2] atmosphere and mood + [film_3] camera movement, using [lens_type] and [focus_technique]."
+    },
+    "workflow_recommendations": {
+      "manual_prompting": {
+        "step_1": "Start with CUSTOM fields (subject, action, setting)",
+        "step_2": "SELECT shot distance and angle from layer2",
+        "step_3": "Add camera movement from layer3 if needed",
+        "step_4": "SELECT lighting and atmosphere from layer4",
+        "step_5": "Add technical specs from layer5 for final shots",
+        "step_6": "Use layer6 only for multi-shot sequences"
+      },
+      "generative_app_development": {
+        "input_collection": "Use CUSTOM fields as user input forms",
+        "option_selection": "Present SELECT options as dropdowns or multi-select",
+        "template_assembly": "Programmatically combine user inputs with selected techniques",
+        "model_adaptation": "Reference model_specifics to customize output per platform",
+        "validation": "Ensure REQUIRED fields are populated before generation"
+      }
+    }
+  },
+  "usage_notes": {
+    "for_manual_users": "CUSTOM fields require your creative input. SELECT fields offer proven techniques you can choose from or ignore.",
+    "for_app_developers": "CUSTOM fields map to text inputs. SELECT fields map to dropdown/checkbox UI. Structure enables both simple and complex prompt generation.",
+    "flexibility": "Not every field is needed for every prompt. Start minimal, add complexity as needed.",
+    "learning_path": "Master layers 1-2 first (subject + framing), then add 3-4 (movement + lighting), finally 5-6 (technical + editing) for hero shots."
+  }
+}
