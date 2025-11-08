@@ -8,5 +8,6 @@
     },
     "prettier.prettierPath": "/opt/homebrew/bin/prettier",
     "prettier.tabWidth": 4,
-    "markdownlint.run": "onSave"
+    "markdownlint.run": "onSave",
+    "python.languageServer": "None"
 }
