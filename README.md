@@ -1,9 +1,10 @@
 # Generative AI Context Library
 
-**Version**: 0.1
-**Released**: 2025-11-07
+**Version**: 0.1.1
+**Released**: 2025-11-26
 
-Production-ready knowledge base for generative AI workflows. Designed for Custom GPT integration and artist teams.
+Production-ready knowledge base for generative AI workflows. 
+Designed for Custom GPT integration and artist teams.
 
 ---
 
@@ -18,11 +19,13 @@ Production-ready knowledge base for generative AI workflows. Designed for Custom
 ### For Custom GPT Setup
 
 **CRITICAL FIRST STEP:** Deploy the Project Context Assistant
+
 1. Use `prompts/system-prompt-project-context-assistant.md` for Custom GPT instructions
 2. Have a conversation to generate `project-context-<show-code>.md`
 3. Upload to knowledge base
 
 **Then:**
+
 1. Upload all `context/model-*.md` files to knowledge base (9 models)
 2. Upload all `context/guide-*.md` and `context/reference-*.md` files
 3. Deploy Shot Assistant: `prompts/system-prompt-shot-assistant.md`
@@ -91,18 +94,21 @@ pickaxe/
 ## Available Models
 
 ### Image Generation (4 models)
+
 - **FLUX.1 Pro** - Fast, high-res (4MP), commercial assets
 - **Gemini Flash** - Conversational editing, text rendering
 - **Midjourney v7** - Artistic, stylized, concept art
 - **Seedream 4.0** - Ultra high-res (4K native), print quality
 
 ### Video Generation (4 models)
+
 - **Seedance Pro** - Cinematic, multi-shot narratives (1080p, 10s)
 - **Runway Gen-4 Turbo** - Fast iteration, character consistency (720p, 10s)
 - **Google Veo 3.1** - Audio+video generation (1080p, 8s)
 - **Luma Ray3** - HDR video, advanced physics (4K upscale, 10s)
 
 ### Image Editing (1 model)
+
 - **FLUX.1 Kontext** - Iterative editing, character consistency
 
 **Total: 9 production-ready models**
@@ -138,26 +144,31 @@ Maintain consistency using show context guidelines
 ### Asset-Specific Workflows
 
 **Still Image Production**
+
 ```
 Concept → Midjourney v7 → Refinement → FLUX.1 Kontext → Final → Seedream 4.0 (4K)
 ```
 
 **Video (Narrative)**
+
 ```
 Keyframe → Midjourney v7 → Animation → Seedance Pro → Post → Edit & sound
 ```
 
 **Video (With Audio)**
+
 ```
 Keyframe → FLUX.1 Pro → Video+Audio → Veo 3.1 → Post → Color & mix
 ```
 
 **Video (HDR/VFX)**
+
 ```
 Concept → Luma Ray3 Draft → Final → Luma Ray3 HiFi (4K HDR) → Composite
 ```
 
 **Product Photography**
+
 ```
 Base → FLUX.1 Pro (ultra) → Variations → FLUX.1 Kontext
 ```
