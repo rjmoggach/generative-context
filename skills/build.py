@@ -53,6 +53,9 @@ MANIFEST = {
         ("model-video-google-veo-3-1.md", "references/models/model-video-google-veo-3-1.md"),
         ("model-video-luma-ray3.md", "references/models/model-video-luma-ray3.md"),
         ("model-editing-flux-kontext.md", "references/models/model-editing-flux-kontext.md"),
+        ("model-video-kling-3.md", "references/models/model-video-kling-3.md"),
+        ("model-video-sora-2.md", "references/models/model-video-sora-2.md"),
+        ("model-video-wan-2-6.md", "references/models/model-video-wan-2-6.md"),
     ],
     "sequence-design": [
         ("guide-sequence-construction.md", "references/guide-sequence-construction.md"),

@@ -42,12 +42,10 @@ matching `../../context/model-*.md` for full parameters.
 - Emphasize Layer 5 (HDR, physics) + frame-level keyframes (up to 16/clip).
 - 16-bit EXR/HDR export for compositing (Resolve/Nuke). Use for VFX-grade elements.
 
-## Editing
+### Kling 3.0 — `model-video-kling-3.md`
+- Emphasize Layers 1, 2, 3 — **most fluid motion**; native 4K. Match duration to action.
+- Use Motion Brush / Motion Control to direct movement rather than text alone.
 
-### FLUX.1 Kontext / FLUX.2 editing — `model-editing-flux-kontext.md`
-- Describe the change while explicitly preserving identity/features.
-- For new work also consider FLUX.2 unified editing and Nano Banana 2.
-
-## Not yet documented (see currency file)
-Kling 3.0 (native 4K), Sora 2 / 2 Pro (multi-shot storytelling), Wan 2.6
-(open-source, dialogue/lip-sync). Use the `model-docs` skill to add docs.
+### Sora 2 / 2 Pro — `model-video-sora-2.md`
+- Emphasize Layers 1, 2, 6 — **multi-shot storytelling** in one prompt; strong physics.
+- Native dialogue; describe shot order + spatial continuity. (A

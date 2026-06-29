@@ -37,17 +37,17 @@ quarterly — this space moves fast.
 
 ---
 
-## Coverage Gaps — Models referenced but NOT yet documented
+## Recently documented (Jun 2026)
 
-The prompting framework (`guide-prompting-framework.*`, `docs/04-six-layer-framework.md`)
-gives model-specific advice for these, but the library has **no `model-*.md` doc** for them.
-Priority candidates for new docs (use the `model-docs` skill):
+These were prior coverage gaps and now have full `model-*.md` docs:
 
-| Model | Status (Jun 2026) | Why document it |
+| Doc | Current (Jun 2026) | Notes |
 |---|---|---|
-| **Kling 3.0** | Released Feb 5 2026 (Kuaishou) | Only model with native 4K output; ~$0.50/clip. Framework already cites "Kling 2.5". |
-| **OpenAI Sora 2 / Sora 2 Pro** | Current | Multi-shot storytelling leader; framework cites it but no doc exists. |
-| **Wan 2.6** | Current | Only major open-source option (24GB+ VRAM); good for local/uncensored dialogue work. Framework cites "Wan 2.5". |
+| `model-video-kling-3.md` | **Kling 3.0 / 3.0 Pro** (Feb 5 2026, Kuaishou) | Only major model with native 4K; most fluid motion; Motion Control + Motion Brush. |
+| `model-video-sora-2.md` | **Sora 2 / Sora 2 Pro** (OpenAI) | Multi-shot storytelling + physics; native dialogue; **API sunsets Sep 24 2026** — verify endpoint. |
+| `model-video-wan-2-6.md` | **Wan 2.6** (Dec 2025, Alibaba) | Major open-weights option; native audio/lip-sync; 24GB+ VRAM to self-host. |
+
+No outstanding documentation gaps among the models the framework references.
 
 ---
 
