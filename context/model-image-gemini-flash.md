@@ -1,5 +1,7 @@
 # Gemini Flash - Image Generation
 
+> **Currency (Jun 2026):** Current generation is **Nano Banana 2 (Gemini 3.1 Flash Image)** - default since Feb 2026 - plus **Nano Banana Pro (Gemini 3 Pro Image)** for hero/text work. Technique below still applies. See [`model-currency-2026-06.md`](model-currency-2026-06.md).
+
 ---
 
 ## Quick Reference

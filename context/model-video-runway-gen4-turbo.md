@@ -1,5 +1,7 @@
 # Runway Gen-4 Turbo - Video Generation
 
+> **Currency (Jun 2026):** Current generation is **Gen-4.5** (Dec 2025 - revamped motion engine, SOTA motion quality/prompt adherence). Workflow below still applies. See [`model-currency-2026-06.md`](model-currency-2026-06.md).
+
 ---
 
 ## Quick Reference

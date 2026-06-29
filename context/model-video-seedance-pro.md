@@ -1,5 +1,7 @@
 # Seedance Pro - Video Generation
 
+> **Currency (Jun 2026):** Current generation is **Seedance 2.5** (announced Jun 2026 - 30s single-pass generation). Multi-shot technique below still applies. See [`model-currency-2026-06.md`](model-currency-2026-06.md).
+
 ---
 
 ## Quick Reference

@@ -1,5 +1,7 @@
 # Seedream - v4.0
 
+> **Currency (Jun 2026):** Current generation is **Seedream 5.0 Lite** (Apr 2026; v5 adds Chain-of-Thought reasoning + web search before generating). Technique below still applies. See [`model-currency-2026-06.md`](model-currency-2026-06.md).
+
 ---
 
 ## Quick Reference

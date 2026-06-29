@@ -1,5 +1,7 @@
 # FLUX.1 Pro - Text-to-Image
 
+> **Currency (Jun 2026):** Superseded by **FLUX.2** (Pro/Flex/Dev/Klein, Nov 2025 - 32B params; stronger photorealism, typography, multi-image reference). Technique below still applies. See [`model-currency-2026-06.md`](model-currency-2026-06.md).
+
 ---
 
 ## Quick Reference

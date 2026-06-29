@@ -1,5 +1,7 @@
 # Midjourney - v7
 
+> **Currency (Jun 2026):** Current default is **v8.1** (Jun 2026 - ~4-5x faster, native HD 2K, Draft mode, `--preview`). Parameters below still apply. See [`model-currency-2026-06.md`](model-currency-2026-06.md).
+
 ---
 
 ## Quick Reference

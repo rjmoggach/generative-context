@@ -1,5 +1,7 @@
 # FLUX.1 Kontext - Image Editing
 
+> **Currency (Jun 2026):** Kontext still works, but **FLUX.2** now unifies generation + in-context editing, and **Nano Banana 2** is an excellent conversational editor - evaluate both for new work. See [`model-currency-2026-06.md`](model-currency-2026-06.md).
+
 ---
 
 ## Quick Reference

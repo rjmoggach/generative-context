@@ -1,5 +1,7 @@
 # Google Veo 3.1 - Video Generation
 
+> **Currency (Jun 2026):** **Veo 3.1 remains current** (family: 3.1 / 3.1 Fast / 3.1 Lite). No Veo 4 yet - this doc is largely accurate. See [`model-currency-2026-06.md`](model-currency-2026-06.md).
+
 ---
 
 ## Quick Reference

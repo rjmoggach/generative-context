@@ -1,5 +1,7 @@
 # Luma Ray3 - Video Generation
 
+> **Currency (Jun 2026):** Current generation is **Ray3.2** (Jun 2026 - full API, 16 keyframes/clip, HDR + 16-bit EXR export). Technique below still applies. See [`model-currency-2026-06.md`](model-currency-2026-06.md).
+
 ---
 
 ## Quick Reference
