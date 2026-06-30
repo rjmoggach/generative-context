@@ -1,6 +1,6 @@
 # generative-cinema
 
-**Version**: 0.4.0 · **Updated**: 2026-06-29
+**Version**: 0.5.0 · **Updated**: 2026-06-30
 
 A flexible plugin for getting **cinematic, model-optimized prompts** for generative
 image and video — at any level of structure. Ask for a great one-off still prompt,
