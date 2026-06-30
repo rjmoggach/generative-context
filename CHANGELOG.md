@@ -2,6 +2,16 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v0.5.1 - 2026-06-30
+
+### New skill: image-edit (image-to-image) — closes the i2i coverage gap
+
+- Added `image-edit` skill — the still sibling of `footage-transform`: write/refine i2i prompts that preserve a real photo or generated still and change one thing (recolor/material, swap the background/crowd/world around a preserved subject, add or progress a wound, age a face, relight/regrade, remove/clean up, or compose locked references into a new scene). Trigger phrases include "change this image to X", "swap the crowd/background/wardrobe", "make these fans Moroccan instead of Dutch", "recolor this costume". Previously these requests had no home — `footage-transform` is v2v-only.
+- Added foundation craft guide `context/guide-image-editing.md` (preserve-then-change, the four edit mechanisms, the denoise-strength dial, lighting integration, common edit types).
+- Added foundation craft guide `context/guide-asset-reference.md` (anchor-then-fan-out, identity-block vs scene-block, reference-vs-LoRA decision gate, effective reference counts, multi-reference composition) — the shared spine for the upcoming art-department asset layer (v0.6+).
+- Wired `image-edit` into `skills/build.py` and `plugin/assemble.py`; docs updated to six skills.
+- Added `ROADMAP.md` (and staged stub crew/skills under `roadmap/`) planning the v0.6+ art department: Production Designer, casting, costume, makeup/hair, propmaster, location scout — character sheets, prop turntables, and location packs.
+
 ## v0.5.0 - 2026-06-30
 
 ### New skill: footage-transform (video-to-video)

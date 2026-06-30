@@ -1,13 +1,13 @@
 # generative-cinema
 
-**Version**: 0.5.0 · **Updated**: 2026-06-30
+**Version**: 0.5.1 · **Updated**: 2026-06-30
 
 A flexible plugin for getting **cinematic, model-optimized prompts** for generative
 image and video — at any level of structure. Ask for a great one-off still prompt,
-the next shot from a still, a scene's coverage, a shot within a sequence, or the
-full project → sequence → shot chain. It pairs a production *workflow* (skills) with
-a *crew* you talk to (agents), backed by a film-grammar + craft + model reference
-library.
+the next shot from a still, a scene's coverage, a shot within a sequence, an edit to
+a still or clip you already have, or the full project → sequence → shot chain. It
+pairs a production *workflow* (skills) with a *crew* you talk to (agents), backed by a
+film-grammar + craft + model reference library.
 
 You are the **Creative Producer**: you set the brief and approve. The crew does the work.
 
@@ -41,6 +41,7 @@ Or from a local clone: `/plugin marketplace add ./generative-cinema` then the sa
 | A scene's coverage / shot list | "break down this scene" | `first-ad` (or `sequence-design`) |
 | A shot within a sequence | "give me the next shot" | `cinematographer` |
 | To transform a clip you already have | "add X to this video / swap the world" | `cinematographer` (or `footage-transform`) |
+| To edit a still you already have | "change this image to X / swap the background" | `cinematographer` (or `image-edit`) |
 | A whole project's look first | "define the look" | `project-context` |
 | The full chain | start at project, flow down | the crew, in order |
 
@@ -62,6 +63,7 @@ skills' craft with a role's judgment.
 | `sequence-design` | Scene | Plan coverage, staging, screen direction, intensity arc → shot list |
 | `shot-prompt` | Shot | Six-layer, model-optimized prompts honoring the project look |
 | `footage-transform` | Shot (v2v) | Video-to-video prompts: preserve a real clip, change one thing (VFX, world swap, timed moves) |
+| `image-edit` | Shot (i2i) | Image-to-image prompts: preserve a real still, change one thing (recolor, world swap, add/age, relight, compose locked refs) |
 | `model-docs` | Library | Research + write/refresh a model doc; sync currency |
 
 ### Agents (the crew)
@@ -112,6 +114,9 @@ Prompt translation / Watch-outs / Anchors) that turn the taxonomy into judgment:
 `guide-shot-selection`, `guide-lens-language`, `guide-continuity-rules`,
 `guide-sequence-construction`, `guide-visual-structure` (contrast/affinity),
 `guide-color-story`, `guide-creative-approaches`, `guide-ai-generation-strategy`.
+Editing / asset workflow: `guide-footage-transformation` (video-to-video),
+`guide-image-editing` (image-to-image), and `guide-asset-reference` (building reusable
+character/prop/location anchors — the spine of the v0.6+ art department).
 Foundations: `guide-prompting-framework` (the six-layer framework),
 `reference-film-grammar`, `reference-film-movements`, and the `reference-visual-*`
 style anchors (directors, cinematographers, commercial directors, photographers).
@@ -124,7 +129,7 @@ style anchors (directors, cinematographers, commercial directors, photographers)
 .claude-plugin/marketplace.json   This repo as a Claude Code marketplace → ./plugin
 plugin/                           The installable generative-cinema plugin (assembled)
   ├── .claude-plugin/plugin.json
-  ├── skills/   (5)   agents/ (5)   context/ (the bundled library)
+  ├── skills/   (6)   agents/ (5)   context/ (the bundled library)
   └── assemble.py                  Builds plugin/ from the repo-root sources
 context/                          Source of truth: model docs, craft guides, references
 skills/                           Source skill definitions (with bundled references/)
