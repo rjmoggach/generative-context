@@ -8,7 +8,7 @@ description: >-
   "plan this scene", "break down the sequence", "how should I cover this", "design
   the coverage", "build a shot list for", "block this scene", or "what shots do I
   need". Sits between project-context (the look) and shot-prompt (each shot); load
-  a project-context-<show-code>.md first so the plan inherits the visual language.
+  a project-context-{show-code}.md first so the plan inherits the visual language.
 ---
 
 # Sequence Design Assistant

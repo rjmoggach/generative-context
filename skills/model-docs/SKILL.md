@@ -1,7 +1,7 @@
 ---
 name: model-docs
 description: >-
-  Research and write (or refresh) a structured model-<type>-<name>.md context doc
+  Research and write (or refresh) a structured model-{type}-{name}.md context doc
   for a generative image/video/editing model, following the library's unified
   documentation pattern so it slots cleanly beside the existing model docs. Use
   whenever a user wants to "add a model", "document a new model", "update the

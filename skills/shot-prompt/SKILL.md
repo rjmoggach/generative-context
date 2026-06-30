@@ -8,7 +8,7 @@ description: >-
   like "write a prompt for", "generate shots for sequence X", "I need a hero
   still", "give me establishing + master + coverage", "make this work for Veo /
   Midjourney / Seedance", or "build a shot list". Prefer loading a
-  project-context-<show-code>.md first (produced by the project-context skill) so
+  project-context-{show-code}.md first (produced by the project-context skill) so
   every prompt stays on-model; if none exists, offer to create one. Optimizes
   prompt structure per target model and maintains consistency across shots.
 ---

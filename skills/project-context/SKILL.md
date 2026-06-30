@@ -2,7 +2,7 @@
 name: project-context
 description: >-
   Define a project's visual DNA through a guided, conversational interview, then
-  synthesize it into a reusable project-context-<show-code>.md file that locks
+  synthesize it into a reusable project-context-{show-code}.md file that locks
   color, lighting, lens, atmosphere, references, and a standard prompt prefix for
   consistent generative image/video work. Use this whenever a user is starting a
   new show, spot, film, campaign, or series and needs to establish a consistent
