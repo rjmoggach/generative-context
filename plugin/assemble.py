@@ -6,7 +6,7 @@ The repo root holds the source of truth: `context/` (the library) and
 regenerates the plugin's single shared library and repoints every skill reference
 at `${CLAUDE_PLUGIN_ROOT}/context/...` so there is no per-skill duplication.
 
-Authored-by-hand (not touched here): plugin/.claude-plugin/plugin.json,
+Authored by hand (not touched here): plugin/.claude-plugin/plugin.json,
 plugin/agents/*.md, plugin/README.md.
 
 Usage:
@@ -26,8 +26,6 @@ SKILLS_OUT = PLUGIN / "skills"
 
 SKILLS = ["project-context", "sequence-design", "shot-prompt", "model-docs"]
 
-# Helper files that live only inside the source skills' references/ (not in context/).
-# Copied into the shared plugin context/ under the SAME basename the SKILL.md uses.
 HELPERS = [
     SKILLS_SRC / "project-context/references/questioning-framework.md",
     SKILLS_SRC / "project-context/references/output-template.md",
@@ -37,15 +35,12 @@ HELPERS = [
     SKILLS_SRC / "model-docs/references/example-model-doc.md",
 ]
 
-# Rewrite any markdown ref into the shared plugin context, dropping subdirs.
-#   ](references/models/foo.md)  ->  ](${CLAUDE_PLUGIN_ROOT}/context/foo.md)
-#   ](references/foo.md)         ->  ](${CLAUDE_PLUGIN_ROOT}/context/foo.md)
-#   ](references/models/)        ->  ](${CLAUDE_PLUGIN_ROOT}/context/)
 LINK_RE = re.compile(r"\]\(references/(?:models/)?([^)]*)\)")
 ROOT = "${CLAUDE_PLUGIN_ROOT}/context/"
+AGENT_REQUIRED = {"name", "description", "model", "color", "tools"}
 
 
-def repoint(md: str) -> str:
+def repoint(md):
     return LINK_RE.sub(lambda m: "](" + ROOT + m.group(1) + ")", md)
 
 
@@ -55,9 +50,9 @@ def sync_context():
         shutil.copyfile(f, CTX_OUT / f.name)
     for h in HELPERS:
         if not h.exists():
-            sys.exit(f"missing helper source: {h}")
+            sys.exit("missing helper source: %s" % h)
         shutil.copyfile(h, CTX_OUT / h.name)
-    print(f"context/: {len(list(CTX_OUT.glob('*.md')))} files")
+    print("context/: %d files" % len(list(CTX_OUT.glob("*.md"))))
 
 
 def sync_skills():
@@ -66,39 +61,47 @@ def sync_skills():
         out_dir = SKILLS_OUT / name
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "SKILL.md").write_text(repoint(src.read_text(encoding="utf-8")), encoding="utf-8")
-        print(f"skill: {name}")
+        print("skill: %s" % name)
 
 
 def validate():
     ok = True
-    # plugin.json
     pj = PLUGIN / ".claude-plugin" / "plugin.json"
     try:
         meta = json.load(open(pj))
         assert re.fullmatch(r"[a-z0-9-]+", meta["name"]), "name not kebab-case"
     except Exception as e:
         print("FAIL plugin.json:", e); ok = False
-    # skills present + links resolve inside the package
     for name in SKILLS:
         sk = SKILLS_OUT / name / "SKILL.md"
         if not sk.exists():
             print("FAIL missing skill:", name); ok = False; continue
-        for ref in re.findall(r"\]\((\$\{CLAUDE_PLUGIN_ROOT\}/[^)]+)\)", sk.read_text(encoding="utf-8")):
+        body = sk.read_text(encoding="utf-8")
+        for ref in re.findall(r"\]\((\$\{CLAUDE_PLUGIN_ROOT\}/[^)]+)\)", body):
             rel = ref.replace("${CLAUDE_PLUGIN_ROOT}/", "")
-            target = PLUGIN / rel
-            # a bare directory ref (…/context/) is fine
             if rel.endswith("/"):
                 continue
-            if not target.exists():
-                print(f"FAIL {name}: missing {rel}"); ok = False
-        # no stale references/ paths left
-        if "](references/" in sk.read_text(encoding="utf-8"):
-            print(f"FAIL {name}: stale references/ path remains"); ok = False
-    # agents parse
+            if not (PLUGIN / rel).exists():
+                print("FAIL %s: missing %s" % (name, rel)); ok = False
+        if "](references/" in body:
+            print("FAIL %s: stale references/ path remains" % name); ok = False
+    # agents: frontmatter must be strict-YAML-parseable (no raw <example> tags)
+    # with the required keys. The plugin loader parses this as strict YAML.
     for a in sorted((PLUGIN / "agents").glob("*.md")):
-        t = a.read_text(encoding="utf-8")
-        if not t.startswith("---"):
-            print("FAIL agent frontmatter:", a.name); ok = False
+        m = re.match(r"---\n(.*?)\n---\n", a.read_text(encoding="utf-8"), re.S)
+        if not m:
+            print("FAIL agent (no frontmatter):", a.name); ok = False; continue
+        keys = set()
+        for line in m.group(1).splitlines():
+            if not line.strip() or line[0] in " \t":
+                continue
+            if line.lstrip().startswith("<") or ":" not in line.split("#")[0]:
+                print("FAIL %s: non-YAML frontmatter line: %r" % (a.name, line)); ok = False
+            else:
+                keys.add(line.split(":", 1)[0].strip())
+        missing = AGENT_REQUIRED - keys
+        if missing:
+            print("FAIL %s: missing keys %s" % (a.name, sorted(missing))); ok = False
     print("VALIDATE: OK" if ok else "VALIDATE: ERRORS")
     return ok
 
@@ -113,10 +116,9 @@ def package():
                 if any(part.startswith(".fuse_hidden") for part in p.parts):
                     continue
                 z.write(p, p.relative_to(PLUGIN))
-    out_dir = Path("/sessions/confident-funny-curie/mnt/outputs")
-    dest = out_dir / "generative-cinema.plugin"
+    dest = Path("/sessions/confident-funny-curie/mnt/outputs") / "generative-cinema.plugin"
     shutil.copyfile(tmp, dest)
-    print(f"packaged: {dest} ({dest.stat().st_size} bytes)")
+    print("packaged: %s (%d bytes)" % (dest, dest.stat().st_size))
 
 
 if __name__ == "__main__":
