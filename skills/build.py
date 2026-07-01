@@ -48,6 +48,7 @@ MANIFEST = {
         ("model-image-gemini-flash.md", "references/models/model-image-gemini-flash.md"),
         ("model-image-midjourney-v7.md", "references/models/model-image-midjourney-v7.md"),
         ("model-image-seedream-4.md", "references/models/model-image-seedream-4.md"),
+        ("model-image-luma-uni-1.md", "references/models/model-image-luma-uni-1.md"),
         ("model-video-seedance-pro.md", "references/models/model-video-seedance-pro.md"),
         ("model-video-runway-gen4-turbo.md", "references/models/model-video-runway-gen4-turbo.md"),
         ("model-video-google-veo-3-1.md", "references/models/model-video-google-veo-3-1.md"),
@@ -90,6 +91,7 @@ MANIFEST = {
         ("model-editing-flux-kontext.md", "references/models/model-editing-flux-kontext.md"),
         ("model-image-gemini-flash.md", "references/models/model-image-gemini-flash.md"),
         ("model-image-seedream-4.md", "references/models/model-image-seedream-4.md"),
+        ("model-image-luma-uni-1.md", "references/models/model-image-luma-uni-1.md"),
         ("model-image-flux-pro.md", "references/models/model-image-flux-pro.md"),
     ],
     "character-sheet": [

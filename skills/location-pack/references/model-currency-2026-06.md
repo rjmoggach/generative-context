@@ -19,6 +19,7 @@ quarterly — this space moves fast.
 | `model-image-gemini-flash.md` | Gemini 2.5 Flash Image ("Nano Banana") | **Nano Banana 2 = Gemini 3.1 Flash Image** (Feb 26 2026, now default); **Nano Banana Pro = Gemini 3 Pro Image** for hero/text work | 512px–4K, faster, better subject consistency and instruction following. Pro tier does advanced reasoning + high-fidelity text rendering. |
 | `model-image-midjourney-v7.md` | v7 (2025) | **v8.1** (default Jun 10 2026); v8.0 alpha Mar 2026 | ~4–5× faster, better prompt adherence + small-detail retention, native HD 2K (no upscale), Draft mode, `--preview`. |
 | `model-image-seedream-4.md` | 4.0 (Aug 2025) | **Seedream 5.0 Lite** (Apr 9 2026); v5 Lite (Feb 24 2026); 4.5 (Dec 2025) | v5 adds Chain-of-Thought reasoning + real-time web search before generating; 4K; higher consistency/fidelity. |
+| `model-image-luma-uni-1.md` | new doc (Jul 2026) | **Luma Uni-1 / Uni-1.1 API** (Uni-1 Mar 5 2026; Uni-1.1 API GA May 5 2026) | Luma's first unified-intelligence model: decoder-only autoregressive image generation that reasons through intent before rendering. 9-reference role system (STYLE/CHARACTER/COMPOSITION/etc.); `uni-1` $0.04 / `uni-1-max` $0.10 per image; 2048px; REST `create_image` + `modify_image`. ~31s/image (latency is the trade-off). |
 
 ## Video Generation
 
