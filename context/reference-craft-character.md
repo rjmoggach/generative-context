@@ -22,10 +22,10 @@ A character is first understood through the body and face that inhabits it. Befo
 
 | Casting director | Signature approach | Known for | When to reference |
 |---|---|---|---|
-| Marion Dougherty | Discovered raw, unconventional talent in the 1960s New York theater scene; championed physical authenticity over studio-era ideals | *Midnight Cowboy*, *Braveheart*, *Lethal Weapon* series; Dustin Hoffman, Jon Voight, Robert Redford | Gritty realism; faces with lived history; breaking the polished-star mold |
+| Marion Dougherty | Discovered raw, unconventional talent in the 1960s New York theater scene; championed physical authenticity over studio-era ideals | *Midnight Cowboy*, *Batman* (1989), *Lethal Weapon* series; Dustin Hoffman, Jon Voight, Robert Redford | Gritty realism; faces with lived history; breaking the polished-star mold |
 | Juliet Taylor | Precise intuitive fit between actor and character; 40-year collaboration with Woody Allen | *Annie Hall*, *Manhattan*, *Crimes and Misdemeanors*, *Schindler's List* | Literary and neurotic character comedy; intimate ensemble; intellectual casting |
 | Janet Hirshenson & Jane Jenkins | Blockbuster ensemble and child casting; instinct for commercial star-making | *Home Alone*, *Forrest Gump*, *Jurassic Park*, *A Few Good Men*, *A Beautiful Mind* | Large ensemble films; child and young-adult roles; mainstream narrative with emotional range |
-| Ellen Lewis | Deep collaboration with Scorsese and Spielberg; gritty authenticity alongside epic historical sweep | *Goodfellas*, *Schindler's List*, *The Departed*, *The Wolf of Wall Street*, *Lincoln* | Crime, period drama, morally complex protagonists |
+| Ellen Lewis | Deep collaboration with Scorsese and Spielberg; gritty authenticity alongside epic historical sweep | *Goodfellas*, *Casino*, *The Departed*, *The Wolf of Wall Street*, *Lincoln* | Crime, period drama, morally complex protagonists |
 | Nina Gold | British and international prestige ensemble; prestige television and franchise world-building | *The King's Speech*, *The Crown*, *Game of Thrones*, *Star Wars: The Force Awakens*, *Rogue One* | Period British drama; fantasy ensemble; franchise casting with cultural breadth |
 
 ---
@@ -52,7 +52,7 @@ A character's clothing is not decoration applied after the character is defined 
 |---|---|---|---|
 | Edith Head | Elegant, figure-defining Hollywood glamour; eight Academy Awards — the most by any costume designer in history | *Roman Holiday*, *Rear Window*, *Vertigo*, *To Catch a Thief*, *All About Eve* | Classical Hollywood femininity; mid-century tailoring; star-vehicle projects |
 | Colleen Atwood | Dark, gothic-romantic, and textured; deep collaboration with Tim Burton | *Edward Scissorhands*, *Sleepy Hollow*, *Chicago*, *Memoirs of a Geisha*, *Alice in Wonderland* | Fairy-tale and gothic visual worlds; period-inflected fantasy; operatic excess |
-| Sandy Powell | Eclectic period mastery; bold color and texture across Scorsese, Almodovar, and Todd Haynes | *Shakespeare in Love*, *The Aviator*, *The Young Victoria*, *Carol*, *The Irishman* | Prestige period drama; LGBTQ+ narrative; glamour with psychological weight |
+| Sandy Powell | Eclectic period mastery; bold color and texture across Scorsese, Neil Jordan, and Todd Haynes | *Shakespeare in Love*, *The Aviator*, *The Young Victoria*, *Carol*, *The Irishman* | Prestige period drama; LGBTQ+ narrative; glamour with psychological weight |
 | Ruth E. Carter | Afrofuturism, historical authenticity, and political identity; first Black woman to win the Academy Award for Costume Design | *Do the Right Thing*, *Malcolm X*, *Selma*, *Black Panther*, *Black Panther: Wakanda Forever* | African and African-American cultural specificity; superhero worldbuilding with cultural grounding |
 | Milena Canonero | Painterly period construction; meticulous fabric research; Kubrick and Wes Anderson collaborator | *Barry Lyndon*, *Chariots of Fire*, *Amadeus*, *The Grand Budapest Hotel*, *Marie Antoinette* | Historical precision; Kubrickian formalism; pastel and saturated period palettes |
 | Jacqueline Durran | Character psychology through fabric and cut; frequent Joe Wright collaborator | *Atonement*, *Anna Karenina*, *Beauty and the Beast*, *Little Women*, *Spencer* | Literary adaptation; early-twentieth-century British period; biographical fashion iconography |
@@ -77,7 +77,7 @@ The highest praise for a makeup-and-hair department is that no one notices their
 
 | Artist | Signature | Known for | When to reference |
 |---|---|---|---|
-| Rick Baker | Photorealistic prosthetics and creature work; seven Academy Awards — the most in the category's history | *An American Werewolf in London*, *The Howling*, *Men in Black*, *Ed Wood*, *The Nutty Professor*, *The Wolf Man* | Creature transformation; prosthetic aging; any production where makeup must survive extreme close-up |
+| Rick Baker | Photorealistic prosthetics and creature work; seven Academy Awards — the most in the category's history | *An American Werewolf in London*, *Coming to America*, *Men in Black*, *Ed Wood*, *The Nutty Professor*, *The Wolf Man* | Creature transformation; prosthetic aging; any production where makeup must survive extreme close-up |
 | Ve Neill | High-fantasy and character-defining makeup; genre virtuosity across horror and blockbuster | *Beetlejuice*, *Edward Scissorhands*, *Batman Returns*, *The Hunger Games* series | Gothic and fantastical character design; heightened-reality looks that retain human legibility |
 | Greg Cannom | Transformation and aging work of extreme technical precision; master of comedic and dramatic disguise | *Mrs. Doubtfire*, *Bram Stoker's Dracula*, *The Mask*, *The Curious Case of Benjamin Button* | Age-progression narratives; identity-concealing transformation; makeup as the central visual conceit |
 | Kazu Hiro | Hyperrealistic human transformation; photographic anatomical accuracy; returned from retirement for *Darkest Hour* | *Darkest Hour* (Winston Churchill / Gary Oldman), *Bombshell* | Biographical portraiture; living historical figures who must be recognized while clearly being an actor |
