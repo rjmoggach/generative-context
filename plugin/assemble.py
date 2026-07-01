@@ -24,7 +24,7 @@ SKILLS_SRC = REPO / "skills"
 CTX_OUT = PLUGIN / "context"
 SKILLS_OUT = PLUGIN / "skills"
 
-SKILLS = ["project-context", "sequence-design", "shot-prompt", "model-docs", "footage-transform", "image-edit", "character-sheet", "prop-turntable", "location-pack"]
+SKILLS = ["project-context", "sequence-design", "shot-prompt", "model-docs", "footage-transform", "image-edit", "character-sheet", "prop-turntable", "location-pack", "art-direction"]
 
 HELPERS = [
     SKILLS_SRC / "project-context/references/questioning-framework.md",
@@ -36,6 +36,7 @@ HELPERS = [
     SKILLS_SRC / "character-sheet/references/character-template.md",
     SKILLS_SRC / "prop-turntable/references/prop-template.md",
     SKILLS_SRC / "location-pack/references/set-template.md",
+    SKILLS_SRC / "art-direction/references/art-bible-template.md",
 ]
 
 LINK_RE = re.compile(r"\]\(references/(?:models/)?([^)]*)\)")
