@@ -99,3 +99,9 @@ designing to story and theme through colour, texture, and space; the art-departm
 the monograph on Ken Adam's world-building (Bond, Dr. Strangelove, Barry Lyndon).
 
 - https://www.goodreads.com/book/show/1857890.Ken_Adam
+
+## Pat P. Miller, _Script Supervising and Film Continuity_
+
+the industry-standard continuity craft: matching, screen direction, breakdowns; grounds the asset-continuity audit.
+
+- https://www.routledge.com/Script-Supervising-and-Film-Continuity/Miller/p/book/9780240802947
