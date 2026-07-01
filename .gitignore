@@ -42,3 +42,6 @@ skills/dist/
 # Assembled plugin (regenerate with: python plugin/assemble.py --package)
 # Not committed — distributed as a GitHub Release asset (see README → Install).
 *.plugin
+
+# superpowers workflow scratch (specs/plans are committed under docs/)
+.superpowers/
