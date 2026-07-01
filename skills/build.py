@@ -104,6 +104,28 @@ MANIFEST = {
         ("model-image-seedream-4.md", "references/models/model-image-seedream-4.md"),
         ("model-image-flux-pro.md", "references/models/model-image-flux-pro.md"),
     ],
+    "prop-turntable": [
+        ("reference-craft-artdept.md", "references/reference-craft-artdept.md"),
+        ("guide-prop-turntable.md", "references/guide-prop-turntable.md"),
+        ("guide-asset-reference.md", "references/guide-asset-reference.md"),
+        ("guide-image-editing.md", "references/guide-image-editing.md"),
+        ("model-currency-2026-06.md", "references/model-currency-2026-06.md"),
+        ("model-editing-flux-kontext.md", "references/models/model-editing-flux-kontext.md"),
+        ("model-image-gemini-flash.md", "references/models/model-image-gemini-flash.md"),
+        ("model-image-seedream-4.md", "references/models/model-image-seedream-4.md"),
+        ("model-image-flux-pro.md", "references/models/model-image-flux-pro.md"),
+    ],
+    "location-pack": [
+        ("reference-craft-artdept.md", "references/reference-craft-artdept.md"),
+        ("guide-location-pack.md", "references/guide-location-pack.md"),
+        ("guide-asset-reference.md", "references/guide-asset-reference.md"),
+        ("guide-image-editing.md", "references/guide-image-editing.md"),
+        ("model-currency-2026-06.md", "references/model-currency-2026-06.md"),
+        ("model-editing-flux-kontext.md", "references/models/model-editing-flux-kontext.md"),
+        ("model-image-gemini-flash.md", "references/models/model-image-gemini-flash.md"),
+        ("model-image-seedream-4.md", "references/models/model-image-seedream-4.md"),
+        ("model-image-flux-pro.md", "references/models/model-image-flux-pro.md"),
+    ],
 }
 
 EXCLUDE_NAMES = {".DS_Store"}
