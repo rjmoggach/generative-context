@@ -40,11 +40,11 @@ Read `${CLAUDE_PLUGIN_ROOT}/context/reference-craft-artdept.md` (Props section),
 2. **Commission the hero anchor** — the object at its canonical state, neutral
    background, flat diagnostic lighting, full-frame. Every other view and state
    derives from this image. Lighting must read the object, not flatter it.
-3. **Build the ortho ring** — six positions at consistent distance and scale:
-   front, 3/4 left, side left, side right, 3/4 right, back. Generate each from
-   the hero anchor via image-edit; hold proportion, texture, and colour across
-   the ring. If the object has a dominant face (a clock, a label, a mechanism),
-   add a top-down plan view as a seventh position.
+3. **Build the ortho ring** — five positions at consistent distance and scale:
+   front, back, side left, side right, top. Generate each from the hero anchor
+   via image-edit; hold proportion, texture, and colour across the ring. Add a
+   bottom view (`prop-{name}-ortho-bottom.png`) only when the underside is
+   visible in scene use.
 4. **Shoot the details** — close callouts of surface, mechanism, text, damage,
    or anything the camera will track in close-up. Each detail image is named and
    annotated; a detail that exists only in the director's memory is a continuity
@@ -62,12 +62,12 @@ The **Prop** section of `prop-{show}-{name}.md`:
   states required.
 - **Hero anchor** prompt + image path: `assets/prop/{name}/prop-{name}-hero.png`.
 - **Ortho ring** images and prompts: `assets/prop/{name}/prop-{name}-ortho-front.png`,
-  `-ortho-3q-l.png`, `-ortho-side-l.png`, `-ortho-side-r.png`, `-ortho-3q-r.png`,
-  `-ortho-back.png`.
+  `-ortho-back.png`, `-ortho-side-l.png`, `-ortho-side-r.png`, `-ortho-top.png`.
 - **Detail callouts**: `assets/prop/{name}/prop-{name}-detail-01.png`,
   `-detail-02.png`, etc., each annotated with what the callout shows.
-- **State variants**: `assets/prop/{name}/prop-{name}-state-clean.png`,
-  `-state-worn.png`, `-state-broken.png`, plus any story-specific states.
+- **State variants**: base/clean state is `prop-{name}-hero.png`; worn, damaged, or
+  story-specific states use a suffix on the hero facet: `prop-{name}-hero-worn.png`,
+  `prop-{name}-hero-broken.png`, `prop-{name}-hero-aged.png`, etc.
 - **State delta table** — each state records exactly what changed from the prior
   state, the image-edit parameters used, and the continuity note.
 

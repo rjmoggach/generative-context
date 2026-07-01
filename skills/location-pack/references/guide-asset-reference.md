@@ -135,7 +135,8 @@ inspired by them. See `guide-art-direction.md`.
     detail  prop-revolver-detail-01.png    state suffix: prop-revolver-hero-aged.png
   Sets      set-{show}-{name}.md           set-sbw-livingroom.md
     plate   set-livingroom-plate.png
-    cov     set-livingroom-cov-01.png      (incl. the reverse angle)
+    cov     set-livingroom-cov-01.png      (regular coverage angles)
+            set-livingroom-cov-reverse.png (the reverse angle)
     tod     set-livingroom-tod-dawn.png    -tod-night / -tod-rain (one variable)
   ```
 

@@ -44,14 +44,15 @@ section), `${CLAUDE_PLUGIN_ROOT}/context/guide-location-pack.md`, and
    focal length, and time of day chosen for story, not beauty. Clear of actors, full
    spatial read, clean enough to serve as the production's reference card for this
    location.
-3. **Build coverage including the reverse** — wide, mid, and the reverse angle. The
-   reverse must show a believable space; it cannot be a wall or a void. Generate
-   coverage from the master plate via image-edit to maintain light consistency
-   across the packet.
+3. **Build coverage including the reverse** — numbered coverage angles (`cov-01`,
+   `cov-02`, …) and the named reverse (`cov-reverse`). The reverse must show a
+   believable space; it cannot be a wall or a void. Generate coverage from the
+   master plate via image-edit to maintain light consistency across the packet.
 4. **Shoot the tod variants** — time-of-day variants that show the environment at
-   every lighting state the story requires: day, magic-hour, dusk, night, pre-dawn.
-   Generate each tod variant from the master plate via image-edit; hold architecture,
-   set dressing, and colour temperature logic across all variants.
+   every lighting state the story requires: dawn, dusk, night, rain. The canonical
+   plate is the day/neutral reference; there is no separate day-tod image (the plate is the day reference). Generate
+   each tod variant from the master plate via image-edit; hold architecture, set
+   dressing, and colour temperature logic across all variants.
 5. **Write the environment notes** — what practical light sources exist, what the
    set dresser must address, what continuity hazards will emerge when cross-cutting
    between angles. A scouting packet that is only images is half a packet.
@@ -62,12 +63,12 @@ The **Set** section of `set-{show}-{name}.md`:
 
 - **Location note** — story function, practical constraints, set-dress priorities.
 - **Master plate** prompt + image path: `assets/set/{name}/set-{name}-plate.png`.
-- **Coverage images** and prompts: `assets/set/{name}/set-{name}-cov-wide.png`,
-  `-cov-mid.png`, `-cov-reverse.png`, plus any angle-specific coverage the scene
+- **Coverage images** and prompts: `assets/set/{name}/set-{name}-cov-01.png`,
+  `-cov-02.png`, `-cov-reverse.png`, plus any angle-specific coverage the scene
   requires.
-- **Time-of-day variants**: `assets/set/{name}/set-{name}-tod-day.png`,
-  `-tod-magic-hour.png`, `-tod-dusk.png`, `-tod-night.png`, plus any
-  story-specific lighting states.
+- **Time-of-day variants**: `assets/set/{name}/set-{name}-tod-dawn.png`,
+  `-tod-dusk.png`, `-tod-night.png`, `-tod-rain.png`, plus any story-specific
+  lighting states. The canonical plate is the day/neutral reference; no day tod image is generated (the plate serves that role).
 - **Environment notes** — practicals, set-dress priorities, reverse-angle
   coherence notes, continuity flags for cross-cutting scenes.
 

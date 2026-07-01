@@ -49,7 +49,7 @@ Read these before writing any prompt:
   intent (hero/dressing/action).
 - [`references/guide-prop-turntable.md`](references/guide-prop-turntable.md) —
   view-angle discipline, ortho-ring alignment, 360 spacing, contact-sheet assembly, and
-  the decision rules for when to invoke 3D-assist.
+  a pointer to 3D-assist (a deferred technique).
 - [`references/guide-asset-reference.md`](references/guide-asset-reference.md) —
   anchor-then-fan-out, reference counts and strength, multi-reference composition, and
   the asset naming taxonomy (§9).
@@ -157,8 +157,7 @@ current version and per-model limits — these change monthly. The general sweet
 **4–6 reference images at strength ~0.7** (guide-asset-reference §4), but verify the
 hard limits per model before advising any specific count. Props with complex geometry,
 reflective or transparent surfaces, or destruction requirements are strong candidates for
-3D-assist (Blender MCP + orthographic renders) before the image skin pass — consult
-`guide-prop-turntable.md` for the decision gate.
+3D-assist (Blender MCP + orthographic renders) before the image skin pass — 3D-assist is a deferred technique; see `guide-prop-turntable.md` for the current pointer.
 
 ## Step 7 — Output
 

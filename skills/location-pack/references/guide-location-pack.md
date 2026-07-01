@@ -81,8 +81,8 @@ Each entry uses the library's decision-unit format:
   | Master (= the plate) | `set-{name}-plate.png` | Wide establishing; full spatial geometry at canonical condition |
   | Coverage 01 | `set-{name}-cov-01.png` | First coverage angle per the shot list |
   | Coverage 02 | `set-{name}-cov-02.png` | Second coverage angle |
-  | Reverse | `set-{name}-cov-NN.png` | Looking back through the space; camera opposite the master plate |
-  | Additional | `set-{name}-cov-NN.png` | Any further angles required by the shot list |
+  | Reverse | `set-{name}-cov-reverse.png` | Looking back through the space; camera opposite the master plate |
+  | Additional | `set-{name}-cov-03.png` | Any further angles required by the shot list |
 
   State the camera direction explicitly in each prompt: *"camera positioned [spatial
   description], looking [into / across / back through] the space; same geometry, same
@@ -132,9 +132,9 @@ Each entry uses the library's decision-unit format:
   Always branch from the master plate — not in series. Do not chain dawn → day →
   dusk → night; each tod variant derives independently from the anchor. The canonical
   plate is the day reference if day is the production condition; it does not need a
-  separate `tod-day` image.
+  separate named tod image for day.
 - **Watch-outs:** night is the highest-risk tod variant — full-frame relighting requires
-  higher denoise (~0.5–0.6+), which puts geometry at drift risk. List the key landmarks
+  higher denoise (~0.5–0.6), which puts geometry at drift risk. List the key landmarks
   explicitly in the night prompt; accept some ambient detail loss; what must survive is
   the spatial skeleton. Rain changes surface properties (wet reflections, overcast sky,
   haze) but must not change geometry; derive rain from the canonical plate, not from a
