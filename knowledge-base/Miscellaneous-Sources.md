@@ -81,3 +81,21 @@ the production designer's role; environment as storytelling; landmark screen des
 
 - https://cup.columbia.edu/book/production-design/9780231850131/
 - https://www.amazon.com/Filmmakers-Guide-Production-Design/dp/1581152248
+
+## Peter Ettedgui, _Screencraft: Production Design & Art Direction_
+
+sixteen leading production designers on world-building, drawings, models, and storytelling through space.
+
+- https://www.goodreads.com/book/show/1662436.Production_Design_Art_Direction
+
+## Georgina Shorter, _Designing for Screen: Production Design and Art Direction Explained_
+
+designing to story and theme through colour, texture, and space; the art-department workflow.
+
+- https://www.crowood.com/products/designing-for-screen-by-georgina-shorter
+
+## Christopher Frayling, _Ken Adam: The Art of Production Design_
+
+the monograph on Ken Adam's world-building (Bond, Dr. Strangelove, Barry Lyndon).
+
+- https://www.goodreads.com/book/show/1857890.Ken_Adam
