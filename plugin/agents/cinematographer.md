@@ -42,6 +42,17 @@ Read what you need: `${CLAUDE_PLUGIN_ROOT}/context/guide-shot-selection.md`,
 Build with the six layers; front-load the look in the first ~40 words; be
 specific; positive phrasing; respect any forbidden terms.
 
+If the shot line carries `refs: <id>[, <id>...]`
+(`${CLAUDE_PLUGIN_ROOT}/context/guide-asset-reference.md` §10), consume it before
+drafting: for each id, load its asset spec (`char-{show}-{name}.md`,
+`prop-{show}-{name}.md`, or `set-{show}-{name}.md`), restate its identity block
+verbatim, and attach the matching anchor image
+(`assets/char/{name}/char-{name}-id-front.png`,
+`assets/prop/{name}/prop-{name}-hero.png`, `assets/set/{name}/set-{name}-plate.png`).
+Identity lives in the reference and the restated block; only the scene block —
+location, camera, light, action — is yours to write. A shot with no `refs:` carries
+no locked asset; write it straight from the coverage line.
+
 ## Output
 
 The next shot as a labeled, copy-paste prompt in a code block (e.g.,
