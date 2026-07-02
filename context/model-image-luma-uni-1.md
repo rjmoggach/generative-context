@@ -17,6 +17,7 @@
 | **Cost** | `uni-1`: $0.04/image; `uni-1-max`: $0.10/image; reference images $0.003 each |
 | **API Endpoint** | `docs.agents.lumalabs.ai` (Luma Agents REST API) |
 | **Key Features** | Decoder-only autoregressive reasoning, 9 reference inputs, natural-language editing, 6000-char prompts |
+| **fal endpoint** | `luma/agent/uni-1/v1/text-to-image` (edit: `luma/agent/uni-1/v1/edit`; max tier: `luma/agent/uni-1/v1/max`) |
 
 ---
 

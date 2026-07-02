@@ -16,6 +16,7 @@
 | **Architecture** | Mixture-of-Experts, 14B params |
 | **Local Requirements** | Min 24GB VRAM (RTX 4090), 64GB RAM, CUDA 12.1+ (32GB+ VRAM recommended) |
 | **Key Features** | Native audio (dialogue/SFX/lip-sync), multi-shot, source-image support, open license |
+| **fal endpoint** | `wan/v2.6/text-to-video` (image-to-video: `wan/v2.6/image-to-video`; flash tier: `wan/v2.6/image-to-video/flash`) |
 
 ---
 

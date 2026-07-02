@@ -16,6 +16,7 @@
 | **Generation Speed** | ~30 seconds for 10-second clip |
 | **API Cost** | 5 credits/sec ($0.05/sec) |
 | **Key Feature** | Fast generation with character locking |
+| **fal endpoint** | not available via fal - use native API (`api.dev.runwayml.com`). No Runway-branded fal endpoint was found via `FAL_AI_GET_MODELS`; for similarly fast turbo-style iteration consider `fal-ai/kling-video/v2.5-turbo/pro/image-to-video` or `fal-ai/veo3.1/fast/image-to-video` |
 
 ---
 

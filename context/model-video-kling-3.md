@@ -15,6 +15,7 @@
 | **Max Duration** | 5-10s per clip; extendable up to ~3 min |
 | **Cost** | ~$0.075/s (3.0) via API; ~$0.70 for a 5s 1080p clip with audio |
 | **Key Features** | Native 4K, Motion Control, Motion Brush, optional built-in audio |
+| **fal endpoint** | `fal-ai/kling-video/v3/pro/image-to-video` (text-to-video: `fal-ai/kling-video/v3/pro/text-to-video`; standard tier: `fal-ai/kling-video/v3/standard/image-to-video`) |
 
 ---
 

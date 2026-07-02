@@ -16,6 +16,7 @@
 | **Generation Speed** | 5x faster in Draft Mode |
 | **API Status** | Ray 2 only (Ray 3 web UI exclusive) |
 | **Key Feature** | 16-bit HDR, reasoning engine, Draft Mode |
+| **fal endpoint** | plain Ray 3 has no direct fal API; current generation is `luma/agent/ray/v3.2/image-to-video` (text-to-video: `luma/agent/ray/v3.2/text-to-video`); Ray 2 fallback (matches the "API Status" row above): `fal-ai/luma-dream-machine/ray-2` |
 
 ---
 
