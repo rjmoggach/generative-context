@@ -16,6 +16,7 @@
 | **Framerate** | 24 FPS |
 | **API Endpoint** | `veo-3.1-generate-preview` (Vertex AI) |
 | **Key Feature** | Native audio generation (dialogue, SFX, music) |
+| **fal endpoint** | `fal-ai/veo3.1` (image-to-video: `fal-ai/veo3.1/image-to-video`; fast tier: `fal-ai/veo3.1/fast`) |
 
 ---
 

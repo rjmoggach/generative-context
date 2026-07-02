@@ -145,6 +145,14 @@ After delivering, don't ask more questions unless the user requests changes. On
 "adjust X", change only that and regenerate. On model switch, re-optimize layer
 emphasis and syntax while preserving the core look.
 
+## Step 9 — Generate (optional)
+
+To actually render (not just hand off the prompt), follow
+[`references/guide-execution.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-execution.md): pick the model's
+`fal_endpoint`, upload any attached reference image, run — or **submit a batch** for a
+set of coverage or multiple shots in a sequence — save each output to its taxonomy
+path, and record the `.recipe`. Always confirm the cost estimate first.
+
 ## Critical rules
 
 1. Always start prompts with the project's exact Standard Prompt Prefix.
@@ -156,3 +164,5 @@ emphasis and syntax while preserving the core look.
 7. A shot carrying `refs:` must include the attached anchor image(s) and the
    verbatim identity block from each referenced asset spec — never re-derive
    identity from text alone.
+8. Rendering spends money — always confirm the `FAL_AI_GET_PRICING` estimate before
+   generating, and submit sets as a batch, not one at a time.

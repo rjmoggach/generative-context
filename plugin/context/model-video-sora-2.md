@@ -15,6 +15,7 @@
 | **Max Duration** | 10s, 15s, or 25s |
 | **Cost** | API ~$0.30/s (720p) to ~$0.50/s (high-res); Batch tier 50% off |
 | **Key Features** | Multi-shot sequences, strong world/physics model, native audio + dialogue, Cameos |
+| **fal endpoint** | `fal-ai/sora-2/text-to-video` (image-to-video: `fal-ai/sora-2/image-to-video`; pro tier: `fal-ai/sora-2/text-to-video/pro`) |
 
 ---
 

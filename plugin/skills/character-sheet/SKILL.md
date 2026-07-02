@@ -158,6 +158,15 @@ All filenames are lowercase ASCII kebab-case. A version suffix (`-v02`, etc.) is
 optional but recommended once the asset enters shot production. Confirm the output
 paths aloud before saving — the user's working folder, not the repo.
 
+## Step 7 — Generate (optional)
+
+To actually render (not just hand off the prompt), follow
+[`references/guide-execution.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-execution.md): pick the model's
+`fal_endpoint`, upload the locked anchor as the reference image, run — or **submit a
+batch** for a set of turnaround views or HMU states — save each output to
+`assets/char/{name}/` per the taxonomy filenames above, and record the `.recipe`.
+Always confirm the cost estimate first.
+
 ## Critical rules
 
 1. **Anchor before fan-out.** No view or state generates until the front hero reference
@@ -174,3 +183,5 @@ paths aloud before saving — the user's working folder, not the repo.
    working folder; nothing writes to the plugin repo.
 7. **Verify counts vs currency.** Reference count and strength limits are
    version-sensitive — check `model-currency` before advising any specific value.
+8. **Rendering spends money.** Always confirm the `FAL_AI_GET_PRICING` estimate before
+   generating, and submit sets as a batch, not one at a time.

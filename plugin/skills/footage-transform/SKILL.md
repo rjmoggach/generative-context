@@ -109,6 +109,14 @@ runtime or intro length, **recompute** the duration budget and tell the user the
 marks. When refining a generated still, edit the chosen result rather than starting
 over.
 
+## Step 8 — Generate (optional)
+
+To actually render (not just hand off the prompt), follow
+[`references/guide-execution.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-execution.md): pick the model's
+`fal_endpoint`, upload the source clip (and any texture reference), run — or **submit a
+batch** for a set of coverage or multiple shot variants — save each output to its
+taxonomy path, and record the `.recipe`. Always confirm the cost estimate first.
+
 ## Critical rules
 
 1. Always state both halves: lock what's preserved, name the one thing that changes.
@@ -117,3 +125,5 @@ over.
 4. NON-IP guardrail whenever a creature/design is added; no negative prompts on Seedance.
 5. Never promise lip-sync + a prepended intro on a fixed total without the budget subtraction.
 6. Be specific and behavioral — texture and physics words over "cinematic" or "stunning".
+7. Rendering spends money — always confirm the `FAL_AI_GET_PRICING` estimate before
+   generating, and submit sets as a batch, not one at a time.

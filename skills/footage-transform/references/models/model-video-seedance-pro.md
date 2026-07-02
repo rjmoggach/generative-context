@@ -14,6 +14,7 @@
 | **Max Resolution** | 1080p |
 | **Max Duration** | 30s single-pass (2.5); 4–15s typical for v2v transforms |
 | **Key Features** | Multi-shot sequences, character consistency, complex camera moves, video-to-video transformation |
+| **fal endpoint** | `bytedance/seedance-2.0/text-to-video` (image-to-video: `bytedance/seedance-2.0/image-to-video`; original Seedance 1.0 Pro described below: `fal-ai/bytedance/seedance/v1/pro/text-to-video`) |
 
 ---
 

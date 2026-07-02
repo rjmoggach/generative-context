@@ -15,6 +15,7 @@
 | **Speed** | ~10 seconds for a 4MP image |
 | **Cost** | ~$0.06 per 4MP image |
 | **API Endpoint** | `https://api.bfl.ai/v1/flux/text-to-image` |
+| **fal endpoint** | `fal-ai/flux-pro/v1.1` (ultra mode: `fal-ai/flux-pro/v1.1-ultra`) |
 
 ---
 

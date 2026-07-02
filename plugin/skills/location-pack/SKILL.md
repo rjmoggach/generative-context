@@ -186,6 +186,15 @@ prefix** — the show code lives only in the spec filename. A version suffix (`-
 is optional but recommended once the asset enters shot production. Confirm the output
 paths aloud before saving — the user's working folder, not the repo.
 
+## Step 8 — Generate (optional)
+
+To actually render (not just hand off the prompt), follow
+[`references/guide-execution.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-execution.md): pick the model's
+`fal_endpoint`, upload the master plate as the reference image, run — or **submit a
+batch** for a set of coverage angles or time-of-day/weather variants — save each output
+to `assets/set/{name}/` per the taxonomy filenames above, and record the `.recipe`.
+Always confirm the cost estimate first.
+
 ## Critical rules
 
 1. **Anchor before fan-out.** No coverage angle or time-of-day variant generates until
@@ -204,3 +213,5 @@ paths aloud before saving — the user's working folder, not the repo.
    working folder; nothing writes to the plugin repo.
 7. **Verify counts vs currency.** Reference count and strength limits are
    version-sensitive — check `model-currency-2026-06` before advising any specific value.
+8. **Rendering spends money.** Always confirm the `FAL_AI_GET_PRICING` estimate before
+   generating, and submit sets as a batch, not one at a time.

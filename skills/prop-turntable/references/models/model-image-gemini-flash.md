@@ -14,6 +14,7 @@
 | **Max Resolution** | High-resolution via API |
 | **Interface** | API, Google AI Studio |
 | **Key Features** | Conversational editing, strong text rendering, multi-image composition |
+| **fal endpoint** | `fal-ai/gemini-25-flash-image` (edit: `fal-ai/gemini-25-flash-image/edit`) |
 
 ---
 

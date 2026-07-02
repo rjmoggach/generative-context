@@ -14,6 +14,7 @@
 | **Max Resolution** | High-resolution via upscalers (e.g., 4096x4096) |
 | **Interface** | Discord, Web |
 | **Key Features** | `–-stylize`, `–-chaos`, Omni Reference, Draft Mode |
+| **fal endpoint** | not available via fal - use native API (Discord / Midjourney API). No Midjourney-branded model was found via `FAL_AI_GET_MODELS`; for artistic/stylized generation consider `fal-ai/recraft/v4.1/pro/text-to-image` or `fal-ai/flux-pro/v1.1-ultra` |
 
 ---
 

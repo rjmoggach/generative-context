@@ -51,6 +51,8 @@ The asset layer's reference-count guidance is version-sensitive - verify here be
 
 General: ~4-6 references is the consistency sweet spot; reference strength ~0.7 (workable 0.6-0.8). These numbers move with model versions - the `researcher` / `model-docs` loop keeps them current.
 
+Each generative `model-*.md` carries a `fal_endpoint` for rendering via the Composio -> FAL MCP (see `guide-execution.md`); verify ids with `FAL_AI_GET_MODELS`.
+
 ## Recently documented (Jun 2026)
 
 These were prior coverage gaps and now have full `model-*.md` docs:

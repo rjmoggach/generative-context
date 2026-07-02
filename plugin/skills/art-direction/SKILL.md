@@ -148,6 +148,15 @@ Tell the user the art bible is the primary input to `character-sheet`,
 `prop-turntable`, and `location-pack`; those skills inherit palette, CMF lexicon,
 era/genre rules, and the global style-ref path from it.
 
+## Step 6 — Generate (optional)
+
+To actually render (not just hand off the prompt), follow
+[`references/guide-execution.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-execution.md): pick the model's
+`fal_endpoint`, upload any mood-board reference, run — or **submit a batch** of
+style-reference candidates before locking one — save the chosen output to
+`assets/style/style-{show}-global.png`, and record the `.recipe`. Always confirm the
+cost estimate first.
+
 ## Critical rules
 
 1. **Inherit, never replace.** The bible inherits lens, grade, and baseline palette
@@ -166,3 +175,5 @@ era/genre rules, and the global style-ref path from it.
    and per-model limits are version-sensitive — always check
    [`references/model-currency-2026-06.md`](${CLAUDE_PLUGIN_ROOT}/context/model-currency-2026-06.md)
    before advising any specific value.
+7. **Rendering spends money.** Always confirm the `FAL_AI_GET_PRICING` estimate before
+   generating, and submit sets as a batch, not one at a time.

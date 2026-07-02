@@ -14,6 +14,7 @@
 | **Max Resolution** | Varies by version |
 | **Speed** | Interactive (designed for conversational workflows) |
 | **API Endpoint** | `https://api.bfl.ai/v1/flux/image-to-image` |
+| **fal endpoint** | `fal-ai/flux-pro/kontext` (max tier: `fal-ai/flux-pro/kontext/max`; dev tier: `fal-ai/flux-kontext/dev`) |
 
 ---
 

@@ -14,6 +14,7 @@
 | **Max Resolution** | 4K (4096px) Native |
 | **Interface** | API, Doubao App |
 | **Key Features** | 4K native output, unified editing/generation, strong reasoning |
+| **fal endpoint** | `fal-ai/bytedance/seedream/v4/text-to-image` (edit: `fal-ai/bytedance/seedream/v4/edit`) |
 
 ---
 
