@@ -41,7 +41,7 @@ Read `${CLAUDE_PLUGIN_ROOT}/context/guide-sequence-construction.md`,
 ## Output
 
 A numbered coverage shot list, labeled per shot
-(`{show}{NNNN}_0010 Establishing — LS, eye-level, static — serves {beat} — intensity low —
+(`{show}{###}_0010 Establishing — LS, eye-level, static — serves {beat} — intensity low —
 refs: char_eli, set_livingroom`), with the line/direction and intensity arc stated
 at the top. Hand it to the `cinematographer` to turn each line into a prompt using
 the `refs:` to pull anchor images and identity blocks; flag it for the

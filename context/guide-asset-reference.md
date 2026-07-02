@@ -151,27 +151,44 @@ and the `art-direction` skill — see that guide for the full production-design 
   Facets: `id` - `turn` - `fit` - `hmu` - `expr` - `pose` - `palette` - `hero` - `ortho` - `detail` - `360` - `plate` - `cov` - `tod`. Views: `front/back/side_l/side_r/3q_l/3q_r/top/bottom`.
   All lowercase; fields joined by `_`; `_vNN` version suffix optional. Show code always lowercase.
 
-  **Working-folder layout** — `project-context` scaffolds `context/` and the `assets/`
-  type dirs up front; `sequences/` and `renders/` are created when first needed:
+  **Working-folder layout** — `project-context` scaffolds `context/`, the `assets/` type
+  dirs, `sequences/`, and `refs/` up front; each sequence's own folder is created by
+  `sequence-design` on first touch:
 
   ```
   <show>/
-    {show}_production.json               manifest (index) at the root
+    {show}_production.json                 manifest (index) at the root
     context/
-      {show}_project_context.md          visual-language profile
-      {show}_art_bible.md                world bible
-    assets/{type}/{name}/                one folder per asset (spec beside its images)
+      {show}_project_context.md            visual-language profile
+      {show}_art_bible.md                  world bible
+    refs/                                  raw external source (client briefs, creative decks)
+    assets/{type}/{name}/                  one folder per asset (spec beside its images)
       {show}_{type}_{name}.md
       {show}_{type}_{name}_{facet}_{view}.png
-    sequences/{show}{NNNN}/              sequence folder — show + 4-digit number, by 10s
-      {show}{NNNN}_{SSSS}.md             shot — 4-digit shot number, by 10s (insert: _0015)
-    renders/                             ad-hoc generations + their .recipe sidecars
+    sequences/{show}{###}/                 one folder per sequence (the sequence entity)
+      {show}{###}_shotlist.md              the shot list
+      context/
+        {show}{###}_context.md             per-sequence context (derived from a refs/ source)
+      shots/
+        {show}{###}_{SSSS}_vNN.png         shot renders + their .recipe sidecars
   ```
 
-  **Sequence & shot numbering:** sequence folders and shot stems are numbered in **tens**
-  (`0010`, `0020`, `0030`…) so a later insert drops in cleanly (`0015`, `0025`). The shot
-  stem `{show}{NNNN}_{SSSS}` (e.g. `sbw0010_0020`) is the canonical shot id used in shot
-  lists, `refs`, and render filenames.
+  **Sequence & shot ids.** A sequence id is `{show}{###}` — the show code plus a
+  zero-padded **three-digit** number, **concatenated** (`sbw002`). This is the one
+  deliberate exception to the underscore rule: show and sequence number join with no
+  separator, so the id is one clean token; every field after it uses `_`. A shot id is
+  `{show}{###}_{SSSS}` (`sbw002_0010`) — a **four-digit** shot number in **tens**
+  (`0010`, `0020`…) so a later insert drops in cleanly (`0015`). The shot id is the
+  canonical handle in shot lists, `refs`, and render filenames
+  (`{show}{###}_{SSSS}_vNN.png`). Everything belonging to a sequence lives inside its
+  `sequences/{show}{###}/` folder — the same entity principle as `assets/{type}/{name}/`.
+
+  **External source & per-sequence ingest.** Raw source material (client briefs, creative
+  decks, Drive exports) is stored in `refs/` verbatim. Sequence context **derived** from a
+  source is always split **one file per sequence** into
+  `sequences/{show}{###}/context/{show}{###}_context.md`, each carrying a provenance line
+  naming its `refs/` source. A single compiled multi-sequence document is never left
+  whole — split it per sequence into these folders.
 - **Watch-outs:** everything the model writes goes to the **user's working folder**,
   never the plugin repo; keep names ASCII and underscore-separated so tokens parse
   cleanly. **Legacy files** using a prior convention — show as a suffix, uppercase, or
@@ -194,7 +211,7 @@ and the `art-direction` skill — see that guide for the full production-design 
   is implied by the loaded project). Example:
 
   ```
-  sbw0010_0030  Coverage CU - 85mm - serves the turn - refs: char_eli, prop_revolver, set_livingroom
+  sbw002_0030  Coverage CU - 85mm - serves the turn - refs: char_eli, prop_revolver, set_livingroom
   ```
 
   Each id resolves to its spec (`assets/char/{name}/{show}_char_{name}.md`) and anchor

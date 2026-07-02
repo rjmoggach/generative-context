@@ -172,6 +172,10 @@ Each entry uses the library's decision-unit format:
     asset id with no matching spec file at all — a broken reference, reported as
     `missing` per §2.
   - **Budget** — any `cost` rollup (§4) that exceeds a recorded budget figure.
+  - **Loose sequence files** — any file under `sequences/` that is not inside a
+    `{show}{###}/` entity folder (`guide-asset-reference.md` §9); a shot list, per-sequence
+    context, or render that landed loose. Flag it and normalize it into the correct
+    `sequences/{show}{###}/` on reconcile — the same relocate discipline as legacy asset/context files.
   - Defer **state drift and geometry mismatch** — a character's wardrobe or a
     location's layout not matching its locked reference across shots — to
     `script-supervisor`, which audits asset continuity in that depth
@@ -213,7 +217,7 @@ Each entry uses the library's decision-unit format:
     { "file": "assets/char/eli/sbw_char_eli_id_front.png", "fal_endpoint": "fal-ai/flux/schnell", "seed": 1278911897, "refs": [], "prompt": "...", "cost": 0.003, "rendered_at": "2026-07-02" }
   ],
   "sequences": [
-    { "label": "S2", "shots": [ { "label": "sbw0010_0030", "refs": ["char_eli", "set_livingroom"], "generated": false } ] }
+    { "label": "S2", "shots": [ { "label": "sbw002_0030", "refs": ["char_eli", "set_livingroom"], "generated": false } ] }
   ],
   "cost": { "total": 0.003, "by_model": { "fal-ai/flux/schnell": 0.003 }, "by_sequence": {} },
   "status": { "specced": 2, "built": 1, "rendered": 1, "approved": 0, "missing": 0 },
@@ -228,11 +232,11 @@ Each entry uses the library's decision-unit format:
   (persisted — a person locked it; the derived `assets` entry never says
   `"status": "approved"` on its own). `livingroom` has `anchor_image: null` and
   `status: "specced"` — work defined, not built (§5's specced-but-unrendered case).
-  `sbw0010_0030` names both refs but `"generated": false` — a shot the coordinator should
+  `sbw002_0030` names both refs but `"generated": false` — a shot the coordinator should
   flag as not yet rendered. `cost.by_sequence` is empty because no generation yet
   ties to `S2` — a valid state (§4), not an error. The rollup `status` counts (2
   specced, 1 built, 1 rendered, 0 approved-at-the-rollup-level, 0 missing - both of
-  `sbw0010_0030`'s refs resolve to specs) are derived sums; the one `approved` fact in the
+  `sbw002_0030`'s refs resolve to specs) are derived sums; the one `approved` fact in the
   file lives only in `human`.
 - **Anchors:** §1 (the split this example demonstrates); `guide-execution.md` §6
   (the `.recipe` fields — `fal_endpoint`, `seed`, `refs`, `prompt`, `cost`,

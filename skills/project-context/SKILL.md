@@ -93,10 +93,10 @@ Produce a complete `{show}_project_context.md` using the structure in
 
 ### Step 5 — Scaffold the project, then save and hand off
 
-First, **scaffold the working folder** (once, at project start): create a `context/`
-folder and the asset type directories
-`assets/{char,prop,set,veh,cam,light,style,fx}/`. (`sequences/` and `renders/` are
-created later, when `sequence-design` and the execution step first need them.) This
+First, **scaffold the working folder** (once, at project start): create `context/`,
+the asset type directories `assets/{char,prop,set,veh,cam,light,style,fx}/`,
+`sequences/`, and `refs/` (raw external source material). Individual
+`sequences/{show}{###}/` folders are created by `sequence-design` on first touch. This
 gives every later file a home from step one — see the working-folder layout in
 [`references/guide-asset-reference.md`](references/guide-asset-reference.md) §9.
 

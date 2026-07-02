@@ -2,6 +2,17 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.3.0 - 2026-07-02
+
+### Sequence entity taxonomy (#5)
+
+Sequences are now a first-class entity mirroring assets — everything belonging to a sequence lives inside its own folder. (Supersedes v1.2.0's flat `{show}{NNNN}` by-10s numbering.)
+
+- **Entity folder + id grammar.** A sequence is `sequences/{show}{###}/` — show code + zero-padded **three-digit** number, **concatenated** (`sbw002`), the one deliberate exception to the underscore rule. Inside: `{show}{###}_shotlist.md`, a per-sequence `context/{show}{###}_context.md`, and `shots/` for renders. Shot ids are `{show}{###}_{SSSS}` (4-digit by 10s → `sbw002_0010`) — the canonical handle in shot lists, `refs`, and render filenames.
+- **Scaffold.** `project-context` scaffolds `sequences/` and `refs/` alongside `context/` + `assets/`; `sequence-design` creates each `sequences/{show}{###}/` on first touch and writes only inside it.
+- **External source ingest.** Raw source (client briefs, decks, Drive exports) -> `refs/` verbatim; sequence context derived from a source is split **one file per sequence** into `sequences/{show}{###}/context/{show}{###}_context.md` with a provenance line. A compiled multi-sequence doc is never left whole.
+- **Reconcile covers sequences.** The `production` skill's Step 1.5 relocates loose sequence files into the right entity folder, and a **fifth audit** flags any file under `sequences/` not inside a `{show}{###}/` folder.
+
 ## v1.2.0 - 2026-07-02
 
 ### Project scaffold + sequence numbering (#3, #4)

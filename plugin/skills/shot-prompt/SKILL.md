@@ -142,7 +142,7 @@ If asked for "all shots" without a count: 1 establishing + 1 master + 4–6 cove
 ## Step 7 — Output format
 
 - Wrap **every** prompt in a triple-backtick code block (easy copy-paste).
-- Label each shot: `**sbw0010_0010 Establishing — LS, eye-level, static**`.
+- Label each shot: `**sbw002_0010 Establishing — LS, eye-level, static**`.
 - Put model parameters (resolution, seed for continuity, aspect, etc.) **outside**
   the code block, after the prompts.
 - For Veo, optionally also give the JSON form.

@@ -56,6 +56,6 @@ no locked asset; write it straight from the coverage line.
 ## Output
 
 The next shot as a labeled, copy-paste prompt in a code block (e.g.,
-`**sbw0010_0030 Coverage — CU, eye-level**`), with model parameters below it. For a
+`**sbw002_0030 Coverage — CU, eye-level**`), with model parameters below it. For a
 one-off, a single clean prompt. Offer one alternative framing only if useful.
 Keep prompts on-model when a show bible is loaded.

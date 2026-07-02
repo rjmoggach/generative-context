@@ -58,9 +58,10 @@ Read the user's working folder in full before touching the manifest:
 - Every `.recipe` sidecar next to a render — the provenance record
   (`fal_endpoint`, `seed`, `refs`, `prompt`, `cost`, `rendered_at`) written by
   `guide-execution.md` §6.
-- Any shot lists — for each shot's `refs:` (`references/guide-asset-reference.md`
-  §10), which ties a generation to a sequence and can surface a `missing` asset
-  before it's ever specced.
+- Every `sequences/{show}{###}/` folder — its `{show}{###}_shotlist.md`, per-sequence
+  `context/`, and `shots/` renders (`guide-asset-reference.md` §9). Each shot's `refs:`
+  (§10) ties a generation to a sequence and can surface a `missing` asset before it's
+  ever specced.
 
 If an existing `{show}_production.json` is already present in the working
 folder, read it now too — its `human` block is what Step 2 must preserve.
@@ -79,9 +80,13 @@ leads every filename and fields are underscore-separated — `{show}_{descriptor
 - any `-` between fields → `_`; any uppercase show code → lowercase.
 
 Also **relocate loose files into the scaffold** (`references/guide-asset-reference.md`
-§9): create `context/` and the `assets/{type}/` dirs if missing; move context docs
-(`{show}_project_context.md`, `{show}_art_bible.md`) into `context/`, and move any spec
-sitting outside its asset folder into `assets/{type}/{name}/` beside its images.
+§9): create `context/`, the `assets/{type}/` dirs, `sequences/`, and `refs/` if missing;
+move context docs (`{show}_project_context.md`, `{show}_art_bible.md`) into `context/`,
+and move any spec sitting outside its asset folder into `assets/{type}/{name}/` beside its
+images. **Sequences:** any shot list, per-sequence context, or shot render loose under
+`sequences/` (not inside a `{show}{###}/` folder) → move it into the correct
+`sequences/{show}{###}/` (creating that folder, its `context/`, and `shots/` as needed);
+raw external source → `refs/`; split a compiled multi-sequence doc one file per sequence.
 
 Correcting legacy/mistaken filenames is in scope for reconcile — it's how the working
 folder and the manifest are kept in agreement. Renaming assets/specs is the **only**
@@ -132,7 +137,7 @@ reads:
   sequence's shots and an asset's readiness at a glance.
 - **Cost rollups** — total spend, by model (`fal_endpoint`), by sequence; flag
   anything over a recorded budget as over-budget, not just a number.
-- **Gaps**, per the coordinator's four audits
+- **Gaps**, per the coordinator's five audits
   (`references/guide-production.md` §5):
   - **Orphans** — files under `assets/**` with no matching spec file or no
     matching `.recipe` sidecar.
@@ -141,6 +146,8 @@ reads:
   - **Missing refs** — a shot's `refs:` names an asset id with no matching spec
     file at all.
   - **Over-budget** — any cost rollup exceeding a recorded budget figure.
+  - **Loose sequence files** — any file under `sequences/` not inside a `{show}{###}/`
+    entity folder; flag and normalize it into the right sequence folder.
   - Defer continuity and geometry drift — wardrobe, HMU, prop state, or
     location layout not matching a locked reference — to `script-supervisor`;
     this skill's job is inventory and cost, not whether a render matches its
