@@ -216,7 +216,7 @@ Each entry uses the library's decision-unit format:
     { "label": "S2", "shots": [ { "label": "S2-03", "refs": ["char-eli", "set-livingroom"], "generated": false } ] }
   ],
   "cost": { "total": 0.003, "by_model": { "fal-ai/flux/schnell": 0.003 }, "by_sequence": {} },
-  "status": { "specced": 2, "built": 1, "rendered": 1, "approved": 0, "missing": 1 },
+  "status": { "specced": 2, "built": 1, "rendered": 1, "approved": 0, "missing": 0 },
   "human": {
     "assets/char/eli/char-eli-id-front.png": { "status": "approved", "note": "hero locked" }
   }
@@ -231,8 +231,9 @@ Each entry uses the library's decision-unit format:
   `S2-03` names both refs but `"generated": false` — a shot the coordinator should
   flag as not yet rendered. `cost.by_sequence` is empty because no generation yet
   ties to `S2` — a valid state (§4), not an error. The rollup `status` counts (2
-  specced, 1 built, 1 rendered, 0 approved-at-the-rollup-level, 1 missing) are
-  derived sums; the one `approved` fact in the file lives only in `human`.
+  specced, 1 built, 1 rendered, 0 approved-at-the-rollup-level, 0 missing - both of
+  `S2-03`'s refs resolve to specs) are derived sums; the one `approved` fact in the
+  file lives only in `human`.
 - **Anchors:** §1 (the split this example demonstrates); `guide-execution.md` §6
   (the `.recipe` fields — `fal_endpoint`, `seed`, `refs`, `prompt`, `cost`,
   `rendered_at` — that `generations[]` is built from, one entry per sidecar).
