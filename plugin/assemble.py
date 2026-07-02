@@ -89,6 +89,20 @@ def validate():
                 print("FAIL %s: missing %s" % (name, rel)); ok = False
         if "](references/" in body:
             print("FAIL %s: stale references/ path remains" % name); ok = False
+        # plugin loader caps the skill `description` frontmatter field at 1024 chars
+        fm = re.match(r"---\s*\n(.*?)\n---", body, re.S)
+        if fm:
+            dm = re.search(r"^description:\s*(.*?)(?=\n[A-Za-z_-]+:\s|\Z)",
+                           fm.group(1), re.S | re.M)
+            if dm:
+                val = dm.group(1).strip()
+                if val[:1] in ">|":
+                    val = val[1:]
+                if val[:1] in "\"'" and val[-1:] in "\"'":
+                    val = val[1:-1]
+                dlen = len(re.sub(r"\s+", " ", val).strip())
+                if dlen > 1024:
+                    print("FAIL %s: description %d > 1024 chars" % (name, dlen)); ok = False
     # agents: frontmatter must be strict-YAML-parseable (no raw <example> tags)
     # with the required keys. The plugin loader parses this as strict YAML.
     for a in sorted((PLUGIN / "agents").glob("*.md")):

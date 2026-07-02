@@ -9,7 +9,7 @@ description: >-
   wound/scar/blood, age a face, relight or regrade, remove or clean up an object, or
   compose a locked character into a new scene. Trigger phrases include "change this
   image to X", "swap the crowd/background/wardrobe", "give me a prompt to edit this
-  photo", "make these fans Moroccan instead of Dutch", "recolor this costume", "rewrite
+  photo", "recolor this costume", "rewrite
   this so it's Y instead of Z", "age this character", "add a scar", "remove the sign",
   "relight this", "put this character in <place>". This is the i2i sibling of
   footage-transform (which is video-to-video); for a brand-new scene with no source

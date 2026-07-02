@@ -2,6 +2,13 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.0.2 - 2026-07-02
+
+### Fix: skill description exceeded the loader's 1024-char cap
+
+- Trimmed the `image-edit` skill's `description` frontmatter (1030 → 985 chars) by removing one redundant trigger example. The plugin loader rejects skill descriptions over 1024 characters, which blocked installation in v1.0.0/v1.0.1.
+- Added a description-length check to `plugin/assemble.py` so any skill description over 1024 chars now fails the `VALIDATE` gate before release.
+
 ## v1.0.1 - 2026-07-02
 
 ### Repository rename
