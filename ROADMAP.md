@@ -6,8 +6,10 @@
 **execution** (v0.10.0, shipped — the wrangler renders via the connected Composio →
 FAL MCP, not just prompts), then the **production office** (v0.11.0, shipped — the
 `production-coordinator` agent + `production-{show}.json` manifest track status,
-cost, and gaps), then the **presentation** layer (contact sheets + dashboard) — the
-remaining step to **v1.0.0**, when make → manage → review is complete.
+cost, and gaps), then the **presentation** layer (v1.0.0, shipped — a read-only
+`dashboard/` viewer + `guide-presentation.md`). **v1.0.0 reached — make → manage →
+review is complete.** The art-department roadmap (Phases 0-4) and the v1.0 track
+(execution → production office → presentation) are both done.
 
 **Status:** Draft 1 · **Created:** 2026-06-30 · **Owner:** Rob (Creative Producer)
 

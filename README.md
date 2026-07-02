@@ -1,6 +1,6 @@
 # generative-wrangler
 
-**Version**: 0.11.0 · **Updated**: 2026-07-02
+**Version**: 1.0.0 · **Updated**: 2026-07-02
 
 A flexible plugin for getting **cinematic, model-optimized prompts** for generative
 image and video — at any level of structure. Ask for a great one-off still prompt,
@@ -128,6 +128,12 @@ it and answers "where are we": assets specced vs. built, generations and their
 cost (by model/sequence), and gaps (specced-but-unrendered, orphans, missing
 refs, over-budget). It writes only the manifest, never the assets. See
 [`context/guide-production.md`](context/guide-production.md).
+
+To *review* the show visually, open [`dashboard/`](dashboard/) — a self-contained,
+read-only viewer that renders any `production-{show}.json` as a board (assets,
+sequences/shots with thumbnails, budget, gaps) with a clean click-to-view lightbox.
+No build step, no server; it is an isolated sibling app, not part of the plugin
+package. See [`context/guide-presentation.md`](context/guide-presentation.md).
 
 ---
 

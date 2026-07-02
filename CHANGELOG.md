@@ -2,6 +2,15 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.0.0 - 2026-07-02
+
+### Presentation layer - the make -> manage -> review loop is complete
+
+- Added `dashboard/` - a self-contained, read-only production viewer. It renders a `production-{show}.json` as a board (assets, sequences and shots with thumbnails, budget, gaps) with a clean click-to-view lightbox. Loads via a File System Access folder picker, drag-drop, or a bundled sample; no build step, no server. An isolated sibling app, not part of the plugin package.
+- Added `context/guide-presentation.md` - how the `production-coordinator` shows the board to the human: the dashboard, a contact sheet (ImageMagick), or an on-demand rendered board. Presentation is read-only; approvals still flow back through the manifest's `human` block.
+- Wired presentation into the `production` skill and `production-coordinator` agent.
+- **v1.0.0 milestone:** the v1.0 track (execution -> production office -> presentation) is complete. generative-wrangler now spans the full pipeline: define a project's look and world, build and store character/prop/set/style assets, plan coverage, write model-optimized prompts, actually render (single, batch, or video via Composio -> FAL), track the whole production in a manifest, and review it on a board.
+
 ## v0.11.0 - 2026-07-02
 
 ### New: Production office - coordinator + manifest (v1.0 track)

@@ -93,6 +93,11 @@ assets specced vs. built, generations and cost (by model/sequence), and gaps
 (specced-but-unrendered, orphans, missing refs, over-budget). It writes only
 the manifest, never the assets. See `context/guide-production.md`.
 
+Ask to *see* the show and the coordinator presents the board — a contact sheet, an
+on-demand rendered board, or the standing read-only `dashboard/` viewer (in the
+repo) — per `context/guide-presentation.md`. Read-only; approvals still flow back
+through the manifest's `human` block.
+
 ## Shared library (`context/`)
 
 One copy of the knowledge base — craft guides (`guide-*.md`), film grammar and
