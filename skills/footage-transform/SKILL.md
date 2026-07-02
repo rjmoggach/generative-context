@@ -50,13 +50,25 @@ starting from before writing.
 
 ## Step 3 — Pick the target model and its v2v syntax
 
-Confirm the target model (ask once if unstated; Seedance is the common default). Load
-that model's doc for the source-declaration syntax, input limits, and audio flags:
+Confirm the target model (ask once if unstated). **Default to fal-hosted models**, in
+priority order: **Seedance**, **Veo**, **Luma Ray**, **Kling**. Load that model's doc
+for the source-declaration syntax, input limits, and audio flags:
 
 - Seedance 2.x: [`references/models/model-video-seedance-pro.md`](references/models/model-video-seedance-pro.md)
   (`@source` / `@creature` declarations, NON-IP guardrail, SFX line, input limits).
-- Other v2v models (Runway, Kling, Wan, Veo): use their model doc for the equivalent
-  source/reference syntax; the craft from the guide is the same.
+- Veo 3.1: [`references/models/model-video-google-veo-3-1.md`](references/models/model-video-google-veo-3-1.md)
+  — native synchronized audio.
+- Luma Ray3.2: [`references/models/model-video-luma-ray3.md`](references/models/model-video-luma-ray3.md)
+  — keyframe control, HDR/EXR.
+- Kling 3.0: [`references/models/model-video-kling-3.md`](references/models/model-video-kling-3.md)
+  — native 4K, fluid motion.
+- Secondary / verify: Sora 2 and Wan 2.6 (open-weights, self-host); Runway has no
+  confirmed fal endpoint — verify via `FAL_AI_GET_MODELS`.
+
+**Audio is an explicit choice, and it roughly doubles cost.** On native-audio models
+(Veo, Sora, Wan, Kling-with-audio), keep audio **off** unless the shot needs
+dialogue/SFX/music; when it's on, surface that in the cost estimate before rendering
+(`guide-execution.md` §5).
 
 Check [`references/model-currency-2026-06.md`](references/model-currency-2026-06.md)
 for the current version before quoting one.

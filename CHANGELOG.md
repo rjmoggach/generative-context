@@ -2,6 +2,14 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.0.4 - 2026-07-02
+
+### Fix: model docs unreachable in the plugin; fal-hosted model defaults; audio as a cost choice
+
+- **Bug: "no doc for uni-1" (and every per-model doc).** `shot-prompt` pointed at model docs via a bare `references/models/` **directory** link. In the assembled plugin the docs are flattened into the shared `context/` folder (no `models/` subdir), so that link resolved to the bare `context/` directory and the agent couldn't find a specific doc — even though the files ship in the package. Replaced it with **direct, resolvable links** to each model doc. Hardened `assemble.py` to fail on bare `context/` links and links to non-existent directories (validation previously skipped all directory links, which is how this shipped).
+- **Model-selection defaults now lead with fal-hosted models.** Image: **Luma Uni-1 → Nano Banana / Nano Banana Pro → FLUX.2 → Seedream**. Video: **Seedance → Veo → Luma Ray → Kling**. Midjourney is flagged Discord-only (not on fal) and demoted to aesthetic-exploration-only, never a rendering default. Updated `shot-prompt`, `footage-transform`, and `model-currency-2026-06.md`.
+- **Audio is now an explicit, opt-in cost choice.** Native-audio video models (Veo, Sora, Wan, Kling) roughly double per-clip cost, so audio defaults off and must be surfaced in the `FAL_AI_GET_PRICING` estimate before rendering. Noted in `footage-transform`, `model-currency`, and the `guide-execution` cost gate.
+
 ## v1.0.3 - 2026-07-02
 
 ### Fix: angle-bracket placeholders rejected as XML tags

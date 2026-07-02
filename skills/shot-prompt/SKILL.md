@@ -49,19 +49,31 @@ target model). Most requests already contain enough detail.
 
 ## Step 3 — Pick the target model and its layer priority
 
-Confirm the target model (ask once if unstated). Then load that model's doc from
-[`references/models/`](references/models/) for syntax/parameters, and check
+Confirm the target model (ask once if unstated). **Default to fal-hosted models**, in
+priority order — for stills: **Luma Uni-1**
+([`model-image-luma-uni-1.md`](references/models/model-image-luma-uni-1.md)),
+**Nano Banana / Nano Banana Pro** (Gemini Image)
+([`model-image-gemini-flash.md`](references/models/model-image-gemini-flash.md)),
+**FLUX.2** ([`model-image-flux-pro.md`](references/models/model-image-flux-pro.md)),
+**Seedream** ([`model-image-seedream-4.md`](references/models/model-image-seedream-4.md)).
+Midjourney is Discord-only (**not on fal**) — offer it only for pure aesthetic
+exploration, never as the default. Load the chosen model's doc for syntax/parameters,
+and check
 [`references/model-currency-2026-06.md`](references/model-currency-2026-06.md)
 for the current version. Apply the model's layer priority:
 
 | Model | Emphasize layers | Notes |
 |---|---|---|
-| FLUX.2 / FLUX.1 Pro, Midjourney v8 | 1, 2, 4 | Rich but focused; front-load style |
+| Luma Uni-1 | 1, 2, 4 + roles | Reasons before rendering; 9-reference role system |
+| Nano Banana / Pro (Gemini Image) | 1, 2, 4 | Strong instruction-following, multi-subject; Pro tier for hero/text |
+| FLUX.2 / FLUX.1 Pro | 1, 2, 4 | Rich but focused; front-load style |
 | Seedream 5 / 4 | 1, 2, 4 | Supports negative prompts |
-| Seedance 2.5 / Pro | All 6 | Multi-shot sequences; **no** negative prompts |
-| Runway Gen-4.5 | 1, 2, 3 | Movement is critical |
-| Veo 3.1 | All 6 | Can structure as JSON; native audio |
-| Luma Ray3.2 | 5 + keyframes | HDR/physics detail; frame-level control |
+| Seedance 2.5 / Pro (video) | All 6 | Multi-shot sequences; **no** negative prompts |
+| Veo 3.1 (video) | All 6 | Can structure as JSON; native audio (opt-in, ~2× cost) |
+| Luma Ray3.2 (video) | 5 + keyframes | HDR/physics detail; frame-level control |
+| Kling 3.0 (video) | All 6 | Native 4K; most fluid motion |
+| Runway Gen-4.5 (video) | 1, 2, 3 | Movement is critical; verify fal endpoint |
+| Midjourney v8 (Discord, not fal) | 1, 2, 4 | Aesthetic exploration only |
 
 Full detail: [`references/model-layer-priority.md`](references/model-layer-priority.md).
 Six-layer reference: [`references/guide-prompting-framework.md`](references/guide-prompting-framework.md).

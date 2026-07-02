@@ -107,7 +107,10 @@ Each entry uses the library's decision-unit format:
   fat-finger shouldn't be able to fire 100 jobs on one "yes").
 - **Watch-outs:** re-confirm if the input changes after the estimate (resolution,
   duration, model tier all move price); don't amortize a "the user said go earlier"
-  confirmation across an unrelated new batch.
+  confirmation across an unrelated new batch. **Audio is a price lever, not a free
+  extra** — enabling native audio (Veo, Sora, Wan, Kling) roughly **doubles** the
+  per-clip cost, so treat it as opt-in, state it explicitly in the estimate, and
+  confirm the audio setting along with the price before rendering.
 - **Anchors:** a budget approval before a purchase order — estimate, then sign-off,
   every time.
 

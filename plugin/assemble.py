@@ -83,9 +83,13 @@ def validate():
         body = sk.read_text(encoding="utf-8")
         for ref in re.findall(r"\]\((\$\{CLAUDE_PLUGIN_ROOT\}/[^)]+)\)", body):
             rel = ref.replace("${CLAUDE_PLUGIN_ROOT}/", "")
-            if rel.endswith("/"):
-                continue
-            if not (PLUGIN / rel).exists():
+            if rel in ("context/", "context"):
+                # bare shared-dir link can't resolve a specific doc (the uni-1 bug)
+                print("FAIL %s: link to bare context/ dir — name the specific file: %s" % (name, ref)); ok = False
+            elif rel.endswith("/"):
+                if not (PLUGIN / rel).is_dir():
+                    print("FAIL %s: link to missing dir %s" % (name, rel)); ok = False
+            elif not (PLUGIN / rel).exists():
                 print("FAIL %s: missing %s" % (name, rel)); ok = False
         if "](references/" in body:
             print("FAIL %s: stale references/ path remains" % name); ok = False

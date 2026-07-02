@@ -13,15 +13,30 @@ quarterly — this space moves fast.
 
 ## Image Generation
 
+> **Default target priority (fal-hosted):** Luma Uni-1 → Nano Banana / Nano Banana Pro
+> (Gemini Image) → FLUX.2 → Seedream. Lead with these when the user hasn't named a model.
+> **Midjourney is Discord-only — not available via fal**; suggest it only for pure
+> aesthetic exploration, never as a rendering default.
+
 | Doc | Version at doc-writing | Current (Jun 2026) | What changed |
 |---|---|---|---|
 | `model-image-flux-pro.md` | FLUX.1 Pro 1.1 (Nov 2024) | **FLUX.2 Pro** (Nov 25 2025); `[flex]`, `[dev]`, `[klein]` variants (Klein Jan 2026) | 32B params, Mistral-3 24B VLM + rectified-flow transformer. Stronger photorealism, typography, multi-image reference, character consistency. Up to 4MP. |
 | `model-image-gemini-flash.md` | Gemini 2.5 Flash Image ("Nano Banana") | **Nano Banana 2 = Gemini 3.1 Flash Image** (Feb 26 2026, now default); **Nano Banana Pro = Gemini 3 Pro Image** for hero/text work | 512px–4K, faster, better subject consistency and instruction following. Pro tier does advanced reasoning + high-fidelity text rendering. |
-| `model-image-midjourney-v7.md` | v7 (2025) | **v8.1** (default Jun 10 2026); v8.0 alpha Mar 2026 | ~4–5× faster, better prompt adherence + small-detail retention, native HD 2K (no upscale), Draft mode, `--preview`. |
+| `model-image-midjourney-v7.md` | v7 (2025) | **v8.1** (default Jun 10 2026); v8.0 alpha Mar 2026 — **Discord-only, not on fal** | ~4–5× faster, better prompt adherence + small-detail retention, native HD 2K (no upscale), Draft mode, `--preview`. Not a rendering default; aesthetic exploration only. |
 | `model-image-seedream-4.md` | 4.0 (Aug 2025) | **Seedream 5.0 Lite** (Apr 9 2026); v5 Lite (Feb 24 2026); 4.5 (Dec 2025) | v5 adds Chain-of-Thought reasoning + real-time web search before generating; 4K; higher consistency/fidelity. |
 | `model-image-luma-uni-1.md` | new doc (Jul 2026) | **Luma Uni-1 / Uni-1.1 API** (Uni-1 Mar 5 2026; Uni-1.1 API GA May 5 2026) | Luma's first unified-intelligence model: decoder-only autoregressive image generation that reasons through intent before rendering. 9-reference role system (STYLE/CHARACTER/COMPOSITION/etc.); `uni-1` $0.04 / `uni-1-max` $0.10 per image; 2048px; REST `create_image` + `modify_image`. ~31s/image (latency is the trade-off). |
 
 ## Video Generation
+
+> **Default target priority (fal-hosted):** Seedance → Veo → Luma Ray → Kling. Lead with
+> these when the user hasn't named a model. Sora 2 and Wan 2.6 are secondary (Sora API
+> sunsets Sep 2026; Wan is self-host open-weights); Runway has no confirmed fal endpoint
+> (verify via `FAL_AI_GET_MODELS`).
+>
+> **Audio is opt-in and roughly doubles cost.** Native-audio models (Veo, Sora, Wan, and
+> Kling with audio) bill markedly more with sound on. Default audio **off** unless the
+> shot needs dialogue/SFX/music, and always confirm the audio setting in the
+> `FAL_AI_GET_PRICING` estimate before rendering (see `guide-execution.md`).
 
 | Doc | Version at doc-writing | Current (Jun 2026) | What changed |
 |---|---|---|---|
