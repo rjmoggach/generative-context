@@ -150,6 +150,12 @@ MANIFEST = {
         ("model-image-seedream-4.md", "references/models/model-image-seedream-4.md"),
         ("model-image-flux-pro.md", "references/models/model-image-flux-pro.md"),
     ],
+    "production": [
+        ("guide-production.md", "references/guide-production.md"),
+        ("guide-asset-reference.md", "references/guide-asset-reference.md"),
+        ("guide-execution.md", "references/guide-execution.md"),
+        ("model-currency-2026-06.md", "references/model-currency-2026-06.md"),
+    ],
 }
 
 EXCLUDE_NAMES = {".DS_Store"}

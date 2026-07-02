@@ -24,7 +24,7 @@ SKILLS_SRC = REPO / "skills"
 CTX_OUT = PLUGIN / "context"
 SKILLS_OUT = PLUGIN / "skills"
 
-SKILLS = ["project-context", "sequence-design", "shot-prompt", "model-docs", "footage-transform", "image-edit", "character-sheet", "prop-turntable", "location-pack", "art-direction"]
+SKILLS = ["project-context", "sequence-design", "shot-prompt", "model-docs", "footage-transform", "image-edit", "character-sheet", "prop-turntable", "location-pack", "art-direction", "production"]
 
 HELPERS = [
     SKILLS_SRC / "project-context/references/questioning-framework.md",
