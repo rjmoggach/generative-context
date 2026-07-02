@@ -125,12 +125,12 @@ self-contained plugin — nothing needs building to install.
 
 ## Install
 
-**Cowork:** download the latest [`generative-wrangler.plugin`](https://github.com/rjmoggach/generative-wrangler/releases/latest/download/generative-wrangler.plugin) from Releases, open it in chat, and press install.
+**Cowork:** in the desktop app, go **Customize → Plugins → Personal plugins → + → Add marketplace → Add from a repository** and enter `rjmoggach/claude-generative-wrangler`, then install the plugin. (Or download the latest [`generative-wrangler.plugin`](https://github.com/rjmoggach/claude-generative-wrangler/releases/latest/download/generative-wrangler.plugin) from Releases.)
 
 **Claude Code (from this repo as a marketplace):**
 
 ```
-/plugin marketplace add rjmoggach/generative-wrangler
+/plugin marketplace add rjmoggach/claude-generative-wrangler
 /plugin install generative-wrangler@generative-wrangler
 ```
 

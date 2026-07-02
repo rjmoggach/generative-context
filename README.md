@@ -1,6 +1,6 @@
 # generative-wrangler
 
-**Version**: 1.0.0 · **Updated**: 2026-07-02
+**Version**: 1.0.1 · **Updated**: 2026-07-02
 
 A flexible plugin for getting **cinematic, model-optimized prompts** for generative
 image and video — at any level of structure. Ask for a great one-off still prompt,
@@ -19,12 +19,12 @@ at the repo root (`context/`, `skills/`).
 
 ## Install
 
-**Cowork:** download the latest [`generative-wrangler.plugin`](https://github.com/rjmoggach/generative-wrangler/releases/latest/download/generative-wrangler.plugin) from [Releases](https://github.com/rjmoggach/generative-wrangler/releases/latest), open it in chat, and press install.
+**Cowork:** in the desktop app, go **Customize → Plugins → Personal plugins → + → Add marketplace → Add from a repository** and enter `rjmoggach/claude-generative-wrangler`, then install the plugin. (Or download the latest [`generative-wrangler.plugin`](https://github.com/rjmoggach/claude-generative-wrangler/releases/latest/download/generative-wrangler.plugin) from [Releases](https://github.com/rjmoggach/claude-generative-wrangler/releases/latest).)
 
 **Claude Code:**
 
 ```
-/plugin marketplace add rjmoggach/generative-wrangler
+/plugin marketplace add rjmoggach/claude-generative-wrangler
 /plugin install generative-wrangler@generative-wrangler
 ```
 

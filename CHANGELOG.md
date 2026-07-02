@@ -2,6 +2,12 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.0.1 - 2026-07-02
+
+### Repository rename
+
+- Repo renamed to `claude-generative-wrangler`. Updated the marketplace-add slug, release/download URLs, and the plugin manifest `homepage`/`repository` to the new location. Added the Cowork desktop install path (Customize → Plugins → Add from a repository) alongside the Claude Code CLI commands. No changes to skills, agents, or context; the plugin name stays `generative-wrangler`.
+
 ## v1.0.0 - 2026-07-02
 
 ### Presentation layer - the make -> manage -> review loop is complete
