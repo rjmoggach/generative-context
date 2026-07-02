@@ -69,6 +69,16 @@ Supervisor** checks it cuts together, now also auditing asset continuity. Or
 skip straight to the **DP** for a single shot or one-off still. See the
 integrated pipeline walkthrough in `docs/05-asset-pipeline.md` (repo root).
 
+## Generating (closed loop)
+
+The crew doesn't just write prompts anymore — it can render them. With an
+interactive session and Composio connected, the wrangler drives the connected
+Composio → FAL MCP directly: single images, i2i edits, and batch/video runs via
+fal's async queue (submit the set, poll, collect). Follow
+`context/guide-execution.md` for the tool sequence, the cost gate, and where
+output + provenance land. Skill and agent counts are unchanged (ten skills /
+eleven agents) — this is a new capability the existing crew uses, not a new role.
+
 ## Shared library (`context/`)
 
 One copy of the knowledge base — craft guides (`guide-*.md`), film grammar and

@@ -2,6 +2,12 @@
 
 **The art-department roadmap (Phases 0-4) is complete** — shipped through v0.9.0.
 
+**The v1.0 track** adds the closed production loop on top of that art department:
+**execution** (v0.10.0, shipped — the wrangler renders via the connected Composio →
+FAL MCP, not just prompts), then the **production-coordinator / manifest** layer,
+then the **presentation** layer, reaching **v1.0.0** when make → manage → review is
+complete.
+
 **Status:** Draft 1 · **Created:** 2026-06-30 · **Owner:** Rob (Creative Producer)
 
 This roadmap plans the next major expansion of the plugin: an **art department** —

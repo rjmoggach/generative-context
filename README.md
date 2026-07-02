@@ -1,6 +1,6 @@
 # generative-wrangler
 
-**Version**: 0.9.0 · **Updated**: 2026-07-01
+**Version**: 0.10.0 · **Updated**: 2026-07-02
 
 A flexible plugin for getting **cinematic, model-optimized prompts** for generative
 image and video — at any level of structure. Ask for a great one-off still prompt,
@@ -99,6 +99,19 @@ costume/HMU/prop state drift, location geometry mismatch). Or skip straight to
 the **DP** for a single shot or one-off still. See
 [`docs/05-asset-pipeline.md`](docs/05-asset-pipeline.md) for the full attach →
 consume → audit walkthrough.
+
+---
+
+## Generating (closed loop)
+
+The crew doesn't just write prompts anymore — it can render them. With an
+interactive session and Composio connected, the wrangler drives the connected
+Composio → FAL MCP directly: single images, i2i edits, and batch/video runs via
+fal's async queue (submit the set, poll, collect). Follow
+[`context/guide-execution.md`](context/guide-execution.md) for the tool
+sequence, the cost gate, and where output + provenance land. Skill and agent
+counts are unchanged (ten skills / eleven agents) — this is a new capability
+the existing crew uses, not a new role.
 
 ---
 

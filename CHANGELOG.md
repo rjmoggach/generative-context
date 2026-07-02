@@ -2,6 +2,16 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v0.10.0 - 2026-07-02
+
+### New: Execution layer - closed render loop (v1.0 track)
+
+- wrangler can now actually generate, not just prompt: `context/guide-execution.md` is the agent's playbook for driving the connected Composio -> FAL MCP (`FAL_AI_*` tools).
+- Concurrent generation via fal's async queue - submit a set (coverage, turnaround views, variants, multiple clips) as a batch of `SUBMIT_ASYNC_JOB` calls, poll, and collect; video is always async.
+- Each generative `model-*.md` gained a `fal_endpoint` for model routing; each generative skill gained a "generate" step pointing at `guide-execution.md`.
+- Hard cost gate: confirm the `FAL_AI_GET_PRICING` estimate before any paid run; batches confirm the total and cap concurrency. Outputs save to the taxonomy path with a `.recipe` provenance sidecar.
+- Agent-orchestrated (no render script, no key in the repo - auth is your Composio connection); needs an interactive session. First of the v1.0 track (execution -> production office -> presentation).
+
 ## v0.9.0 - 2026-07-01
 
 ### New: Asset integration & QC (art department, Phase 4 - roadmap complete)
