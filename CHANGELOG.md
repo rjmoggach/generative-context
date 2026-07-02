@@ -2,6 +2,13 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.3.1 - 2026-07-02
+
+### Sequence taxonomy refinements (#6)
+
+- **Flattened the sequence folder.** No `shots/` or `context/` subfolders — the shot list, per-sequence context, and renders all live directly in `sequences/{show}{###}/` (`{show}{###}_shotlist.md`, `{show}{###}_context.md`, `{show}{###}_{SSSS}_vNN.png`).
+- **Configurable numbering.** `project-context` now asks for the sequence/shot zero-pad width and increment at setup and records the scheme in `{show}_project_context.md`; every skill reads it. Default: sequences 3-digit by tens (`sbw010`, `sbw020`; insert `sbw015`), shots 4-digit by tens (`sbw010_0010`; insert `_0015`).
+
 ## v1.3.0 - 2026-07-02
 
 ### Sequence entity taxonomy (#5)

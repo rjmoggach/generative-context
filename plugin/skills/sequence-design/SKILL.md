@@ -74,22 +74,23 @@ movement, the beat it serves, and its target intensity. Choose sizes/coverage vi
 via [`references/guide-lens-language.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-lens-language.md).
 
 **Numbering** (`references/guide-asset-reference.md` §9): the sequence is a folder
-`sequences/{show}{###}/` and each shot id is `{show}{###}_{SSSS}`, both numbered in
-**tens** (`0010`, `0020`, `0030`…) so a later insert drops in cleanly (`0015`, `0025`).
-The shot id is the canonical handle used in `refs`, render filenames, and the manifest.
+`sequences/{show}{###}/` and each shot id is `{show}{###}_{SSSS}`. Use the pad width and
+increment **recorded in `{show}_project_context.md`** (default: sequences 3-digit by tens,
+shots 4-digit by tens — `sbw010_0020`; insert `_0015`). The shot id is the canonical
+handle used in `refs`, render filenames, and the manifest.
 
 **Where it lives** — `sequence-design` owns the sequence folder. On first touch of a
 sequence, create `sequences/{show}{###}/` and write **only inside it**: the shot list to
 `sequences/{show}{###}/{show}{###}_shotlist.md`, and any per-sequence context derived from
-a `refs/` source to `sequences/{show}{###}/context/{show}{###}_context.md` (with a
-provenance line naming the source). Renders land in `sequences/{show}{###}/shots/`
+a `refs/` source to `sequences/{show}{###}/{show}{###}_context.md` (with a
+provenance line naming the source). Renders land in `sequences/{show}{###}/`
 (`guide-asset-reference.md` §9). A compiled multi-sequence source is split one file per
 sequence, never left whole.
 
 Output format:
 
 ```
-SEQUENCE {show}{###}: {scene name}                    (e.g. sbw002)
+SEQUENCE {show}{###}: {scene name}                    (e.g. sbw010)
 Beat: {where/who/turn/exit}   Coverage: {mode}   Staging: {A/I/L}
 Line/direction: {A left looking right; B right looking left; travel L→R}
 Intensity arc: {open → peak at the turn → resolve}

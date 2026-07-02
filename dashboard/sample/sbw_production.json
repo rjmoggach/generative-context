@@ -14,9 +14,9 @@
   ],
   "sequences": [
     { "label": "S2", "title": "Living Room, morning", "shots": [
-      { "label": "sbw002_0010", "size": "Establishing", "lens": "LS - 24mm", "refs": ["set_livingroom"], "image": null, "status": "specced" },
-      { "label": "sbw002_0020", "size": "Master", "lens": "MS - 40mm", "refs": ["char_eli","set_livingroom"], "image": null, "status": "specced" },
-      { "label": "sbw002_0030", "size": "Coverage", "lens": "CU - 85mm", "refs": ["char_eli","set_livingroom"], "image": "sample/sbw_char_eli_id_front.png", "status": "rendered" }
+      { "label": "sbw010_0010", "size": "Establishing", "lens": "LS - 24mm", "refs": ["set_livingroom"], "image": null, "status": "specced" },
+      { "label": "sbw010_0020", "size": "Master", "lens": "MS - 40mm", "refs": ["char_eli","set_livingroom"], "image": null, "status": "specced" },
+      { "label": "sbw010_0030", "size": "Coverage", "lens": "CU - 85mm", "refs": ["char_eli","set_livingroom"], "image": "sample/sbw_char_eli_id_front.png", "status": "rendered" }
     ]}
   ],
   "cost": { "total": 0.003, "by_model": { "fal-ai/flux/schnell": 0.003 }, "by_sequence": {} },

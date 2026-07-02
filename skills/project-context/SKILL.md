@@ -38,11 +38,20 @@ six-layer prompting framework.
 
 ## Workflow
 
-### Step 1 — Get the show code
+### Step 1 — Get the show code and numbering scheme
 
-Ask for a short show code (e.g., `APX`, `sbw`, `NOIR`). This names the output file
-and is how the `shot-prompt` skill will later find this context. If the user
-doesn't have one, suggest a 3–4 letter code from the project name.
+Ask for a short show code (e.g., `APX`, `sbw`, `NOIR`) — lowercase, 3–4 letters; it
+leads every filename. If the user doesn't have one, suggest one from the project name.
+
+Then confirm the **numbering scheme** (recorded in the context file; every skill reads
+it). Offer the default and let the user override:
+- **Sequences** — zero-pad width and increment. Default **3 digits, by tens**
+  (`{show}010`, `{show}020`; insert `{show}015`).
+- **Shots** — zero-pad width and increment. Default **4 digits, by tens**
+  (`{show}010_0010`, `_0020`; insert `_0015`).
+
+Increment-by-ten leaves room to insert later without renumbering
+(`references/guide-asset-reference.md` §9).
 
 ### Step 2 — Run the recursive interview
 
@@ -89,6 +98,8 @@ Produce a complete `{show}_project_context.md` using the structure in
   Use [`references/guide-lens-language.md`](references/guide-lens-language.md) to choose a focal-length and depth-of-field signature that matches the intended feeling (e.g., 85mm shallow for intimacy, 24mm deep for unease).
 - **Reference anchors** (the named directors/DPs/photographers chosen).
 - **Forbidden terms** — words/looks to never use (the consistency guardrail).
+- **Naming convention** — the show code and the sequence/shot numbering scheme (pad
+  width + increment from Step 1), so every downstream skill uses matching ids.
 - Optional **sequence breakdown** if the project already has one.
 
 ### Step 5 — Scaffold the project, then save and hand off
