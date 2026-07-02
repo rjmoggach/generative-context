@@ -25,7 +25,7 @@ an i2i operation driven from the locked anchor.
 
 Whenever a character will recur across more than one shot, or when the user requests a
 turnaround, model sheet, or hero reference — even for a single scene if consistency
-matters. If the spec file already exists (`char-{show}-{name}.md`), refine it in place:
+matters. If the spec file already exists (`{show}_char_{name}.md`), refine it in place:
 update only the changed facet and re-export the affected images. Do not rebuild from
 scratch unless the creative direction has fundamentally changed.
 
@@ -55,8 +55,8 @@ Read these before writing any prompt:
 - [`references/guide-image-editing.md`](references/guide-image-editing.md) —
   the i2i mechanics used to derive views and progress states from the anchor.
 
-If the user names a show code, read `project-context-{show}.md` (and
-`art-bible-{show}.md` if present) and inherit the Standard Prompt Prefix, palette hex
+If the user names a show code, read `{show}_project_context.md` (and
+`{show}_art_bible.md` if present) and inherit the Standard Prompt Prefix, palette hex
 codes, CMF lexicon, style reference, lighting, lens specs, atmosphere, and forbidden
 terms; construct prompts from those fields. Hold these consistently across all three
 facets.
@@ -68,7 +68,7 @@ light, no shadow drama — the anchor from which every view and state derives.
 
 Once the anchor is approved:
 
-1. Fan out a **multi-angle bundle** — ¾-left, side-left, side-right, ¾-right, back —
+1. Fan out a **multi-angle bundle** — ¾-left, side_left, side_right, ¾-right, back —
    by driving each view through `image-edit` with the anchor as the locked reference.
    Align every view on the **eye / shoulder / waist / knee / foot** guide lines
    (guide-turnaround-sheets).
@@ -84,8 +84,8 @@ Once the anchor is approved:
 ## Step 3 — Turnaround + wardrobe (costume)
 
 Using the front anchor as the locked reference, derive the **full turnaround set** via
-`image-edit`: `-turn-front`, `-turn-side-l`, `-turn-side-r`, `-turn-back`, `-turn-3q-l`,
-`-turn-3q-r`. Hold the eye / shoulder / waist / knee / foot alignment lines consistent
+`image-edit`: `-turn-front`, `-turn-side_l`, `-turn-side_r`, `-turn-back`, `-turn-3q_l`,
+`-turn-3q_r`. Hold the eye / shoulder / waist / knee / foot alignment lines consistent
 across all views (guide-turnaround-sheets).
 
 For each **costume state** (day-1, day-2-wet, formal, etc.):
@@ -95,8 +95,8 @@ For each **costume state** (day-1, day-2-wet, formal, etc.):
 - Note the state explicitly: clean / soiled / wet / torn.
 - Derive wet or damaged versions by editing from the clean fit image at low denoise
   rather than regenerating from the identity anchor.
-- Save as `char-{name}-fit-{label}.png` (e.g., `char-eli-fit-day1.png`,
-  `char-eli-fit-day2-wet.png`).
+- Save as `char_{name}-fit-{label}.png` (e.g., `sbw_char_eli_fit_day1.png`,
+  `sbw_char_eli_fit_day2_wet.png`).
 - Add expression or pose companion sheets if a mood or action range is requested.
 
 ## Step 4 — HMU states (makeup-hair)
@@ -116,8 +116,8 @@ For wound and injury states:
 For aging states: edit from the clean base; hold the light-key direction; do not
 regenerate the face from scratch.
 
-Save as `char-{name}-hmu-{label}.png` (e.g., `char-eli-hmu-clean.png`,
-`char-eli-hmu-wound-01.png`).
+Save as `char_{name}-hmu-{label}.png` (e.g., `sbw_char_eli_hmu_clean.png`,
+`sbw_char_eli_hmu_wound_01.png`).
 
 ## Step 5 — Model + references
 
@@ -140,7 +140,7 @@ hard limits per model before advising any specific count.
 
 Write all outputs to the **user's working folder** — never to the plugin repo.
 
-**Spec file:** `char-{show}-{name}.md`, filled from
+**Spec file:** `{show}_char_{name}.md`, filled from
 [`references/character-template.md`](references/character-template.md). State the
 descriptor block prominently at the top of the Identity section so `shot-prompt` and
 `image-edit` can locate and paste it verbatim without scanning the whole document.
@@ -148,11 +148,11 @@ descriptor block prominently at the top of the Identity section so `shot-prompt`
 **Image folder:** `assets/char/{name}/` — use the asset taxonomy filenames exactly
 (guide-asset-reference §9):
 
-- Identity: `char-{name}-id-front.png`, `char-{name}-id-3q-l.png`, etc.
-- Turnaround: `char-{name}-turn-front.png`, `-turn-side-l`, `-turn-side-r`,
-  `-turn-back`, `-turn-3q-l`, `-turn-3q-r`
-- Wardrobe: `char-{name}-fit-{label}.png`
-- HMU: `char-{name}-hmu-{label}.png`
+- Identity: `{show}_char_{name}_id_front.png`, `{show}_char_{name}_id_3q_l.png`, etc.
+- Turnaround: `{show}_char_{name}_turn_front.png`, `-turn-side_l`, `-turn-side_r`,
+  `-turn-back`, `-turn-3q_l`, `-turn-3q_r`
+- Wardrobe: `char_{name}-fit-{label}.png`
+- HMU: `char_{name}-hmu-{label}.png`
 
 All filenames are lowercase ASCII kebab-case. A version suffix (`-v02`, etc.) is
 optional but recommended once the asset enters shot production. Confirm the output

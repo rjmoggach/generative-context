@@ -186,6 +186,10 @@ Each entry uses the library's decision-unit format:
 5. Save to the taxonomy path, write the `.recipe` sidecar.
 6. Track in-flight `request_id`s until every one reaches `saved`.
 7. On failure, check §8 before assuming the render itself is broken.
+8. **Close-out:** once renders are saved, reconcile the show manifest by running the
+   `production` skill so `{show}_production.json` and the cost rollups stay current
+   (`guide-production.md`). Do this as a step you perform — never install it as a rule
+   in the user's `CLAUDE.md` (`guide-production.md` §7).
 
 Companion: `guide-asset-reference.md`, `guide-image-editing.md`,
 `guide-ai-generation-strategy.md`, `model-currency-2026-06.md`.

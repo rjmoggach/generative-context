@@ -24,12 +24,12 @@ You do continuity QC only — you do not generate or rewrite prompts.
 ## Inputs
 
 1. The shot list or sequence under review (provided by the user or in a file).
-2. The project show bible: find `project-context-{show-code}.md` in the working
+2. The project show bible: find `{show}_project_context.md` in the working
    folder and read it (palette hex codes, lighting, lens, forbidden terms).
 3. The rules: read `${CLAUDE_PLUGIN_ROOT}/context/guide-continuity-rules.md`.
 4. The asset reference contract: read `${CLAUDE_PLUGIN_ROOT}/context/guide-asset-reference.md`
    §10 for the `refs:` notation, and check each `refs:` id against its spec file
-   (`char-{show}-{name}.md`, `prop-{show}-{name}.md`, `set-{show}-{name}.md`) in
+   (`{show}_char_{name}.md`, `{show}_prop_{name}.md`, `{show}_set_{name}.md`) in
    the working folder.
 
 ## What to audit
@@ -46,7 +46,7 @@ For the sequence as a whole and shot-to-shot:
   and grain match the show bible across every shot?
 - **Forbidden terms** — are any present?
 - **Asset continuity** — for every shot that carries or should carry `refs:`
-  (`char-{name}` / `prop-{name}` / `set-{name}`, see
+  (`char_{name}` / `prop_{name}` / `set_{name}`, see
   `${CLAUDE_PLUGIN_ROOT}/context/guide-asset-reference.md` §10):
   - **Missing/wrong reference** — a shot that needs a locked character, prop, or
     set has no `refs:` line at all, or a `refs:` id has no matching spec file
@@ -65,7 +65,7 @@ Report grouped by severity:
 - **Breaks** (will read as an error on screen): the issue, the shots involved, and
   the specific fix (e.g., "S2-03 has Eli looking screen-left; S2-02 established him
   screen-right — flip the framing or the eyeline"; or "S3-11 attaches the
-  `prop-revolver-hero-aged` variant of `refs: prop-revolver` but S3-10 established
+  `prop_revolver_hero_aged` variant of `refs: prop_revolver` but S3-10 established
   the clean `-hero` variant — no beat motivates the wear, revert the variant or add
   the motivating action").
 - **Risks** (likely drift, especially for AI generation): what to lock in the prompt.

@@ -4,10 +4,10 @@
 
 ## Inherits
 
-- Project context: [`project-context-{show}.md`](project-context-{show}.md)
+- Project context: [`{show}_project_context.md`]({show}_project_context.md)
 - Inherited lens: {lens spec from project-context, e.g. 35mm, T2.8}
 - Inherited grade: {grade description from project-context, e.g. teal-orange, crushed blacks}
-- Standard Prompt Prefix: *(paste verbatim from project-context-{show}.md)*
+- Standard Prompt Prefix: *(paste verbatim from {show}_project_context.md)*
 
 ---
 
@@ -69,7 +69,7 @@ Hard constraints — every generated asset must pass this checklist:
 
 ## Global style reference
 
-Path: `assets/style/style-{show}-global.png`
+Path: `assets/style/style-{show}_global.png`
 
 This image anchors the visual register of the world — light quality, surface feel, color
 temperature, tonal contrast. Attach it as a background reference to every first-generation
@@ -90,8 +90,8 @@ Spec-file names carry `{show}`; image-file names do not.
 
 | Type   | Name     | Spec file               | Anchor image path                             |
 |--------|----------|-------------------------|-----------------------------------------------|
-| `char` | `{name}` | `char-{show}-{name}.md` | `assets/char/{name}/char-{name}-id-front.png` |
-| `prop` | `{name}` | `prop-{show}-{name}.md` | `assets/prop/{name}/prop-{name}-hero.png`     |
-| `set`  | `{name}` | `set-{show}-{name}.md`  | `assets/set/{name}/set-{name}-plate.png`      |
+| `char` | `{name}` | `{show}_char_{name}.md` | `assets/char/{name}/{show}_char_{name}_id_front.png` |
+| `prop` | `{name}` | `{show}_prop_{name}.md` | `assets/prop/{name}/{show}_prop_{name}_hero.png`     |
+| `set`  | `{name}` | `{show}_set_{name}.md`  | `assets/set/{name}/{show}_set_{name}_plate.png`      |
 
 *(Add rows as assets are locked. Remove the example rows above when populating with real assets.)*

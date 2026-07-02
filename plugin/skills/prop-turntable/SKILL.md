@@ -6,7 +6,7 @@ description: >-
   "build a prop turntable", "lock this prop", "make a hero prop reference", "make a
   model sheet / object reference", "keep this object consistent across shots",
   "turntable this". Produces a hero anchor plus an orthographic ring
-  (front/back/side-l/side-r/top), detail macros, state variants, and an optional 360.
+  (front/back/side_l/side_r/top), detail macros, state variants, and an optional 360.
   The output is the reference that shot-prompt and image-edit carry to hold the object's
   form, material, and finish consistent across scenes and states.
 ---
@@ -24,7 +24,7 @@ hero anchor.
 
 Whenever a prop will recur across more than one shot, or when the user requests a
 turntable, model sheet, object reference, or hero prop — even for a single scene if
-form consistency matters. If the spec file already exists (`prop-{show}-{name}.md`),
+form consistency matters. If the spec file already exists (`{show}_prop_{name}.md`),
 refine it in place: update only the changed view or state and re-export the affected
 images. Do not rebuild from scratch unless the object design has fundamentally changed.
 
@@ -57,8 +57,8 @@ Read these before writing any prompt:
   the i2i mechanics used to derive views, detail crops, and state progressions from the
   anchor.
 
-If the user names a show code, read `project-context-{show}.md` (and
-`art-bible-{show}.md` if present) and inherit the Standard Prompt Prefix, palette hex
+If the user names a show code, read `{show}_project_context.md` (and
+`{show}_art_bible.md` if present) and inherit the Standard Prompt Prefix, palette hex
 codes, CMF lexicon, style reference, lighting logic, and forbidden terms; construct
 prompts from those fields. Hold these consistently across all views and states.
 
@@ -85,12 +85,12 @@ Once the anchor is approved:
 Using the hero anchor as the locked reference, derive the **orthographic ring** via
 `image-edit` — one view at a time, each pinned to the same apparent object scale:
 
-- Front: `prop-{name}-ortho-front.png`
-- Back: `prop-{name}-ortho-back.png`
-- Side left: `prop-{name}-ortho-side-l.png`
-- Side right: `prop-{name}-ortho-side-r.png`
-- Top: `prop-{name}-ortho-top.png`
-- Bottom: `prop-{name}-ortho-bottom.png` *(only if relevant to scene use)*
+- Front: `{show}_prop_{name}_ortho_front.png`
+- Back: `{show}_prop_{name}_ortho_back.png`
+- Side left: `{show}_prop_{name}_ortho_side_l.png`
+- Side right: `{show}_prop_{name}_ortho_side_r.png`
+- Top: `{show}_prop_{name}_ortho_top.png`
+- Bottom: `{show}_prop_{name}_ortho_bottom.png` *(only if relevant to scene use)*
 
 Hold camera distance, lens length, and background constant across the ring. Align views
 on the object's dominant axis — the same virtual horizon through the widest cross-
@@ -105,7 +105,7 @@ mechanism, material seam, wear pattern, or any element small enough to drop from
 wide-angle shot. Each detail macro is an i2i crop-and-enlarge from the ortho view that
 best exposes that feature.
 
-- Detail images: `prop-{name}-detail-01.png`, `-detail-02.png`, etc.
+- Detail images: `{show}_prop_{name}_detail_01.png`, `-detail-02.png`, etc.
 - Caption each in the spec file: what feature, which ortho it was derived from, and why
   it matters for production (e.g., "barrel inscription — legible in close-up insert").
 
@@ -120,9 +120,9 @@ editing forward from the closest prior state at low denoise (~0.15–0.25), not 
 regenerating from the hero. The suffix pattern follows the taxonomy: state suffix appended
 to the base view name.
 
-- Aged hero: `prop-{name}-hero-aged.png`
-- Damaged hero: `prop-{name}-hero-damaged.png`
-- Wet hero: `prop-{name}-hero-wet.png`
+- Aged hero: `{show}_prop_{name}_hero_aged.png`
+- Damaged hero: `{show}_prop_{name}_hero_damaged.png`
+- Wet hero: `{show}_prop_{name}_hero_wet.png`
 
 For each state: note the base image it was derived from and the denoise value used; this
 lets a future session re-derive from the same branch rather than guessing. Never
@@ -136,7 +136,7 @@ Record each multiple path in the spec file under `## Multiples`.
 
 **Optional 360:** if requested or if the prop appears in a wide range of camera angles,
 generate 8–12 evenly-spaced views at 30° or 45° intervals from the ortho ring as the
-locked reference set. Name as `prop-{name}-360-000.png`, `-030.png`, `-045.png`, etc.
+locked reference set. Name as `{show}_prop_{name}_360_000.png`, `-030.png`, `-045.png`, etc.
 (degree of rotation, zero-padded). Do not attempt 360 work before the ortho ring is
 locked — it will diverge.
 
@@ -163,7 +163,7 @@ reflective or transparent surfaces, or destruction requirements are strong candi
 
 Write all outputs to the **user's working folder** — never to the plugin repo.
 
-**Spec file:** `prop-{show}-{name}.md`, filled from
+**Spec file:** `{show}_prop_{name}.md`, filled from
 [`references/prop-template.md`](${CLAUDE_PLUGIN_ROOT}/context/prop-template.md). State the descriptor
 block prominently at the top of the Hero section so `shot-prompt` and `image-edit` can
 locate and paste it verbatim without scanning the whole document.
@@ -171,12 +171,12 @@ locate and paste it verbatim without scanning the whole document.
 **Image folder:** `assets/prop/{name}/` — use the asset taxonomy filenames exactly
 (guide-asset-reference §9):
 
-- Hero: `prop-{name}-hero.png`
-- Ortho ring: `prop-{name}-ortho-front.png`, `-ortho-back.png`, `-ortho-side-l.png`,
-  `-ortho-side-r.png`, `-ortho-top.png`
-- Details: `prop-{name}-detail-01.png`, `-detail-02.png`, etc.
-- State variants: state suffix appended — `prop-{name}-hero-aged.png`, `-hero-damaged.png`
-- 360 (optional): `prop-{name}-360-000.png`, `-360-030.png`, etc.
+- Hero: `{show}_prop_{name}_hero.png`
+- Ortho ring: `{show}_prop_{name}_ortho_front.png`, `-ortho-back.png`, `-ortho-side_l.png`,
+  `-ortho-side_r.png`, `-ortho-top.png`
+- Details: `{show}_prop_{name}_detail_01.png`, `-detail-02.png`, etc.
+- State variants: state suffix appended — `{show}_prop_{name}_hero_aged.png`, `-hero-damaged.png`
+- 360 (optional): `{show}_prop_{name}_360_000.png`, `-360-030.png`, etc.
 
 All filenames are lowercase ASCII kebab-case. Image filenames carry **no `{show}`
 prefix** — the show code lives only in the spec filename. A version suffix (`-v02`,

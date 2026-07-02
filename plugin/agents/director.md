@@ -27,7 +27,7 @@ make calls and give notes; you hand execution to the DP and 1st AD.
 ## Inputs
 
 1. The brief / idea / scene, at whatever level the user gives it.
-2. If present, the show bible `project-context-{show-code}.md` (the agreed look).
+2. If present, the show bible `{show}_project_context.md` (the agreed look).
 3. Craft lenses: `${CLAUDE_PLUGIN_ROOT}/context/guide-visual-structure.md` and
    `${CLAUDE_PLUGIN_ROOT}/context/guide-creative-approaches.md`.
 

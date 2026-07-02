@@ -104,7 +104,7 @@
   .empty-state .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
   .drop-hint{margin-top:16px;font-size:12px;color:var(--muted)} .drop-hint code{font-family:"IBM Plex Mono",monospace;color:var(--ink-2)}
   .glyph{width:46px;height:46px;color:var(--accent);opacity:.9;margin:0 auto 18px}
-  body.dragging::after{content:"Drop production-{show}.json";position:fixed;inset:14px;border:2px dashed var(--accent);border-radius:18px;display:grid;place-items:center;font-size:16px;color:var(--ink);background:oklch(0.165 0.006 264 / .7);z-index:80;pointer-events:none}
+  body.dragging::after{content:"Drop {show}_production.json";position:fixed;inset:14px;border:2px dashed var(--accent);border-radius:18px;display:grid;place-items:center;font-size:16px;color:var(--ink);background:oklch(0.165 0.006 264 / .7);z-index:80;pointer-events:none}
   .err{color:var(--warn);font-size:13px;margin-top:14px;min-height:18px}
 
   /* lightbox — just the image, no cruft */
@@ -124,12 +124,12 @@
   <div class="empty-state"><div class="card">
     <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5v14"/></svg>
     <h2>Open a production</h2>
-    <p>Point at a working folder that contains a <code style="font-family:'IBM Plex Mono',monospace">production-{show}.json</code> and its <code style="font-family:'IBM Plex Mono',monospace">assets/</code>. Read-only.</p>
+    <p>Point at a working folder that contains a <code style="font-family:'IBM Plex Mono',monospace">{show}_production.json</code> and its <code style="font-family:'IBM Plex Mono',monospace">assets/</code>. Read-only.</p>
     <div class="row">
       <button class="btn primary" id="open-folder">Open production folder</button>
       <button class="btn" id="load-sample">Load sample</button>
     </div>
-    <div class="drop-hint">or drop a <code>production-{show}.json</code> anywhere</div>
+    <div class="drop-hint">or drop a <code>{show}_production.json</code> anywhere</div>
     <div class="err" id="err"></div>
   </div></div>
 </template>
@@ -286,20 +286,20 @@ function render(manifest, imgMap){
 const SAMPLE = {
   show:"SBW", title:"Snowbound", updated:"2026-07-02", budget:25.00,
   assets:[
-    {type:"char",name:"eli",spec_file:"char-sbw-eli.md",anchor_image:"sample/char-eli-id-front.png",status:"built"},
-    {type:"char",name:"marguerite",spec_file:"char-sbw-marguerite.md",anchor_image:null,status:"specced"},
-    {type:"prop",name:"revolver",spec_file:"prop-sbw-revolver.md",anchor_image:null,status:"specced"},
-    {type:"set",name:"livingroom",spec_file:"set-sbw-livingroom.md",anchor_image:null,status:"specced"}
+    {type:"char",name:"eli",spec_file:"sbw_char_eli.md",anchor_image:"sample/sbw_char_eli_id_front.png",status:"built"},
+    {type:"char",name:"marguerite",spec_file:"sbw_char_marguerite.md",anchor_image:null,status:"specced"},
+    {type:"prop",name:"revolver",spec_file:"sbw_prop_revolver.md",anchor_image:null,status:"specced"},
+    {type:"set",name:"livingroom",spec_file:"sbw_set_livingroom.md",anchor_image:null,status:"specced"}
   ],
-  generations:[{file:"sample/char-eli-id-front.png",fal_endpoint:"fal-ai/flux/schnell",seed:1278911897,refs:[],prompt:"Cinematic portrait, 85mm, weathered ironworker...",cost:0.003,rendered_at:"2026-07-02"}],
+  generations:[{file:"sample/sbw_char_eli_id_front.png",fal_endpoint:"fal-ai/flux/schnell",seed:1278911897,refs:[],prompt:"Cinematic portrait, 85mm, weathered ironworker...",cost:0.003,rendered_at:"2026-07-02"}],
   sequences:[{label:"S2",title:"Living Room, morning",shots:[
-    {label:"S2-01",size:"Establishing",lens:"LS · 24mm",refs:["set-livingroom"],image:null,status:"specced"},
-    {label:"S2-02",size:"Master",lens:"MS · 40mm",refs:["char-eli","set-livingroom"],image:null,status:"specced"},
-    {label:"S2-03",size:"Coverage",lens:"CU · 85mm",refs:["char-eli","set-livingroom"],image:"sample/char-eli-id-front.png",status:"rendered"}
+    {label:"S2-01",size:"Establishing",lens:"LS · 24mm",refs:["set_livingroom"],image:null,status:"specced"},
+    {label:"S2-02",size:"Master",lens:"MS · 40mm",refs:["char_eli","set_livingroom"],image:null,status:"specced"},
+    {label:"S2-03",size:"Coverage",lens:"CU · 85mm",refs:["char_eli","set_livingroom"],image:"sample/sbw_char_eli_id_front.png",status:"rendered"}
   ]}],
   cost:{total:0.003,by_model:{"fal-ai/flux/schnell":0.003},by_sequence:{}},
   status:{specced:4,built:1,rendered:1,approved:1,missing:0},
-  human:{"sample/char-eli-id-front.png":{status:"approved",note:"hero locked"}}
+  human:{"sample/sbw_char_eli_id_front.png":{status:"approved",note:"hero locked"}}
 };
 
 async function loadSample(){ render(SAMPLE, await resolveImages(SAMPLE,"sample")); }
@@ -310,10 +310,10 @@ async function openFolder(){
   let manifest=null;
   try{
     for await (const [name,handle] of dir.entries()){
-      if(handle.kind==="file" && /^production-.*\.json$/.test(name)){ manifest=JSON.parse(await (await handle.getFile()).text()); break; }
+      if(handle.kind==="file" && (/_production\.json$/.test(name) || /^production-.*\.json$/.test(name))){ manifest=JSON.parse(await (await handle.getFile()).text()); break; }
     }
   }catch(e){ setErr("Couldn't read the folder: "+e.message); return; }
-  if(!manifest){ setErr("No production-{show}.json found in that folder."); return; }
+  if(!manifest){ setErr("No {show}_production.json found in that folder."); return; }
   render(manifest, await resolveImages(manifest,"folder",dir));
 }
 

@@ -43,7 +43,7 @@ Read `${CLAUDE_PLUGIN_ROOT}/context/reference-craft-artdept.md` (Props section),
 3. **Build the ortho ring** — five positions at consistent distance and scale:
    front, back, side left, side right, top. Generate each from the hero anchor
    via image-edit; hold proportion, texture, and colour across the ring. Add a
-   bottom view (`prop-{name}-ortho-bottom.png`) only when the underside is
+   bottom view (`{show}_prop_{name}_ortho_bottom.png`) only when the underside is
    visible in scene use.
 4. **Shoot the details** — close callouts of surface, mechanism, text, damage,
    or anything the camera will track in close-up. Each detail image is named and
@@ -56,18 +56,18 @@ Read `${CLAUDE_PLUGIN_ROOT}/context/reference-craft-artdept.md` (Props section),
 
 ## Output
 
-The **Prop** section of `prop-{show}-{name}.md`:
+The **Prop** section of `{show}_prop_{name}.md`:
 
 - **Classification note** — hero / dressing / action, multiples required,
   states required.
-- **Hero anchor** prompt + image path: `assets/prop/{name}/prop-{name}-hero.png`.
-- **Ortho ring** images and prompts: `assets/prop/{name}/prop-{name}-ortho-front.png`,
-  `-ortho-back.png`, `-ortho-side-l.png`, `-ortho-side-r.png`, `-ortho-top.png`.
-- **Detail callouts**: `assets/prop/{name}/prop-{name}-detail-01.png`,
+- **Hero anchor** prompt + image path: `assets/prop/{name}/{show}_prop_{name}_hero.png`.
+- **Ortho ring** images and prompts: `assets/prop/{name}/{show}_prop_{name}_ortho_front.png`,
+  `-ortho-back.png`, `-ortho-side_l.png`, `-ortho-side_r.png`, `-ortho-top.png`.
+- **Detail callouts**: `assets/prop/{name}/{show}_prop_{name}_detail_01.png`,
   `-detail-02.png`, etc., each annotated with what the callout shows.
-- **State variants**: base/clean state is `prop-{name}-hero.png`; worn, damaged, or
-  story-specific states use a suffix on the hero facet: `prop-{name}-hero-worn.png`,
-  `prop-{name}-hero-broken.png`, `prop-{name}-hero-aged.png`, etc.
+- **State variants**: base/clean state is `{show}_prop_{name}_hero.png`; worn, damaged, or
+  story-specific states use a suffix on the hero facet: `{show}_prop_{name}_hero_worn.png`,
+  `{show}_prop_{name}_hero_broken.png`, `{show}_prop_{name}_hero_aged.png`, etc.
 - **State delta table** — each state records exactly what changed from the prior
   state, the image-edit parameters used, and the continuity note.
 

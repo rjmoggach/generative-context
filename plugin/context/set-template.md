@@ -4,7 +4,7 @@
 
 ## Master plate
 
-- **Plate:** `assets/set/{name}/set-{name}-plate.png`
+- **Plate:** `assets/set/{name}/{show}_set_{name}_plate.png`
 - **Geometry notes:** {primary sight line, horizon position, key architectural anchors,
   background depth — e.g., "long axis left-to-right; window at screen-right is the only
   practical source; brick end wall at frame-left closes depth"}
@@ -12,7 +12,7 @@
   base state — e.g., "overhead south key, hard, neutral `#FFF5E4`, late-morning base"}
 
 Example (show: sbw, name: livingroom):
-- `assets/set/livingroom/set-livingroom-plate.png`
+- `assets/set/livingroom/sbw_set_livingroom_plate.png`
 
 > **Identity block** — paste verbatim into every downstream shot prompt:
 >
@@ -29,18 +29,18 @@ Example (show: sbw, name: livingroom):
 
 ### Coverage 01
 
-- **Image:** `assets/set/{name}/set-{name}-cov-01.png`
+- **Image:** `assets/set/{name}/{show}_set_{name}_cov_01.png`
 - **Angle:** {description — e.g., "tight on the window wall from inside, looking south"}
 - **Derived from:** master plate
 - **Landmarks:** {architectural feature held consistent with master — e.g., "north column
   visible at frame-left"}
 
 Example (name: livingroom):
-- `assets/set/livingroom/set-livingroom-cov-01.png`
+- `assets/set/livingroom/sbw_set_livingroom_cov_01.png`
 
 ### Reverse angle
 
-- **Image:** `assets/set/{name}/set-{name}-cov-reverse.png`
+- **Image:** `assets/set/{name}/{show}_set_{name}_cov_reverse.png`
 - **Angle:** reverse — looking back along the master plate's primary sight line
 - **Derived from:** master plate
 - **Landmarks:** {landmarks shared with master plate that confirm geometry is consistent —
@@ -48,11 +48,11 @@ Example (name: livingroom):
   light entering from same source, now at screen-left"}
 
 Example (name: livingroom):
-- `assets/set/livingroom/set-livingroom-cov-reverse.png`
+- `assets/set/livingroom/sbw_set_livingroom_cov_reverse.png`
 
 ### Coverage 02 *(add a section for each additional angle)*
 
-- **Image:** `assets/set/{name}/set-{name}-cov-02.png`
+- **Image:** `assets/set/{name}/{show}_set_{name}_cov_02.png`
 - **Angle:** {description}
 - **Derived from:** {source — usually master plate}
 - **Landmarks:** {shared continuity anchors}
@@ -66,7 +66,7 @@ variant. State the single changed axis and the resulting light, colour, and atmo
 
 ### Base (day)
 
-- **Image:** `assets/set/{name}/set-{name}-plate.png` *(the master plate; no change)*
+- **Image:** `assets/set/{name}/{show}_set_{name}_plate.png` *(the master plate; no change)*
 - **Variable changed:** — *(baseline)*
 - **Light direction:** {e.g., overhead south, hard}
 - **Colour:** neutral `#FFF5E4`
@@ -74,18 +74,18 @@ variant. State the single changed axis and the resulting light, colour, and atmo
 
 ### Dawn
 
-- **Image:** `assets/set/{name}/set-{name}-tod-dawn.png`
+- **Image:** `assets/set/{name}/{show}_set_{name}_tod_dawn.png`
 - **Variable changed:** time of day (dawn)
 - **Light direction:** {low east, soft}
 - **Colour:** cool `#B8D4E8`
 - **Atmosphere:** {e.g., light mist, softened contrast}
 
 Example (name: livingroom):
-- `assets/set/livingroom/set-livingroom-tod-dawn.png`
+- `assets/set/livingroom/sbw_set_livingroom_tod_dawn.png`
 
 ### Golden hour
 
-- **Image:** `assets/set/{name}/set-{name}-tod-golden.png`
+- **Image:** `assets/set/{name}/{show}_set_{name}_tod_golden.png`
 - **Variable changed:** time of day (late afternoon)
 - **Light direction:** {low west, hard, long raking shadows}
 - **Colour:** warm amber `#FFB347`
@@ -93,7 +93,7 @@ Example (name: livingroom):
 
 ### Night
 
-- **Image:** `assets/set/{name}/set-{name}-tod-night.png`
+- **Image:** `assets/set/{name}/{show}_set_{name}_tod_night.png`
 - **Variable changed:** time of day (night)
 - **Light direction:** {overhead minimal ambient, practical-dominant}
 - **Colour:** cool blue-black `#1A1F2E`
@@ -101,7 +101,7 @@ Example (name: livingroom):
 
 ### Rain / overcast *(add a section for each additional variant)*
 
-- **Image:** `assets/set/{name}/set-{name}-tod-rain.png`
+- **Image:** `assets/set/{name}/{show}_set_{name}_tod_rain.png`
 - **Variable changed:** weather (rain added to base)
 - **Light direction:** {top, diffuse}
 - **Colour:** grey-green `#B8C4B0`

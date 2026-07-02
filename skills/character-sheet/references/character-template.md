@@ -14,28 +14,28 @@
 
 ### Hero reference
 
-- Front anchor: `assets/char/{name}/char-{name}-id-front.png`
-- 3/4 left: `assets/char/{name}/char-{name}-id-3q-l.png`
-- 3/4 right: `assets/char/{name}/char-{name}-id-3q-r.png`
-- Side left: `assets/char/{name}/char-{name}-id-side-l.png`
-- Back: `assets/char/{name}/char-{name}-id-back.png`
+- Front anchor: `assets/char/{name}/{show}_char_{name}_id_front.png`
+- 3/4 left: `assets/char/{name}/{show}_char_{name}_id_3q_l.png`
+- 3/4 right: `assets/char/{name}/{show}_char_{name}_id_3q_r.png`
+- Side left: `assets/char/{name}/{show}_char_{name}_id_side_l.png`
+- Back: `assets/char/{name}/{show}_char_{name}_id_back.png`
 
 Example (show: sbw, character: eli):
-- `assets/char/eli/char-eli-id-front.png`
-- `assets/char/eli/char-eli-id-3q-l.png`
+- `assets/char/eli/sbw_char_eli_id_front.png`
+- `assets/char/eli/sbw_char_eli_id_3q_l.png`
 
 ### Turnaround set
 
-- Front: `assets/char/{name}/char-{name}-turn-front.png`
-- Side left: `assets/char/{name}/char-{name}-turn-side-l.png`
-- Side right: `assets/char/{name}/char-{name}-turn-side-r.png`
-- Back: `assets/char/{name}/char-{name}-turn-back.png`
-- 3/4 left: `assets/char/{name}/char-{name}-turn-3q-l.png`
-- 3/4 right: `assets/char/{name}/char-{name}-turn-3q-r.png`
+- Front: `assets/char/{name}/{show}_char_{name}_turn_front.png`
+- Side left: `assets/char/{name}/{show}_char_{name}_turn_side_l.png`
+- Side right: `assets/char/{name}/{show}_char_{name}_turn_side_r.png`
+- Back: `assets/char/{name}/{show}_char_{name}_turn_back.png`
+- 3/4 left: `assets/char/{name}/{show}_char_{name}_turn_3q_l.png`
+- 3/4 right: `assets/char/{name}/{show}_char_{name}_turn_3q_r.png`
 
 Example:
-- `assets/char/eli/char-eli-turn-front.png`
-- `assets/char/eli/char-eli-turn-side-l.png`
+- `assets/char/eli/sbw_char_eli_turn_front.png`
+- `assets/char/eli/sbw_char_eli_turn_side_l.png`
 
 ### Reference lock
 
@@ -56,8 +56,8 @@ Example:
 - **State:** clean / soiled / wet / torn *(circle one)*
 - **Notes:** {garment names, materials, key construction details}
 - **Images:**
-  - `assets/char/{name}/char-{name}-fit-day1.png`
-  - Example: `assets/char/eli/char-eli-fit-day1.png`
+  - `assets/char/{name}/{show}_char_{name}_fit_day1.png`
+  - Example: `assets/char/eli/sbw_char_eli_fit_day1.png`
 
 ### {Costume name - e.g., Day 2 (wet)}
 
@@ -66,8 +66,8 @@ Example:
 - **State:** wet
 - **Notes:** {description of wet/soiled variations from Day 1 base; denoise value used}
 - **Images:**
-  - `assets/char/{name}/char-{name}-fit-{label}.png`
-  - Example: `assets/char/eli/char-eli-fit-day2-wet.png`
+  - `assets/char/{name}/char_{name}-fit-{label}.png`
+  - Example: `assets/char/eli/sbw_char_eli_fit_day2_wet.png`
 
 *(Add a section for each additional costume state)*
 
@@ -80,8 +80,8 @@ Example:
 - **Hair:** {color, texture, length, style}
 - **Skin:** {baseline tone, coverage notes, any permanent marks}
 - **Images:**
-  - `assets/char/{name}/char-{name}-hmu-clean.png`
-  - Example: `assets/char/eli/char-eli-hmu-clean.png`
+  - `assets/char/{name}/{show}_char_{name}_hmu_clean.png`
+  - Example: `assets/char/eli/sbw_char_eli_hmu_clean.png`
 
 ### {State name - e.g., Wound 01}
 
@@ -93,8 +93,8 @@ Example:
 - **Stage:** fresh / sutured / healing / healed *(circle one)*
 - **Derived from:** {base state - e.g., Clean; denoise ~0.20}
 - **Images:**
-  - `assets/char/{name}/char-{name}-hmu-wound-01.png`
-  - Example: `assets/char/eli/char-eli-hmu-wound-01.png`
+  - `assets/char/{name}/{show}_char_{name}_hmu_wound_01.png`
+  - Example: `assets/char/eli/sbw_char_eli_hmu_wound_01.png`
 
 ### {State name - e.g., Aged}
 
@@ -102,8 +102,8 @@ Example:
   silver at temples, skin texture coarsened}
 - **Derived from:** {base state; denoise value used}
 - **Images:**
-  - `assets/char/{name}/char-{name}-hmu-aged.png`
-  - Example: `assets/char/eli/char-eli-hmu-aged.png`
+  - `assets/char/{name}/{show}_char_{name}_hmu_aged.png`
+  - Example: `assets/char/eli/sbw_char_eli_hmu_aged.png`
 
 *(Add sections for additional HMU states: wet, soiled, etc.)*
 

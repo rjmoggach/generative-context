@@ -1,0 +1,27 @@
+{
+  "show": "SBW",
+  "title": "Snowbound",
+  "updated": "2026-07-02",
+  "budget": 25.00,
+  "assets": [
+    { "type": "char", "name": "eli", "spec_file": "sbw_char_eli.md", "anchor_image": "sample/sbw_char_eli_id_front.png", "status": "built" },
+    { "type": "char", "name": "marguerite", "spec_file": "sbw_char_marguerite.md", "anchor_image": null, "status": "specced" },
+    { "type": "prop", "name": "revolver", "spec_file": "sbw_prop_revolver.md", "anchor_image": null, "status": "specced" },
+    { "type": "set", "name": "livingroom", "spec_file": "sbw_set_livingroom.md", "anchor_image": null, "status": "specced" }
+  ],
+  "generations": [
+    { "file": "sample/sbw_char_eli_id_front.png", "fal_endpoint": "fal-ai/flux/schnell", "seed": 1278911897, "refs": [], "prompt": "Cinematic portrait, 85mm, weathered ironworker...", "cost": 0.003, "rendered_at": "2026-07-02" }
+  ],
+  "sequences": [
+    { "label": "S2", "title": "Living Room, morning", "shots": [
+      { "label": "S2-01", "size": "Establishing", "lens": "LS - 24mm", "refs": ["set_livingroom"], "image": null, "status": "specced" },
+      { "label": "S2-02", "size": "Master", "lens": "MS - 40mm", "refs": ["char_eli","set_livingroom"], "image": null, "status": "specced" },
+      { "label": "S2-03", "size": "Coverage", "lens": "CU - 85mm", "refs": ["char_eli","set_livingroom"], "image": "sample/sbw_char_eli_id_front.png", "status": "rendered" }
+    ]}
+  ],
+  "cost": { "total": 0.003, "by_model": { "fal-ai/flux/schnell": 0.003 }, "by_sequence": {} },
+  "status": { "specced": 4, "built": 1, "rendered": 1, "approved": 1, "missing": 0 },
+  "human": {
+    "sample/sbw_char_eli_id_front.png": { "status": "approved", "note": "hero locked" }
+  }
+}

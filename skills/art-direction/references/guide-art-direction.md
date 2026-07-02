@@ -1,6 +1,6 @@
 # Art Direction — World Bible Mechanics
 
-Decision rules for **building and maintaining `art-bible-{show}.md`**, the technical world spec
+Decision rules for **building and maintaining `{show}_art_bible.md`**, the technical world spec
 that translates the Production Design creative vision into a locked, queryable reference that
 every character, prop, and set asset inherits from. The creative foundation — how production
 designers, propmasters, and set decorators build the physical world — is in
@@ -8,7 +8,7 @@ designers, propmasters, and set decorators build the physical world — is in
 `guide-asset-reference.md`. This guide sits between them: it defines the structure of the bible
 so that assets stay coherent as a world, not merely as a collection.
 
-The bible inherits its lens, grade, and palette baseline from `project-context-{show}.md`, which
+The bible inherits its lens, grade, and palette baseline from `{show}_project_context.md`, which
 holds production-wide workflow defaults. What the bible adds is world content: the CMF lexicon,
 era/genre rules, and the asset index that maps every locked asset by taxonomy path. Construct
 asset prompts *from* the bible's fields, not loosely inspired by them.
@@ -20,7 +20,7 @@ Each entry uses the library's decision-unit format:
 
 ## 1. The art bible as a queryable world spec
 
-- **Decision:** keep `art-bible-{show}.md` separate from `project-context-{show}.md`.
+- **Decision:** keep `{show}_art_bible.md` separate from `{show}_project_context.md`.
 - **Use when:** beginning any show or episode; orienting a new agent to the world.
 - **Because:** `project-context` holds production-wide workflow defaults — lens, grade, palette
   baseline, output specs, model preferences. The art bible holds *world content*: what the world
@@ -36,7 +36,7 @@ Each entry uses the library's decision-unit format:
   entropy level) drift into project-context. Don't let the bible grow prose that can't be
   queried — keep it in defined, labeled fields. If a field does not exist in the bible, it is not
   a world rule.
-- **Anchors:** `project-context-{show}.md` (lens, grade, baseline palette);
+- **Anchors:** `{show}_project_context.md` (lens, grade, baseline palette);
   `reference-craft-artdept.md` ("The production designer as world author").
 
 ---
@@ -61,7 +61,7 @@ Each entry uses the library's decision-unit format:
   (used sparingly); mistaking an accent for a dominant overwrites the world's emotional baseline.
   See `guide-color-story.md` for scheme, temperature contrast, and associative color.
 - **Anchors:** `guide-color-story.md` (§2 schemes, §3 associative color, §4 temperature
-  contrast); `project-context-{show}.md` (inherited color scheme and grade).
+  contrast); `{show}_project_context.md` (inherited color scheme and grade).
 
 The bible's palette block follows this structure:
 
@@ -149,16 +149,16 @@ The bible's palette block follows this structure:
   the visual grammar of the world itself.
 - **Prompt translation:** use `image-edit` with mood-board references as inputs, guided by the
   palette, CMF, and era/genre rules already locked in the bible. Generate until one image captures
-  the world's feel, then lock it. Store at `assets/style/style-{show}-global.png`. Attach it as
+  the world's feel, then lock it. Store at `assets/style/style-{show}_global.png`. Attach it as
   a background reference to every first asset generation; use it to calibrate the visual register
   before fanning out to characters, props, and sets.
 - **Watch-outs:** the style-ref is not the palette (it cannot stand in for hex values), not the
   CMF lexicon (it cannot stand in for material call-outs), and not the era/genre rules (it cannot
   stand in for a list of world constraints). It anchors *mood and overall visual language* only —
   do not use it as a composition reference. The default lens and grade it implies must be stated
-  explicitly in `project-context-{show}.md` and cross-referenced from the bible; don't let them
+  explicitly in `{show}_project_context.md` and cross-referenced from the bible; don't let them
   live only in the image.
-- **Anchors:** `guide-asset-reference.md` §1 (anchor-then-fan-out); `project-context-{show}.md`
+- **Anchors:** `guide-asset-reference.md` §1 (anchor-then-fan-out); `{show}_project_context.md`
   (lens, grade, and palette baseline the style-ref inherits).
 
 ---
@@ -180,16 +180,16 @@ The bible's palette block follows this structure:
 
   | Type   | Name     | Spec file                | Anchor image path                             |
   |--------|----------|--------------------------|-----------------------------------------------|
-  | `char` | `{name}` | `char-{show}-{name}.md`  | `assets/char/{name}/char-{name}-id-front.png` |
-  | `prop` | `{name}` | `prop-{show}-{name}.md`  | `assets/prop/{name}/prop-{name}-hero.png`     |
-  | `set`  | `{name}` | `set-{show}-{name}.md`   | `assets/set/{name}/set-{name}-plate.png`      |
+  | `char` | `{name}` | `{show}_char_{name}.md`  | `assets/char/{name}/{show}_char_{name}_id_front.png` |
+  | `prop` | `{name}` | `{show}_prop_{name}.md`  | `assets/prop/{name}/{show}_prop_{name}_hero.png`     |
+  | `set`  | `{name}` | `{show}_set_{name}.md`   | `assets/set/{name}/{show}_set_{name}_plate.png`      |
 
 - **Watch-outs:** the index is live — update it when an asset is locked, when its anchor image is
   replaced, and when an asset is retired. An out-of-date index is more dangerous than no index:
   it sends agents to paths that no longer exist. Do not list assets that are not yet locked (not
   anchored, not spec-filed); a partial asset in the index implies it is safe to reference, which
   it is not.
-- **Anchors:** `guide-asset-reference.md` §9 (taxonomy: `{type}-{show}-{name}.md`,
+- **Anchors:** `guide-asset-reference.md` §9 (taxonomy: `{show}_{type}_{name}.md`,
   `assets/{type}/{name}/`, image files carry no `{show}`).
 
 ---
@@ -223,11 +223,11 @@ The bible's palette block follows this structure:
 
 ## Quick application
 
-1. Create `art-bible-{show}.md` with palette (named + hex), CMF lexicon, era/genre rules, and an
+1. Create `{show}_art_bible.md` with palette (named + hex), CMF lexicon, era/genre rules, and an
    empty asset index table.
 2. Generate the global style-ref via `image-edit`; lock it at
-   `assets/style/style-{show}-global.png`.
-3. Confirm lens, grade, and baseline palette in `project-context-{show}.md`; cross-reference
+   `assets/style/style-{show}_global.png`.
+3. Confirm lens, grade, and baseline palette in `{show}_project_context.md`; cross-reference
    from the bible.
 4. Build the asset index as assets are locked — spec file + anchor image path, never before the
    anchor exists.
@@ -235,6 +235,6 @@ The bible's palette block follows this structure:
    hex), merged with the asset identity block; attach the style-ref as a background reference.
 6. Propagate changes upward: bible first, then asset sheets, then feed.
 
-Companion guides: `project-context-{show}.md` (lens, grade, baseline palette),
+Companion guides: `{show}_project_context.md` (lens, grade, baseline palette),
 `guide-asset-reference.md` §8 (top-down inheritance), `guide-color-story.md` (palette
 mechanics), `reference-craft-artdept.md` (Production Design creative foundation).

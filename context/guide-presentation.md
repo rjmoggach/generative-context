@@ -1,7 +1,7 @@
 # Presentation — Showing the Production to the Human
 
 The review surface. The `production` skill and `production-coordinator` build the
-`production-{show}.json` manifest (see `guide-production.md`); this guide covers how to
+`{show}_production.json` manifest (see `guide-production.md`); this guide covers how to
 put it in front of the human to review - a visual board, a contact sheet, or a one-off
 rendered page - without turning the plugin into an app. Used by the `production-coordinator`
 when the ask is "show me" rather than "tell me."
@@ -20,9 +20,9 @@ Format: **Decision / Use when / Because / Prompt translation / Watch-outs / Anch
   shots with thumbnails, status, cost, and the gaps to close.
 - **Because:** a JSON manifest is not a review surface; a board is. The repo ships a
   self-contained, read-only viewer at `dashboard/index.html` that renders any
-  `production-{show}.json` - no build step, no server, not part of the plugin package.
+  `{show}_production.json` - no build step, no server, not part of the plugin package.
 - **Prompt translation:** point the human at it - "open `dashboard/index.html`, click *Open
-  production folder*, and pick your working folder (the one with `production-{show}.json` +
+  production folder*, and pick your working folder (the one with `{show}_production.json` +
   `assets/`)." It resolves thumbnails read-only via the File System Access API (Chrome/Edge),
   or *Load sample* / drop-a-JSON for a quick look. Clicking any image opens it full-screen.
 - **Watch-outs:** the folder picker needs a Chromium browser; the manifest and its `assets/`
@@ -49,7 +49,7 @@ Format: **Decision / Use when / Because / Prompt translation / Watch-outs / Anch
   not want to open the dashboard app - or is in a host (e.g. Cowork) that can render an HTML
   artifact inline.
 - **Because:** the board is just the manifest rendered; the agent can produce a one-off,
-  self-contained HTML view from `production-{show}.json` on request and throw it away after.
+  self-contained HTML view from `{show}_production.json` on request and throw it away after.
   The plugin stays pure-text; the presentation is an agent action, not a shipped surface.
 - **Prompt translation:** read the manifest, render a single self-contained HTML board
   (mirroring `dashboard/index.html`'s layout) as an artifact, and hand it over. Do not commit

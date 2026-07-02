@@ -25,7 +25,7 @@ driven from the locked master plate.
 
 Whenever a location must read as the same place across more than one shot — or when the
 user requests establishing plates, a location pack, or time-of-day / weather variants of
-an existing setting. If the spec file already exists (`set-{show}-{name}.md`), refine it
+an existing setting. If the spec file already exists (`{show}_set_{name}.md`), refine it
 in place: update only the changed coverage or variant and re-export the affected images.
 Do not rebuild from scratch unless the location's production design has fundamentally
 changed.
@@ -58,8 +58,8 @@ Read these before writing any prompt:
 - [`references/guide-image-editing.md`](references/guide-image-editing.md) —
   the i2i mechanics used to derive coverage angles and lighting variants from the anchor.
 
-If the user names a show code, read `project-context-{show}.md` (and
-`art-bible-{show}.md` if present) and inherit the Standard Prompt Prefix, palette hex
+If the user names a show code, read `{show}_project_context.md` (and
+`{show}_art_bible.md` if present) and inherit the Standard Prompt Prefix, palette hex
 codes, CMF lexicon, style reference, lighting vocabulary, grade, lens specs, atmosphere,
 and forbidden terms; construct prompts from those fields. Hold these consistently across
 the master plate, all coverage, and all variants.
@@ -83,7 +83,7 @@ Once the master plate is approved:
 2. **Note the base-state light logic:** key direction (compass or clock position), colour
    temp with hex, hard or soft quality, and approximate time of day. This entry becomes
    the `Base` row of the continuity table.
-3. Save as `assets/set/{name}/set-{name}-plate.png` in the user's working folder.
+3. Save as `assets/set/{name}/{show}_set_{name}_plate.png` in the user's working folder.
 
 ## Step 3 — Coverage
 
@@ -92,8 +92,8 @@ Using the master plate as the locked reference, derive **coverage angles** via
 Coverage should account for the angles the scene actually requires; always include the
 reverse angle.
 
-- Main coverage: `set-{name}-cov-01.png`, `set-{name}-cov-02.png`, etc.
-- Reverse angle: `set-{name}-cov-reverse.png` — looking back along the master plate's
+- Main coverage: `{show}_set_{name}_cov_01.png`, `{show}_set_{name}_cov_02.png`, etc.
+- Reverse angle: `{show}_set_{name}_cov_reverse.png` — looking back along the master plate's
   primary sight line. The reverse is where geometry drift first becomes visible; verify
   landmark continuity explicitly before moving on.
 
@@ -116,13 +116,13 @@ a single generation step compounds uncontrolled drift.
 
 Standard variant set (generate only what the project requires):
 
-- Dawn: `set-{name}-tod-dawn.png` — low-east light, cool colour cast
-- Golden hour: `set-{name}-tod-golden.png` — low-west warm key, long shadows
-- Dusk: `set-{name}-tod-dusk.png` — transitional blue-to-amber, practicals coming on
-- Night: `set-{name}-tod-night.png` — overhead minimal ambient, practical-dominant
-- Overcast: `set-{name}-tod-overcast.png` — flat top light, desaturated
-- Rain: `set-{name}-tod-rain.png` — wet surfaces, rain haze, overcast modifier
-- Fog: `set-{name}-tod-fog.png` — near-distance falloff, diffused ambient
+- Dawn: `{show}_set_{name}_tod_dawn.png` — low-east light, cool colour cast
+- Golden hour: `{show}_set_{name}_tod_golden.png` — low-west warm key, long shadows
+- Dusk: `{show}_set_{name}_tod_dusk.png` — transitional blue-to-amber, practicals coming on
+- Night: `{show}_set_{name}_tod_night.png` — overhead minimal ambient, practical-dominant
+- Overcast: `{show}_set_{name}_tod_overcast.png` — flat top light, desaturated
+- Rain: `{show}_set_{name}_tod_rain.png` — wet surfaces, rain haze, overcast modifier
+- Fog: `{show}_set_{name}_tod_fog.png` — near-distance falloff, diffused ambient
 
 For each variant: state the single variable changed, the new light direction and colour
 temp with hex, and the atmosphere descriptor. These values populate the continuity table
@@ -167,18 +167,18 @@ hard limits per model before advising any specific count.
 
 Write all outputs to the **user's working folder** — never to the plugin repo.
 
-**Spec file:** `set-{show}-{name}.md`, filled from
+**Spec file:** `{show}_set_{name}.md`, filled from
 [`references/set-template.md`](references/set-template.md). The crew role for this
 workflow is `location-scout`, but the asset type in the taxonomy is `set` — spec
-filenames follow `set-{show}-{name}.md` (not `location-…`) and the image folder is
+filenames follow `{show}_set_{name}.md` (not `location-…`) and the image folder is
 `assets/set/{name}/`.
 
 **Image folder:** `assets/set/{name}/` — use the asset taxonomy filenames exactly
 (guide-asset-reference §9):
 
-- Master plate: `set-{name}-plate.png`
-- Coverage: `set-{name}-cov-01.png`, `set-{name}-cov-02.png`, `set-{name}-cov-reverse.png`
-- Time-of-day / weather: `set-{name}-tod-dawn.png`, `-tod-golden.png`, `-tod-night.png`,
+- Master plate: `{show}_set_{name}_plate.png`
+- Coverage: `{show}_set_{name}_cov_01.png`, `{show}_set_{name}_cov_02.png`, `{show}_set_{name}_cov_reverse.png`
+- Time-of-day / weather: `{show}_set_{name}_tod_dawn.png`, `-tod-golden.png`, `-tod-night.png`,
   `-tod-rain.png`, etc.
 
 All filenames are lowercase ASCII kebab-case. Image filenames carry **no `{show}`

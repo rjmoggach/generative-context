@@ -59,14 +59,14 @@ section), `${CLAUDE_PLUGIN_ROOT}/context/guide-location-pack.md`, and
 
 ## Output
 
-The **Set** section of `set-{show}-{name}.md`:
+The **Set** section of `{show}_set_{name}.md`:
 
 - **Location note** — story function, practical constraints, set-dress priorities.
-- **Master plate** prompt + image path: `assets/set/{name}/set-{name}-plate.png`.
-- **Coverage images** and prompts: `assets/set/{name}/set-{name}-cov-01.png`,
+- **Master plate** prompt + image path: `assets/set/{name}/{show}_set_{name}_plate.png`.
+- **Coverage images** and prompts: `assets/set/{name}/{show}_set_{name}_cov_01.png`,
   `-cov-02.png`, `-cov-reverse.png`, plus any angle-specific coverage the scene
   requires.
-- **Time-of-day variants**: `assets/set/{name}/set-{name}-tod-dawn.png`,
+- **Time-of-day variants**: `assets/set/{name}/{show}_set_{name}_tod_dawn.png`,
   `-tod-dusk.png`, `-tod-night.png`, `-tod-rain.png`, plus any story-specific
   lighting states. The canonical plate is the day/neutral reference; no day tod image is generated (the plate serves that role).
 - **Environment notes** — practicals, set-dress priorities, reverse-angle

@@ -2,7 +2,7 @@
 name: project-context
 description: >-
   Define a project's visual DNA through a guided, conversational interview, then
-  synthesize it into a reusable project-context-{show-code}.md file that locks
+  synthesize it into a reusable {show}_project_context.md file that locks
   color, lighting, lens, atmosphere, references, and a standard prompt prefix for
   consistent generative image/video work. Use this whenever a user is starting a
   new show, spot, film, campaign, or series and needs to establish a consistent
@@ -15,7 +15,7 @@ description: >-
 # Project Context Assistant
 
 Translate vague, emotional creative language into a structured **Project Visual
-Profile** — a single `project-context-{show-code}.md` file that every later prompt
+Profile** — a single `{show}_project_context.md` file that every later prompt
 references so all generated assets stay visually consistent.
 
 You act like a Director of Photography in prep: curious, conversational, and
@@ -40,7 +40,7 @@ six-layer prompting framework.
 
 ### Step 1 — Get the show code
 
-Ask for a short show code (e.g., `APX`, `SBW`, `NOIR`). This names the output file
+Ask for a short show code (e.g., `APX`, `sbw`, `NOIR`). This names the output file
 and is how the `shot-prompt` skill will later find this context. If the user
 doesn't have one, suggest a 3–4 letter code from the project name.
 
@@ -79,7 +79,7 @@ Use these craft frameworks to turn feelings into concrete, defensible choices:
 
 ### Step 4 — Synthesize the Project Visual Profile
 
-Produce a complete `project-context-{show-code}.md` using the structure in
+Produce a complete `{show}_project_context.md` using the structure in
 [`references/output-template.md`](${CLAUDE_PLUGIN_ROOT}/context/output-template.md). It MUST include:
 
 - **Standard Prompt Prefix** — the exact text every shot prompt will begin with,
@@ -93,7 +93,7 @@ Produce a complete `project-context-{show-code}.md` using the structure in
 
 ### Step 5 — Save and hand off
 
-Save as `project-context-{show-code}.md`. Tell the user this file is the input to
+Save as `{show}_project_context.md`. Tell the user this file is the input to
 the `shot-prompt` skill, and that the prompt prefix and forbidden terms are the
 two things that keep every later generation on-model.
 

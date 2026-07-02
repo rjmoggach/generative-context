@@ -8,7 +8,7 @@ description: >-
   like "write a prompt for", "generate shots for sequence X", "I need a hero
   still", "give me establishing + master + coverage", "make this work for Veo /
   Midjourney / Seedance", or "build a shot list". Prefer loading a
-  project-context-{show-code}.md first (produced by the project-context skill) so
+  {show}_project_context.md first (produced by the project-context skill) so
   every prompt stays on-model; if none exists, offer to create one. Optimizes
   prompt structure per target model and maintains consistency across shots.
 ---
@@ -29,7 +29,7 @@ this skill consumes.
 ## Step 1 — Load context (do this first)
 
 1. **Find the show code.** If the user's message contains one (e.g., "shots for
-   SBW sequence 2"), look for `project-context-{show-code}.md` in the working
+   sbw sequence 2"), look for `{show}_project_context.md` in the working
    folder and read it fully. If no code is given, ask for it — or, if the user
    has no context file, offer to run the `project-context` skill first.
 2. **Extract and hold:** the Standard Prompt Prefix (verbatim), color hex codes,
@@ -110,16 +110,16 @@ If a shot line carries `refs: {id}[, {id}...]` (the notation defined in
 [`references/guide-asset-reference.md`](references/guide-asset-reference.md) §10),
 resolve every id **before** finalizing that shot's prompt:
 
-1. Locate the asset spec the id names — `char-{show}-{name}.md`, `prop-{show}-{name}.md`,
-   or `set-{show}-{name}.md` — and read its identity/descriptor block.
+1. Locate the asset spec the id names — `{show}_char_{name}.md`, `{show}_prop_{name}.md`,
+   or `{show}_set_{name}.md` — and read its identity/descriptor block.
 2. Restate that identity/descriptor block **verbatim** as the prompt's identity segment.
    Do not paraphrase it or re-derive identity from the shot description.
-3. Attach the asset's anchor image as the model reference: `assets/char/{name}/char-{name}-id-front.png`,
-   `assets/prop/{name}/prop-{name}-hero.png`, or `assets/set/{name}/set-{name}-plate.png`.
+3. Attach the asset's anchor image as the model reference: `assets/char/{name}/{show}_char_{name}_id_front.png`,
+   `assets/prop/{name}/{show}_prop_{name}_hero.png`, or `assets/set/{name}/{show}_set_{name}_plate.png`.
 4. Apply the two-block split from `guide-asset-reference.md` §2: **identity = reference**
    (the attached anchor image plus its verbatim descriptor block) and **change = prompt**
    (the shot's action, camera, lighting, and scene specifics only).
-5. Inherit that show's `art-bible-{show}.md` palette and camera/material/finish (CMF)
+5. Inherit that show's `{show}_art_bible.md` palette and camera/material/finish (CMF)
    fields per §8, so every referenced asset stays graded to the world even when the
    shot line doesn't repeat every hex code.
 

@@ -8,7 +8,7 @@ description: >-
   "plan this scene", "break down the sequence", "how should I cover this", "design
   the coverage", "build a shot list for", "block this scene", or "what shots do I
   need". Sits between project-context (the look) and shot-prompt (each shot); load
-  a project-context-{show-code}.md first so the plan inherits the visual language.
+  a {show}_project_context.md first so the plan inherits the visual language.
 ---
 
 # Sequence Design Assistant
@@ -32,7 +32,7 @@ shot, skip straight to `shot-prompt`.
 
 ## Step 1 — Load the look
 
-If a `project-context-{show-code}.md` exists, read it and inherit the standard
+If a `{show}_project_context.md` exists, read it and inherit the standard
 prompt prefix, palette, lighting, lens signature, and forbidden terms. If none
 exists, offer `project-context` first, or proceed noting the plan won't be
 consistency-locked.
@@ -84,7 +84,7 @@ Intensity arc: {open → peak at the turn → resolve}
 
 S{n}-01  Establishing — {size}, {angle}, {lens}, {move} — serves {beat} — intensity {low/med/high}
 S{n}-02  Master — ...
-S{n}-03  Coverage CU — {lens} — serves {beat} — intensity {x} — refs: char-eli, set-livingroom
+S{n}-03  Coverage CU — {lens} — serves {beat} — intensity {x} — refs: char_eli, set_livingroom
 ...
 ```
 
@@ -92,7 +92,7 @@ S{n}-03  Coverage CU — {lens} — serves {beat} — intensity {x} — refs: ch
 
 Per [`references/guide-asset-reference.md`](references/guide-asset-reference.md) §10, scan
 the working folder for `char-`/`prop-`/`set-` spec files (`assets/` and any loose
-`{type}-{show}-{name}.md`). For each shot, append `refs: {id}[, {id}...]` naming the
+`{show}_{type}_{name}.md`). For each shot, append `refs: {id}[, {id}...]` naming the
 assets that beat needs — the character(s), prop(s), and set the shot must carry
 identity for. A shot with no locked assets in frame omits `refs:` entirely. This is
 the contract `shot-prompt` reads to attach the right anchor images and identity

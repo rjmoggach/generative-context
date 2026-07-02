@@ -38,13 +38,13 @@ Each entry uses the library's decision-unit format:
   explicitly: *"wide establishing shot, [environment descriptor: architecture /
   landscape / spatial geometry / key features], [canonical lighting condition: time of
   day, key direction, colour temperature], no characters, no props in frame."*
-  Filename: `set-{name}-plate.png`. Store the identity block — geometry, key features,
-  light logic — in the companion spec file (`set-{show}-{name}.md`); image files drop
+  Filename: `{show}_set_{name}_plate.png`. Store the identity block — geometry, key features,
+  light logic — in the companion spec file (`{show}_set_{name}.md`); image files drop
   `{show}`.
 - **Watch-outs:** the most common plate failure is a frame too tight to fix the
   geometry — an interesting close detail establishes atmosphere but not space, leaving
   coverage derivations with no spatial anchor to reconstruct from. The second failure
-  is a plate shot in a dramatically lit condition (hard golden side-light, deep-night
+  is a plate shot in a dramatically lit condition (hard golden side_light, deep-night
   ambience) that forecloses tod variants: a plate already at a lighting extreme has
   nowhere to derive toward in that direction. Choose the canonical mid-range condition
   and let tod variants reach the extremes. The third failure is an insufficient written
@@ -78,11 +78,11 @@ Each entry uses the library's decision-unit format:
 
   | View | Filename | What it shows |
   |---|---|---|
-  | Master (= the plate) | `set-{name}-plate.png` | Wide establishing; full spatial geometry at canonical condition |
-  | Coverage 01 | `set-{name}-cov-01.png` | First coverage angle per the shot list |
-  | Coverage 02 | `set-{name}-cov-02.png` | Second coverage angle |
-  | Reverse | `set-{name}-cov-reverse.png` | Looking back through the space; camera opposite the master plate |
-  | Additional | `set-{name}-cov-03.png` | Any further angles required by the shot list |
+  | Master (= the plate) | `{show}_set_{name}_plate.png` | Wide establishing; full spatial geometry at canonical condition |
+  | Coverage 01 | `{show}_set_{name}_cov_01.png` | First coverage angle per the shot list |
+  | Coverage 02 | `{show}_set_{name}_cov_02.png` | Second coverage angle |
+  | Reverse | `{show}_set_{name}_cov_reverse.png` | Looking back through the space; camera opposite the master plate |
+  | Additional | `{show}_set_{name}_cov_03.png` | Any further angles required by the shot list |
 
   State the camera direction explicitly in each prompt: *"camera positioned [spatial
   description], looking [into / across / back through] the space; same geometry, same
@@ -124,10 +124,10 @@ Each entry uses the library's decision-unit format:
 
   | Variant | Filename | What changes |
   |---|---|---|
-  | Dawn | `set-{name}-tod-dawn.png` | Low warm-orange key, long horizontal shadows, sky graduating dark to pale |
-  | Dusk | `set-{name}-tod-dusk.png` | Low warm-red key, shadows stretching opposite dawn, late-colour sky |
-  | Night | `set-{name}-tod-night.png` | Ambient or practical-source key (streetlights, windows), deep shadow, reduced ambient |
-  | Rain | `set-{name}-tod-rain.png` | Overcast diffuse key, wet surfaces, atmospheric haze; derive from the canonical plate |
+  | Dawn | `{show}_set_{name}_tod_dawn.png` | Low warm-orange key, long horizontal shadows, sky graduating dark to pale |
+  | Dusk | `{show}_set_{name}_tod_dusk.png` | Low warm-red key, shadows stretching opposite dawn, late-colour sky |
+  | Night | `{show}_set_{name}_tod_night.png` | Ambient or practical-source key (streetlights, windows), deep shadow, reduced ambient |
+  | Rain | `{show}_set_{name}_tod_rain.png` | Overcast diffuse key, wet surfaces, atmospheric haze; derive from the canonical plate |
 
   Always branch from the master plate — not in series. Do not chain dawn → day →
   dusk → night; each tod variant derives independently from the anchor. The canonical
@@ -160,7 +160,7 @@ Each entry uses the library's decision-unit format:
   recorded here is what gets restated verbatim in every downstream shot prompt that
   uses this location.
 - **Prompt translation:** maintain one continuity table per location pack, stored in the
-  spec file (`set-{show}-{name}.md`). Minimum fields per variant:
+  spec file (`{show}_set_{name}.md`). Minimum fields per variant:
 
   | Variant | Key direction | Key colour / temp | Sky / atmosphere | Notes for downstream prompts |
   |---|---|---|---|---|
@@ -237,16 +237,16 @@ angles and set extensions is a known technique — deferred to a later phase.
 
 ## Quick application
 
-1. Generate the **master establishing plate** (`set-{name}-plate.png`) — wide enough to
+1. Generate the **master establishing plate** (`{show}_set_{name}_plate.png`) — wide enough to
    fix the geometry, in the production's canonical light condition. Store the identity
    block (geometry, key features, light logic) in the companion spec file
-   (`set-{show}-{name}.md`).
+   (`{show}_set_{name}.md`).
 2. Derive **coverage angles** from the master plate via `image-edit` (mechanism C,
    denoise ~0.3–0.5) — never from each other. Always include the reverse angle, locked
-   as the next slot in sequence: `set-{name}-cov-01.png`, `set-{name}-cov-02.png`, …
+   as the next slot in sequence: `{show}_set_{name}_cov_01.png`, `{show}_set_{name}_cov_02.png`, …
 3. Derive **tod variants** from the master plate one variable at a time — branch each
-   from the anchor independently, never chain in series: `set-{name}-tod-dawn.png`,
-   `set-{name}-tod-dusk.png`, `set-{name}-tod-night.png`, `set-{name}-tod-rain.png`.
+   from the anchor independently, never chain in series: `{show}_set_{name}_tod_dawn.png`,
+   `{show}_set_{name}_tod_dusk.png`, `{show}_set_{name}_tod_night.png`, `{show}_set_{name}_tod_rain.png`.
 4. Record the **continuity table** in the spec file — light direction, key colour, and
    atmosphere per variant. Restate these values verbatim in every downstream shot
    prompt that uses this location.

@@ -1,7 +1,7 @@
 ---
 name: production
 description: >-
-  Build and reconcile the show's operational manifest — production-{show}.json —
+  Build and reconcile the show's operational manifest — {show}_production.json —
   and report status: what exists, what state it's in, what it cost, and what's
   missing. The production office that sits above the asset layer, indexing what
   project-context, art-direction, and the asset/execution skills have already
@@ -15,9 +15,9 @@ description: >-
 
 Act like a production coordinator running the white-board: you do not create
 assets or spend money, you reconcile the manifest against the files on disk and
-report where the show stands. `production-{show}.json` is the index every other
+report where the show stands. `{show}_production.json` is the index every other
 skill's output feeds into — `project-context`, `art-direction`, the
-`char-`/`prop-`/`set-` specs, and every `.recipe` sidecar `guide-execution.md`
+`char_`/`prop_`/`set_` specs, and every `.recipe` sidecar `guide-execution.md`
 writes — and the thing a producer reads to answer "where are we" without opening
 a single file themselves.
 
@@ -48,9 +48,11 @@ prevent. See [`references/guide-production.md`](${CLAUDE_PLUGIN_ROOT}/context/gu
 
 Read the user's working folder in full before touching the manifest:
 
-- `project-context-*` and `art-bible-*` — the show's look and world spec, and
-  any budget figure recorded in project-context.
-- Every `char-{show}-*.md`, `prop-{show}-*.md`, and `set-{show}-*.md` spec file.
+- `*-project-context.md` and `*-art-bible.md` — the show's look and world spec, and
+  any budget figure recorded in project-context. Filenames lead with the lowercase
+  show code (`sbw_project_context.md`); the leading token IS the show code
+  (`references/guide-asset-reference.md` §9).
+- Every `{show}_char_*.md`, `{show}_prop_*.md`, and `{show}_set_*.md` spec file.
 - Every `assets/**` folder — anchor images and generated renders at their
   taxonomy paths (`references/guide-asset-reference.md` §9).
 - Every `.recipe` sidecar next to a render — the provenance record
@@ -60,8 +62,27 @@ Read the user's working folder in full before touching the manifest:
   §10), which ties a generation to a sequence and can surface a `missing` asset
   before it's ever specced.
 
-If an existing `production-{show}.json` is already present in the working
+If an existing `{show}_production.json` is already present in the working
 folder, read it now too — its `human` block is what Step 2 must preserve.
+
+## Step 1.5 — Normalize legacy filenames
+
+Before reconciling, bring any file using a **prior naming convention** up to the
+current taxonomy (`references/guide-asset-reference.md` §9): the lowercase show code
+leads every filename and fields are underscore-separated — `{show}_{descriptor}`.
+**Rename in place** (and update references) whenever you find:
+
+- show code as a **suffix**, **uppercase**, or fields joined by **hyphens** —
+  `project-context-SBW.md` → `sbw_project_context.md`,
+  `production-SBW.json` → `sbw_production.json`, `char-sbw-eli.md` → `sbw_char_eli.md`,
+  `char-eli-id-front.png` → `sbw_char_eli_id_front.png`.
+- any `-` between fields → `_`; any uppercase show code → lowercase.
+
+Correcting legacy/mistaken filenames is in scope for reconcile — it's how the working
+folder and the manifest are kept in agreement. Renaming assets/specs is the **only**
+write this flow makes beyond the manifest itself. (The read-only `production-coordinator`
+agent can't rename; it flags the needed renames and the skill, running in the main
+session, performs them.)
 
 ## Step 2 — Build / reconcile
 
@@ -85,13 +106,13 @@ Reconcile in two passes, in this order, per
    fresh scan, keep the entry anyway and surface it as an orphaned approval in
    the report, rather than silently dropping it.
 
-**Critical: read the existing `production-{show}.json` first and merge-preserve
+**Critical: read the existing `{show}_production.json` first and merge-preserve
 its `human` block by artifact id.** Never regenerate the file from a blank slate
 — that silently discards every approval and retake note a producer has made.
 Only a human explicitly telling you to clear or change a `human` entry shrinks
 or changes it.
 
-Write the reconciled file to `production-{show}.json` in the **user's working
+Write the reconciled file to `{show}_production.json` in the **user's working
 folder** — never to the plugin repo — following the schema in
 [`references/guide-production.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-production.md) §6: `show`,
 `updated`, `assets[]`, `generations[]`, `sequences[]`, `cost`, `status`, `human`.
@@ -143,7 +164,7 @@ Reconcile first so it is current; keep it read-only.
    A rebuild only adds to `human`; only a human explicitly clearing or changing
    an entry shrinks or changes it.
 2. **Write to the user's working folder, never the plugin repo.**
-   `production-{show}.json` lives alongside `project-context-{show}.md` and the
+   `{show}_production.json` lives alongside `{show}_project_context.md` and the
    asset specs it indexes — not inside this plugin's install.
 3. **The files are the source of truth, not the manifest.** The manifest is a
    cached, rebuildable view over the specs, `assets/**`, and `.recipe` sidecars.

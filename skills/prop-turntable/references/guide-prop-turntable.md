@@ -32,7 +32,7 @@ Each entry uses the library's decision-unit format:
   shadow that competes with the form, no environment. State explicitly:
   *"hero view, [prop descriptor: form / material / finish / distinguishing marks],
   neutral grey background, flat even diffuse lighting, no cast shadow, object fills
-  frame."* Filename: `prop-{name}-hero.png`.
+  frame."* Filename: `{show}_prop_{name}_hero.png`.
 - **Watch-outs:** the single most common anchor failure is directional lighting — a key
   light bakes shadow geometry into the hero that ortho derivations cannot hold
   consistently. A hero with a strong screen-left key will produce ortho views where the
@@ -61,13 +61,13 @@ Each entry uses the library's decision-unit format:
 
   | View | Filename | What it shows |
   |---|---|---|
-  | Front | `prop-{name}-ortho-front.png` | Primary face, dominant graphic, key material surface |
-  | Back | `prop-{name}-ortho-back.png` | Rear surface, back markings, hardware or finish on the reverse |
-  | Left side | `prop-{name}-ortho-side-l.png` | Left-profile silhouette and depth from this axis |
-  | Right side | `prop-{name}-ortho-side-r.png` | Right-profile silhouette and depth from this axis |
-  | Top | `prop-{name}-ortho-top.png` | Plan view; footprint and top-face detail |
+  | Front | `{show}_prop_{name}_ortho_front.png` | Primary face, dominant graphic, key material surface |
+  | Back | `{show}_prop_{name}_ortho_back.png` | Rear surface, back markings, hardware or finish on the reverse |
+  | Left side | `{show}_prop_{name}_ortho_side_l.png` | Left-profile silhouette and depth from this axis |
+  | Right side | `{show}_prop_{name}_ortho_side_r.png` | Right-profile silhouette and depth from this axis |
+  | Top | `{show}_prop_{name}_ortho_top.png` | Plan view; footprint and top-face detail |
 
-  Add `prop-{name}-ortho-bottom.png` when the underside is visible on screen (a coin
+  Add `{show}_prop_{name}_ortho_bottom.png` when the underside is visible on screen (a coin
   shown tails-up, a watch worn face-down, a book lying spine-visible). Derive each view
   from the hero anchor via `image-edit` mechanism C (full-frame i2i, denoise ~0.3–0.5)
   — rotation instruction in the scene block only; hold the prop descriptor block
@@ -106,8 +106,8 @@ Each entry uses the library's decision-unit format:
   characteristics. Name the surface explicitly:
   *"close-up of [engraving / hallmark / mechanism / wear patch], same material finish
   and surface character as source, no change to the object."* Number sequentially:
-  `prop-{name}-detail-01.png`, `prop-{name}-detail-02.png`. Note which face each
-  detail originates from in the companion spec file (`prop-{show}-{name}.md`).
+  `{show}_prop_{name}_detail_01.png`, `{show}_prop_{name}_detail_02.png`. Note which face each
+  detail originates from in the companion spec file (`{show}_prop_{name}.md`).
 - **Watch-outs:** hold the flat diffuse discipline in detail views — a detail lit
   differently from the hero creates integration problems when close-up shots must cut
   to wider frames. Micro-detail (fine text, insignia, hallmark stamps) is the first
@@ -139,10 +139,10 @@ Each entry uses the library's decision-unit format:
     instruction; hold the prop descriptor block verbatim. Never regenerate from scratch
     to reach a further state — always edit the immediately preceding state.
   - **State suffix convention:** append the state name to the base filename:
-    `prop-{name}-hero-aged.png`, `prop-{name}-hero-bloodied.png`,
-    `prop-{name}-hero-broken.png`. Ortho and detail views at the same state follow the
-    same pattern: `prop-{name}-ortho-front-aged.png`,
-    `prop-{name}-detail-01-bloodied.png`.
+    `{show}_prop_{name}_hero_aged.png`, `{show}_prop_{name}_hero_bloodied.png`,
+    `{show}_prop_{name}_hero_broken.png`. Ortho and detail views at the same state follow the
+    same pattern: `{show}_prop_{name}_ortho_front_aged.png`,
+    `{show}_prop_{name}_detail_01_bloodied.png`.
   - **Multiples:** generate the primary unit first; derive duplicate units from it at
     very low denoise (~0.1–0.2) with only minor permitted surface variation. Record the
     multiple count in the prop spec file.
@@ -171,7 +171,7 @@ Each entry uses the library's decision-unit format:
 - **Prompt translation:** generate 8–12 evenly spaced views at 30°–45° intervals
   (8 steps = 45°; 12 steps = 30°) from the hero anchor via `image-edit` mechanism C.
   All framing-the-asset rules apply (§6): consistent scale, neutral background, flat
-  diffuse. File as `prop-{name}-360-01.png` through `prop-{name}-360-08.png` (or
+  diffuse. File as `{show}_prop_{name}_360_01.png` through `{show}_prop_{name}_360_08.png` (or
   `-12.png`). Record the step count and starting angle in the prop spec file.
 - **Watch-outs:** diminishing returns set in quickly. Beyond ~12 steps, generation
   drift across the set compounds and frames stop reading as a single coherent object.
@@ -225,18 +225,18 @@ Each entry uses the library's decision-unit format:
 
 ## Quick application
 
-1. Generate the **hero anchor** (`prop-{name}-hero.png`) — frame-filling, flat diffuse,
+1. Generate the **hero anchor** (`{show}_prop_{name}_hero.png`) — frame-filling, flat diffuse,
    neutral background; apply §6 framing rules.
 2. Derive the **orthographic ring** from the hero anchor via `image-edit` (mechanism C,
    denoise ~0.3–0.5) — never from each other:
-   `prop-{name}-ortho-front.png` / `-back` / `-side-l` / `-side-r` / `-top`
+   `{show}_prop_{name}_ortho_front.png` / `-back` / `-side_l` / `-side_r` / `-top`
    (add `-bottom` when the underside is on screen).
 3. Add **detail views** for any surface element the camera will resolve in close-up:
-   `prop-{name}-detail-01.png`, `prop-{name}-detail-02.png`.
+   `{show}_prop_{name}_detail_01.png`, `{show}_prop_{name}_detail_02.png`.
 4. Build **state variants** by editing from the prior state at low denoise (~0.2–0.3) —
    never regenerate from scratch. Apply state suffix across all affected filenames:
-   `prop-{name}-hero-aged.png`, `prop-{name}-ortho-front-aged.png`.
-5. Add a **360 turntable** (`prop-{name}-360-01.png` through `-08.png` or `-12.png`)
+   `{show}_prop_{name}_hero_aged.png`, `{show}_prop_{name}_ortho_front_aged.png`.
+5. Add a **360 turntable** (`{show}_prop_{name}_360_01.png` through `-08.png` or `-12.png`)
    only when the shot list or 3D pipeline explicitly requires it.
 6. Hold **framing-the-asset rules** (§6) across every image in the set: fill the frame,
    neutral background, flat diffuse, consistent lens.

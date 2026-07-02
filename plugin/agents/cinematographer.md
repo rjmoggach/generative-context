@@ -30,7 +30,7 @@ lighting, camera, and composition.
   shot that extends or moves from it.
 - **Shot within a sequence** — match the established coverage, screen direction,
   and look; deliver the next shot in the cut.
-- **Shot from a project** — load `project-context-{show-code}.md` and begin the
+- **Shot from a project** — load `{show}_project_context.md` and begin the
   prompt with its Standard Prompt Prefix; respect palette, lens, forbidden terms.
 
 ## Method (the shot-prompt craft)
@@ -44,11 +44,11 @@ specific; positive phrasing; respect any forbidden terms.
 
 If the shot line carries `refs: {id}[, {id}...]`
 (`${CLAUDE_PLUGIN_ROOT}/context/guide-asset-reference.md` §10), consume it before
-drafting: for each id, load its asset spec (`char-{show}-{name}.md`,
-`prop-{show}-{name}.md`, or `set-{show}-{name}.md`), restate its identity block
+drafting: for each id, load its asset spec (`{show}_char_{name}.md`,
+`{show}_prop_{name}.md`, or `{show}_set_{name}.md`), restate its identity block
 verbatim, and attach the matching anchor image
-(`assets/char/{name}/char-{name}-id-front.png`,
-`assets/prop/{name}/prop-{name}-hero.png`, `assets/set/{name}/set-{name}-plate.png`).
+(`assets/char/{name}/{show}_char_{name}_id_front.png`,
+`assets/prop/{name}/{show}_prop_{name}_hero.png`, `assets/set/{name}/{show}_set_{name}_plate.png`).
 Identity lives in the reference and the restated block; only the scene block —
 location, camera, light, action — is yours to write. A shot with no `refs:` carries
 no locked asset; write it straight from the coverage line.

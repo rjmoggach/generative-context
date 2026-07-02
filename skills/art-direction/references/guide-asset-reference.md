@@ -104,7 +104,7 @@ preserves the fingerprint and keeps the progression continuous. See
 
 ## 8. Inherit top-down
 
-Assets are not islands. The world bible (`art-bible-{show}.md`) sets the global style,
+Assets are not islands. The world bible (`{show}_art_bible.md`) sets the global style,
 palette, material lexicon, and grade; every character/prop/location asset **inherits**
 it so the world coheres. Construct asset prompts *from* the bible's fields, not loosely
 inspired by them. The bible itself is built and maintained via `guide-art-direction.md`
@@ -121,30 +121,42 @@ and the `art-direction` skill — see that guide for the full production-design 
   **Type codes** (reserved; `char` is built first): `char` (character) - `prop` -
   `set` (location/environment) - `veh` (vehicle) - `cam` - `light` - `style` - `fx`.
 
+  **Filename law:** the **lowercase show code leads every filename**, and fields are
+  **underscore-separated** (`_`, never `-` — so a token never reads as a minus in a
+  regex or expression): `{show}_{descriptor}`. This covers every doc, spec, manifest,
+  and image (`sbw_project_context.md`, `sbw_art_bible.md`, `sbw_production.json`,
+  `sbw_char_eli.md`, `sbw_char_eli_id_front.png`). The **folder** hierarchy stays
+  type-first and carries no show code (`assets/{type}/{name}/`).
+
   ```
-  Spec file     {type}-{show}-{name}.md          char-sbw-eli.md
+  Spec file     {show}_{type}_{name}.md          sbw_char_eli.md
   Asset folder  assets/{type}/{name}/            assets/char/eli/   (type-first, so
                                                   assets/char/ lists every character)
-  Image files   {type}-{name}-{facet}-{view}[-vNN].png
-    identity    char-eli-id-front.png   char-eli-id-3q-l.png
-    turnaround  char-eli-turn-front.png  -side-l / -side-r / -back / -3q-l / -3q-r
-    wardrobe    char-eli-fit-day1.png    char-eli-fit-day2-wet.png
-    hmu         char-eli-hmu-clean.png   char-eli-hmu-wound-01.png
-  Props     prop-{show}-{name}.md          prop-sbw-revolver.md
-    hero    prop-revolver-hero.png
-    ortho   prop-revolver-ortho-front.png  -back / -side-l / -side-r / -top
-    detail  prop-revolver-detail-01.png    state suffix: prop-revolver-hero-aged.png
-  Sets      set-{show}-{name}.md           set-sbw-livingroom.md
-    plate   set-livingroom-plate.png
-    cov     set-livingroom-cov-01.png      (regular coverage angles)
-            set-livingroom-cov-reverse.png (the reverse angle)
-    tod     set-livingroom-tod-dawn.png    -tod-night / -tod-rain (one variable)
+  Image files   {show}_{type}_{name}_{facet}_{view}[_vNN].png
+    identity    sbw_char_eli_id_front.png   sbw_char_eli_id_3q_l.png
+    turnaround  sbw_char_eli_turn_front.png  _side_l / _side_r / _back / _3q_l / _3q_r
+    wardrobe    sbw_char_eli_fit_day1.png    sbw_char_eli_fit_day2_wet.png
+    hmu         sbw_char_eli_hmu_clean.png   sbw_char_eli_hmu_wound_01.png
+  Props     {show}_prop_{name}.md          sbw_prop_revolver.md
+    hero    sbw_prop_revolver_hero.png
+    ortho   sbw_prop_revolver_ortho_front.png  _back / _side_l / _side_r / _top
+    detail  sbw_prop_revolver_detail_01.png    state suffix: sbw_prop_revolver_hero_aged.png
+  Sets      {show}_set_{name}.md           sbw_set_livingroom.md
+    plate   sbw_set_livingroom_plate.png
+    cov     sbw_set_livingroom_cov_01.png      (regular coverage angles)
+            sbw_set_livingroom_cov_reverse.png (the reverse angle)
+    tod     sbw_set_livingroom_tod_dawn.png    _tod_night / _tod_rain (one variable)
   ```
 
-  Facets: `id` - `turn` - `fit` - `hmu` - `expr` - `pose` - `palette` - `hero` - `ortho` - `detail` - `360` - `plate` - `cov` - `tod`. Views: `front/back/side-l/side-r/3q-l/3q-r/top/bottom`.
-  All lowercase kebab-case; `-vNN` version suffix optional.
+  Facets: `id` - `turn` - `fit` - `hmu` - `expr` - `pose` - `palette` - `hero` - `ortho` - `detail` - `360` - `plate` - `cov` - `tod`. Views: `front/back/side_l/side_r/3q_l/3q_r/top/bottom`.
+  All lowercase; fields joined by `_`; `_vNN` version suffix optional. Show code always lowercase.
 - **Watch-outs:** everything the model writes goes to the **user's working folder**,
-  never the plugin repo; keep names ASCII and kebab so paths stay portable.
+  never the plugin repo; keep names ASCII and underscore-separated so tokens parse
+  cleanly. **Legacy files** using a prior convention — show as a suffix, uppercase, or
+  hyphen-separated (e.g. `project-context-SBW.md`, `production-SBW.json`,
+  `char-sbw-eli.md`, `char-eli-id-front.png`) — should be renamed to this
+  `{show}_…` underscore form and their references updated; the `production` skill
+  normalizes these on reconcile.
 - **Anchors:** VFX/game asset-management naming (type-first hierarchy, versioned).
 
 ## 10. Attaching references to shots
@@ -156,16 +168,17 @@ and the `art-direction` skill — see that guide for the full production-design 
   blocks. A written contract keeps attach and consume in sync.
 - **Prompt translation — the notation:** end the shot line with
   `refs: <id>[, <id>...]`, where each id is an asset spec-file stem:
-  `char-{name}` - `prop-{name}` - `set-{name}` (NO `{show}`, NO extension; the show
+  `char_{name}` - `prop_{name}` - `set_{name}` (NO `{show}`, NO extension; the show
   is implied by the loaded project). Example:
 
   ```
-  S2-03  Coverage CU - 85mm - serves the turn - refs: char-eli, prop-revolver, set-livingroom
+  S2-03  Coverage CU - 85mm - serves the turn - refs: char_eli, prop_revolver, set_livingroom
   ```
 
-  Each id resolves to its spec (`char-{show}-{name}.md`) and anchor image
-  (`assets/char/{name}/char-{name}-id-front.png`, `assets/prop/{name}/prop-{name}-hero.png`,
-  `assets/set/{name}/set-{name}-plate.png`) via the taxonomy (§9).
+  Each id resolves to its spec (`{show}_char_{name}.md`) and anchor image
+  (`assets/char/{name}/{show}_char_{name}_id_front.png`, `assets/prop/{name}/{show}_prop_{name}_hero.png`,
+  `assets/set/{name}/{show}_set_{name}_plate.png`) via the taxonomy (§9). The ref id stays
+  show-less because the show is fixed by the loaded project; the resolved filenames carry it.
 - **Watch-outs:** a shot that needs an asset but omits `refs:` will re-derive
   identity from text and drift; an id with no matching spec is a broken reference —
   the `script-supervisor` audits both.
@@ -182,7 +195,10 @@ and the `art-direction` skill — see that guide for the full production-design 
 4. Set the **reference-vs-LoRA** lock to the subject's screen life.
 5. **Compose** into shots by reference role; keep identity constant, scene variable.
 6. Hold the **light-key**; edit (don't regenerate) for progressions.
-7. Name and store per the **asset taxonomy** (§9): `{type}-{show}-{name}.md` +
-   `assets/{type}/{name}/`, in the user's working folder.
+7. Name and store per the **asset taxonomy** (§9): `{show}_{type}_{name}.md` +
+   `assets/{type}/{name}/`, in the user's working folder (show code leads every filename).
 8. **Attach** the shot's assets with `refs:` (§10) so the shot layer carries identity
    from the anchor image and restates the identity block verbatim.
+9. **Close-out:** after writing a new spec or asset, reconcile the show manifest (run
+   the `production` skill) so it's tracked — a plugin action, never a `CLAUDE.md` rule
+   (`guide-production.md` §7).

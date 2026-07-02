@@ -1,6 +1,6 @@
 # Production — The Manifest as the Show's Operational Memory
 
-Decision rules for **building and maintaining `production-{show}.json`**, the
+Decision rules for **building and maintaining `{show}_production.json`**, the
 manifest that tracks what exists, what state it is in, what it cost, and what a
 human has decided about it. `guide-art-direction.md` and `guide-asset-reference.md`
 teach the craft of *making* the world and its assets; `guide-execution.md` teaches
@@ -23,7 +23,7 @@ Each entry uses the library's decision-unit format:
 
 ## 1. The manifest as derived index + persisted human status
 
-- **Decision:** split every field in `production-{show}.json` into one of two
+- **Decision:** split every field in `{show}_production.json` into one of two
   categories — **derived** (rebuilt from a working-folder scan; always current,
   never edited by hand) or **persisted** (the `human` block; written by a person,
   never inferred, never overwritten).
@@ -31,7 +31,7 @@ Each entry uses the library's decision-unit format:
   new field belongs in a top-level block or inside `human`.
 - **Because:** `assets`, `generations`, `sequences`, `cost`, and the rollup `status`
   counts can all be reconstructed from the files on disk — the asset spec files
-  (`char-`/`prop-`/`set-{show}-{name}.md`), the anchor images under `assets/`, and
+  (`char-`/`prop-`/`{show}_set_{name}.md`), the anchor images under `assets/`, and
   the `.recipe` sidecars `guide-execution.md` §6 writes next to every render. Because
   they can always be rebuilt, they can never rot — a stale derived block is simply a
   manifest that hasn't been reconciled yet, and reconciling it (§3) fixes it for
@@ -67,7 +67,7 @@ Each entry uses the library's decision-unit format:
   reliably. A fixed vocabulary makes the rollup in `status` (§6) a trustworthy count,
   not a guess.
 - **Prompt translation:** assign status by what the scan finds, in this order:
-  - `specced` — the asset's spec file (`char-`/`prop-`/`set-{show}-{name}.md`)
+  - `specced` — the asset's spec file (`char-`/`prop-`/`{show}_set_{name}.md`)
     exists, nothing else does yet.
   - `built` — the spec exists **and** its anchor image exists at the taxonomy path
     (`guide-asset-reference.md` §9).
@@ -103,7 +103,7 @@ Each entry uses the library's decision-unit format:
   discarding every approval and retake note a producer has made — the single failure
   mode this guide exists to rule out.
 - **Prompt translation:** reconcile in two passes. First, **derive**: scan
-  `project-context-*`, `art-bible-*`, every `char-`/`prop-`/`set-{show}-{name}.md`
+  `project-context-*`, `art-bible-*`, every `char-`/`prop-`/`{show}_set_{name}.md`
   spec, every `assets/**` folder, every `.recipe` sidecar, and any shot lists; rebuild
   `assets`, `generations`, `sequences`, `cost`, and rollup `status` from what's found.
   Second, **merge**: read the manifest's *existing* `human` block before writing the
@@ -140,7 +140,7 @@ Each entry uses the library's decision-unit format:
   recipe), `cost.by_model` (grouped by each recipe's `fal_endpoint`), `cost.by_sequence`
   (grouped by the sequence a generation's file belongs to, where determinable from
   the shot lists' `refs:`). Compare `cost.total` — and any per-sequence subtotal —
-  against a budget figure if one is recorded in `project-context-{show}.md`; if a
+  against a budget figure if one is recorded in `{show}_project_context.md`; if a
   budget exists and is exceeded, surface it in the audit report (§5) as
   over-budget, don't just log the number silently.
 - **Watch-outs:** a generation with no `.recipe` sidecar (a render that landed
@@ -191,10 +191,10 @@ Each entry uses the library's decision-unit format:
 
 ## 6. The worked manifest
 
-- **Decision:** `production-{show}.json` follows one fixed schema — `show`,
+- **Decision:** `{show}_production.json` follows one fixed schema — `show`,
   `updated`, `assets[]`, `generations[]`, `sequences[]`, `cost`, `status`, `human` —
   written to the user's working folder, never the plugin repo.
-- **Use when:** implementing or reading a `production-{show}.json` file; the schema
+- **Use when:** implementing or reading a `{show}_production.json` file; the schema
   reference for §1-§5.
 - **Because:** a worked example makes the derived/persisted split (§1) and the
   status vocabulary (§2) concrete rather than abstract — every field below traces to
@@ -203,22 +203,22 @@ Each entry uses the library's decision-unit format:
 
 ```json
 {
-  "show": "SBW",
+  "show": "sbw",
   "updated": "2026-07-02",
   "assets": [
-    { "type": "char", "name": "eli", "spec_file": "char-sbw-eli.md", "anchor_image": "assets/char/eli/char-eli-id-front.png", "status": "built" },
-    { "type": "set", "name": "livingroom", "spec_file": "set-sbw-livingroom.md", "anchor_image": null, "status": "specced" }
+    { "type": "char", "name": "eli", "spec_file": "sbw_char_eli.md", "anchor_image": "assets/char/eli/sbw_char_eli_id_front.png", "status": "built" },
+    { "type": "set", "name": "livingroom", "spec_file": "sbw_set_livingroom.md", "anchor_image": null, "status": "specced" }
   ],
   "generations": [
-    { "file": "assets/char/eli/char-eli-id-front.png", "fal_endpoint": "fal-ai/flux/schnell", "seed": 1278911897, "refs": [], "prompt": "...", "cost": 0.003, "rendered_at": "2026-07-02" }
+    { "file": "assets/char/eli/sbw_char_eli_id_front.png", "fal_endpoint": "fal-ai/flux/schnell", "seed": 1278911897, "refs": [], "prompt": "...", "cost": 0.003, "rendered_at": "2026-07-02" }
   ],
   "sequences": [
-    { "label": "S2", "shots": [ { "label": "S2-03", "refs": ["char-eli", "set-livingroom"], "generated": false } ] }
+    { "label": "S2", "shots": [ { "label": "S2-03", "refs": ["char_eli", "set_livingroom"], "generated": false } ] }
   ],
   "cost": { "total": 0.003, "by_model": { "fal-ai/flux/schnell": 0.003 }, "by_sequence": {} },
   "status": { "specced": 2, "built": 1, "rendered": 1, "approved": 0, "missing": 0 },
   "human": {
-    "assets/char/eli/char-eli-id-front.png": { "status": "approved", "note": "hero locked" }
+    "assets/char/eli/sbw_char_eli_id_front.png": { "status": "approved", "note": "hero locked" }
   }
 }
 ```
@@ -254,8 +254,29 @@ Each entry uses the library's decision-unit format:
    anything over budget (§4).
 5. Run the coordinator's four audits — orphans, specced-but-unrendered, missing
    refs, budget — and defer state/geometry drift to `script-supervisor` (§5).
-6. Write `production-{show}.json` to the user's working folder using the schema in
+6. Write `{show}_production.json` to the user's working folder using the schema in
    §6 — derived blocks plus the persisted `human` block, never conflated.
+
+## 7. Governance — reconcile is a plugin action, not a standing rule
+
+- **Decision:** the reconcile discipline lives in the plugin's skills and this guide,
+  **never** in the user's `CLAUDE.md` or any config file.
+- **Use when:** an agent is tempted to "make reconcile automatic," or a user asks how
+  to keep the manifest current.
+- **Because:** a drifting manifest is a tooling problem, solved by *running* the
+  `production` skill — not by installing a "the coordinator must run after every step"
+  rule into a project's `CLAUDE.md`. An agent that writes such a rule is overreaching:
+  it edits the user's standing configuration to compensate for a step it should simply
+  perform. Reconciliation happens two ways, both inside the plugin: a producing skill's
+  **close-out step** (it reconciles before finishing), or the user invoking the
+  `production` skill / `production-coordinator` directly.
+- **Prompt translation:** after producing assets/specs/generations, run the reconcile
+  yourself as the close-out. **Never** propose or write a workflow rule into `CLAUDE.md`
+  (or `.cursorrules`, settings, etc.); if a project's `CLAUDE.md` already carries one,
+  offer to remove it — the plugin governs this. Normalizing legacy filenames (§9 of
+  `guide-asset-reference.md`) is part of reconcile, not a config change.
+- **Anchors:** tools own their own discipline; standing configuration is the user's,
+  not the agent's to rewrite.
 
 Companion guides: `guide-asset-reference.md` (the taxonomy and `refs:` notation the
 manifest indexes), `guide-execution.md` (the `.recipe` sidecar `generations[]`

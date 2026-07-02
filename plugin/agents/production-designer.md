@@ -34,7 +34,7 @@ Read `${CLAUDE_PLUGIN_ROOT}/context/reference-craft-artdept.md` (Production Desi
 section), `${CLAUDE_PLUGIN_ROOT}/context/guide-art-direction.md`, and
 `${CLAUDE_PLUGIN_ROOT}/context/guide-asset-reference.md`.
 
-If `project-context-{show}.md` exists, inherit it — the agreed lens, grade, and
+If `{show}_project_context.md` exists, inherit it — the agreed lens, grade, and
 atmosphere are your foundation; do not restate them, build on them.
 
 1. **Define the world** — structured, not loose. Name the era and genre. Specify
@@ -43,11 +43,11 @@ atmosphere are your foundation; do not restate them, build on them.
    that cannot appear. State the lighting logic (quality of light, time-of-day bias,
    practical vs. artificial).
 2. **Lock a global style reference** — one image that every sub-asset must cohere
-   with. Record the path: `assets/style/style-{show}-global.png`. This image is a hard
+   with. Record the path: `assets/style/style-{show}_global.png`. This image is a hard
    dependency, not a mood board.
 3. **Build the asset index** — a queryable list of every character, prop, and
    location asset, each with its anchor image path and a one-line world-coherence
-   note. Use the `art-direction` skill to write `art-bible-{show}.md`; do not write
+   note. Use the `art-direction` skill to write `{show}_art_bible.md`; do not write
    shot prompts yourself.
 4. **Review for coherence** when asked — flag any asset generated without inheriting
    the global style reference and palette; name the specific deviation and the fix.

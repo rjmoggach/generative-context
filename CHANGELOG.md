@@ -2,6 +2,15 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.1.0 - 2026-07-02
+
+### Asset naming overhaul + reconcile governance
+
+- **New filename law (VFX-style).** The lowercase show code now **leads** every file the plugin writes to your working folder, and fields are **underscore-separated**: `sbw_project_context.md`, `sbw_art_bible.md`, `sbw_production.json`, `sbw_char_eli.md`, `sbw_char_eli_id_front.png`. (Previously: show code as a suffix, sometimes uppercase, hyphen-separated.) Underscores keep tokens from reading as a minus in a regex/expression. Ref ids in shot lines follow suit (`char_eli`); folders stay type-first (`assets/char/eli/`). The plugin's own internal files keep kebab-case (Claude Code requires it).
+- **Legacy migration built in.** The `production` skill now **normalizes old-convention filenames on reconcile** — it renames suffix/uppercase/hyphen files (`project-context-SBW.md`, `char-sbw-eli.md`, `char-eli-id-front.png`) to the new `{show}_…` form and updates references, so existing projects self-heal.
+- **Reconcile is plugin-governed, not a CLAUDE.md rule.** Every producing skill reconciles the manifest as a **close-out step**, and the `production-coordinator` + `guide-production` §7 now explicitly forbid writing standing workflow rules into a user's `CLAUDE.md` (and offer to remove one if found) — replacing agents improvising a "reconcile after every step" rule into project config.
+- Updated the taxonomy (`guide-asset-reference.md` §9–10), the `production` skill's scan globs and schema, all producing skills, the coordinator, and the read-only dashboard (now matches `{show}_production.json`, still accepts legacy names).
+
 ## v1.0.4 - 2026-07-02
 
 ### Fix: model docs unreachable in the plugin; fal-hosted model defaults; audio as a cost choice

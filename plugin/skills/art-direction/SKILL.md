@@ -4,10 +4,10 @@ description: >-
   Build the queryable world spec that sits above the asset layer — the Production
   Designer's counterpart to project-context. Synthesizes global palette (named +
   hex), a CMF material/finish/texture lexicon, era/genre rules, a locked global
-  style-reference image, and an index of every asset into art-bible-{show}.md:
+  style-reference image, and an index of every asset into {show}_art_bible.md:
   the parent spec every character, prop, and set inherits from. Use after
   project-context exists and before (or alongside) building individual assets;
-  if art-bible-{show}.md already exists, refine it in place. Trigger phrases:
+  if {show}_art_bible.md already exists, refine it in place. Trigger phrases:
   "define the world", "build the art bible", "set the palette and materials",
   "create the world bible", "art-direct this show", "what's our CMF".
 ---
@@ -15,7 +15,7 @@ description: >-
 # Art-Direction Assistant
 
 Build the single most load-bearing world document in the pipeline: a unified,
-queryable `art-bible-{show}.md` — the parent spec that every character, prop,
+queryable `{show}_art_bible.md` — the parent spec that every character, prop,
 and set asset inherits from. You act like a Production Designer in prep: you lock
 palette, materials, era, and a global style reference, then index every asset in
 the world. Downstream asset skills (`character-sheet`, `prop-turntable`,
@@ -26,7 +26,7 @@ loosely inspired by them.
 
 After `project-context` — which fixes the *look* (lens, grade, atmosphere, and
 baseline palette) — and before building individual assets. Refine in place if
-`art-bible-{show}.md` already exists: update only the changed section and re-audit
+`{show}_art_bible.md` already exists: update only the changed section and re-audit
 the asset index. The art bible is not a replacement for project-context; it is the
 world spec that inherits from it.
 
@@ -45,7 +45,7 @@ the pipeline *what world to build*; project-context tells it *how to work*.
 
 Read these before writing any world spec:
 
-- `project-context-{show}.md` — inherit the Standard Prompt Prefix, lens spec,
+- `{show}_project_context.md` — inherit the Standard Prompt Prefix, lens spec,
   grade, baseline palette, forbidden terms, and atmosphere. Do not restate these
   in the bible; cross-reference them.
 - [`references/reference-craft-artdept.md`](${CLAUDE_PLUGIN_ROOT}/context/reference-craft-artdept.md) —
@@ -99,7 +99,7 @@ Generate one global style-reference image via `image-edit` using mood-board inpu
 guided by the palette, CMF, and era/genre rules just locked. This image is not an
 asset — it depicts no specific character, prop, or set. It anchors the visual
 register of the world itself. Generate until one image captures the world's feel,
-then lock it at `assets/style/style-{show}-global.png`.
+then lock it at `assets/style/style-{show}_global.png`.
 
 Identify the target model for this i2i work (ask once if unstated; prefer the
 model already in use for the project). Load the relevant model doc for
@@ -115,7 +115,7 @@ Before quoting any reference-count or strength values, verify against
 per-model limits change monthly.
 
 Record in the bible: the locked style-ref path and the inherited lens/grade from
-`project-context-{show}.md` that the image implies. These must be stated explicitly
+`{show}_project_context.md` that the image implies. These must be stated explicitly
 in the bible and cross-referenced from project-context, not left to be inferred
 from the image alone.
 
@@ -130,15 +130,15 @@ Index table format (guide-art-direction §6; guide-asset-reference §9):
 
 | Type   | Name     | Spec file               | Anchor image path                             |
 |--------|----------|-------------------------|-----------------------------------------------|
-| `char` | `{name}` | `char-{show}-{name}.md` | `assets/char/{name}/char-{name}-id-front.png` |
-| `prop` | `{name}` | `prop-{show}-{name}.md` | `assets/prop/{name}/prop-{name}-hero.png`     |
-| `set`  | `{name}` | `set-{show}-{name}.md`  | `assets/set/{name}/set-{name}-plate.png`      |
+| `char` | `{name}` | `{show}_char_{name}.md` | `assets/char/{name}/{show}_char_{name}_id_front.png` |
+| `prop` | `{name}` | `{show}_prop_{name}.md` | `assets/prop/{name}/{show}_prop_{name}_hero.png`     |
+| `set`  | `{name}` | `{show}_set_{name}.md`  | `assets/set/{name}/{show}_set_{name}_plate.png`      |
 
 Spec-file names carry `{show}`; image-file names do not.
 
 ## Step 5 — Output
 
-Write `art-bible-{show}.md` to the **user's working folder** — never to the plugin
+Write `{show}_art_bible.md` to the **user's working folder** — never to the plugin
 repo — using the structure in [`references/art-bible-template.md`](${CLAUDE_PLUGIN_ROOT}/context/art-bible-template.md).
 The bible must be queryable: every field labeled, every palette entry hex-pinned,
 every CMF term explicitly defined, every world rule a checkable constraint, every
@@ -154,13 +154,13 @@ To actually render (not just hand off the prompt), follow
 [`references/guide-execution.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-execution.md): pick the model's
 `fal_endpoint`, upload any mood-board reference, run — or **submit a batch** of
 style-reference candidates before locking one — save the chosen output to
-`assets/style/style-{show}-global.png`, and record the `.recipe`. Always confirm the
+`assets/style/style-{show}_global.png`, and record the `.recipe`. Always confirm the
 cost estimate first.
 
 ## Critical rules
 
 1. **Inherit, never replace.** The bible inherits lens, grade, and baseline palette
-   from `project-context-{show}.md`. Cross-reference; do not duplicate. If
+   from `{show}_project_context.md`. Cross-reference; do not duplicate. If
    project-context changes, update it first, then the bible.
 2. **Pin palette hex and CMF names.** Named colors without hex drift across agents
    and sessions. CMF terms without a precise material/finish/texture call drift

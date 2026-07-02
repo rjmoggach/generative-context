@@ -28,24 +28,24 @@ Each entry uses the library's decision-unit format:
 
   | View | Filename | What it shows |
   |---|---|---|
-  | Front (= the anchor) | `char-eli-turn-front.png` | Full face, front garment panels, front silhouette |
-  | Left profile | `char-eli-turn-side-l.png` | Nose-tip projection, ear placement, left garment edge, front-to-back silhouette |
-  | Right profile | `char-eli-turn-side-r.png` | Same as side-l from the right |
-  | Back | `char-eli-turn-back.png` | Occiput, back of hair, rear garment panels, shoe heels |
-  | Three-quarter left | `char-eli-turn-3q-l.png` | Face at ~45°; bridges front identity to left profile |
-  | Three-quarter right | `char-eli-turn-3q-r.png` | Same from the right |
+  | Front (= the anchor) | `sbw_char_eli_turn_front.png` | Full face, front garment panels, front silhouette |
+  | Left profile | `sbw_char_eli_turn_side_l.png` | Nose-tip projection, ear placement, left garment edge, front-to-back silhouette |
+  | Right profile | `sbw_char_eli_turn_side_r.png` | Same as side_l from the right |
+  | Back | `sbw_char_eli_turn_back.png` | Occiput, back of hair, rear garment panels, shoe heels |
+  | Three-quarter left | `sbw_char_eli_turn_3q_l.png` | Face at ~45°; bridges front identity to left profile |
+  | Three-quarter right | `sbw_char_eli_turn_3q_r.png` | Same from the right |
 
   The front view is the **anchor** — it is not re-generated for the turnaround. Use the
-  hero identity reference already stored as `char-eli-id-front.png` (or generate one per
+  hero identity reference already stored as `sbw_char_eli_id_front.png` (or generate one per
   `guide-character-consistency.md` §1), then copy or symlink it to
-  `char-eli-turn-front.png` to make the turnaround set complete. All other five views are
+  `sbw_char_eli_turn_front.png` to make the turnaround set complete. All other five views are
   derived from the anchor.
 - **Watch-outs:** do not skip the back view — rear garment silhouette and hair back-mass
   are the most common continuity gaps in downstream shots. Do not add top-down or
   worm's-eye views unless the production specifically requires them; they fall outside the
   standard six and disrupt the alignment grid.
 - **Anchors:** traditional character model-sheet convention (six orthographic views: front,
-  side-l, side-r, back, 3q-l, 3q-r); `guide-asset-reference.md` §9 (asset taxonomy and
+  side_l, side_r, back, 3q_l, 3q_r); `guide-asset-reference.md` §9 (asset taxonomy and
   naming convention).
 
 ---
@@ -113,7 +113,7 @@ Each entry uses the library's decision-unit format:
     character, face not visible; show back of hair, rear garment panels, shoe heels; same
     A-pose, even diffuse light, neutral background."` Hold every garment descriptor
     verbatim.
-  - **Three-quarter views and LoRA training:** the 3q-l and 3q-r views bridge the front
+  - **Three-quarter views and LoRA training:** the 3q_l and 3q_r views bridge the front
     identity to the profiles. They are the highest-value views for LoRA training image
     sets because they show the face at an angle that neither the front anchor nor the pure
     profiles can cover individually.
@@ -146,7 +146,7 @@ reference set and must read as visually coherent with it.
     surprise / anger); mechanism A from `guide-image-editing.md` §3-A (single-attribute
     conversational edit) at very low denoise (~0.2–0.3); change only the expression
     descriptor; hold face structure and descriptor block verbatim. Filename pattern:
-    `char-eli-expr-smile.png`, `char-eli-expr-frown.png`.
+    `sbw_char_eli_expr_smile.png`, `sbw_char_eli_expr_frown.png`.
   - **Watch-outs:** strong expressions distort face structure at higher denoise — stay at
     ~0.2–0.3 and name the expression precisely (`"open smile, teeth visible, eyes
     crinkled"`) rather than relying on the model to interpret a vague affect like `"happy"`.
@@ -159,8 +159,8 @@ reference set and must read as visually coherent with it.
   - **Prompt translation:** 4–6 standing or action poses derived from the front anchor
     at moderate denoise (~0.4–0.5) — higher than expression edits because the body
     position changes more extensively. Hold the descriptor block verbatim; add only the
-    pose description in the scene block. Filename pattern: `char-eli-pose-walk.png`,
-    `char-eli-pose-reach.png`.
+    pose description in the scene block. Filename pattern: `sbw_char_eli_pose_walk.png`,
+    `sbw_char_eli_pose_reach.png`.
   - **Watch-outs:** pose sheets are harder to lock than expression sheets — moderate
     denoise brings more identity risk. If the face drifts, add a close-up face reference
     alongside the anchor as a secondary reference at the same step.
@@ -175,7 +175,7 @@ reference set and must read as visually coherent with it.
     Compose the front turnaround view with annotated swatches and hex codes for every
     locked colour: skin tone (with Fitzpatrick qualifier), hair, every garment piece,
     accessories, and any standing SFX (wound colour, prosthetic colour). Filename:
-    `char-eli-palette.png`.
+    `sbw_char_eli_palette.png`.
   - **Watch-outs:** the palette sheet must stay in sync with the descriptor block. If a
     hex code changes in the descriptor, update the palette sheet immediately — a stale
     palette creates false confidence in wrong values, which is worse than no palette.
@@ -207,16 +207,16 @@ reference set and must read as visually coherent with it.
 
 ## Quick application
 
-1. Generate or locate the **hero identity reference** (`char-eli-id-front.png`) per
-   `guide-character-consistency.md` §1; this is `char-eli-turn-front.png` — the anchor
+1. Generate or locate the **hero identity reference** (`sbw_char_eli_id_front.png`) per
+   `guide-character-consistency.md` §1; this is `sbw_char_eli_turn_front.png` — the anchor
    of the turnaround.
 2. Set **alignment requirements** for all derived views: neutral A-pose, even flat diffuse
    light, plain neutral background, consistent scale.
 3. Derive the **five remaining views** via `image-edit` (mechanism C, denoise ~0.3–0.5),
    holding the descriptor block verbatim in every prompt — never generate views
    independently:
-   `char-eli-turn-side-l.png` / `char-eli-turn-side-r.png` / `char-eli-turn-back.png` /
-   `char-eli-turn-3q-l.png` / `char-eli-turn-3q-r.png`.
+   `sbw_char_eli_turn_side_l.png` / `sbw_char_eli_turn_side_r.png` / `sbw_char_eli_turn_back.png` /
+   `sbw_char_eli_turn_3q_l.png` / `sbw_char_eli_turn_3q_r.png`.
 4. Check alignment across the six views: eye, shoulder, waist, knee, and foot lines
    should be visually consistent. Any view that is perceptibly taller or shorter must be
    re-derived.

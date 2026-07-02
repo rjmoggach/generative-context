@@ -61,10 +61,10 @@ before beginning.
 
 ## Output
 
-The **Makeup & Hair** section of `char-{show}-{name}.md`:
+The **Makeup & Hair** section of `{show}_char_{name}.md`:
 
 - **Clean state** description — verbatim-ready for the identity block's HMU line.
-- **State images** and prompts: `assets/char/{name}/char-{name}-hmu-clean.png`,
+- **State images** and prompts: `assets/char/{name}/{show}_char_{name}_hmu_clean.png`,
   `-hmu-aged.png`, `-hmu-wound-01.png`, `-hmu-wet.png`, plus any show-specific
   states (fever, post-surgery, end-of-arc).
 - **Injury log** — each wound: position, side, size, hex, continuity arc from

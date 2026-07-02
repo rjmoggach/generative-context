@@ -1,6 +1,6 @@
 # generative-wrangler
 
-**Version**: 1.0.4 · **Updated**: 2026-07-02
+**Version**: 1.1.0 · **Updated**: 2026-07-02
 
 A flexible plugin for getting **cinematic, model-optimized prompts** for generative
 image and video — at any level of structure. Ask for a great one-off still prompt,

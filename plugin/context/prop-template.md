@@ -13,7 +13,7 @@
 > (#3D3D3A), walnut stock (#7B4F2E) with cheekpiece, brass trigger guard (#B5A642),
 > faint wear at the lever loop. Approximately 100 cm overall."}
 
-- **Hero anchor:** `assets/prop/{name}/prop-{name}-hero.png`
+- **Hero anchor:** `assets/prop/{name}/{show}_prop_{name}_hero.png`
 - **Material:** {primary material — e.g., case-hardened steel `#3D3D3A`}
 - **Finish:** {surface finish — e.g., matte blued, high-polish, oiled walnut}
 - **Secondary material:** {if applicable — e.g., walnut stock `#7B4F2E`}
@@ -21,22 +21,22 @@
 - **Prop class:** hero / dressing / action *(circle one)*
 
 Example (show: sbw, prop: revolver):
-- `assets/prop/revolver/prop-revolver-hero.png`
+- `assets/prop/revolver/sbw_prop_revolver_hero.png`
 
 ---
 
 ## Orthographic ring
 
-- Front: `assets/prop/{name}/prop-{name}-ortho-front.png`
-- Back: `assets/prop/{name}/prop-{name}-ortho-back.png`
-- Side left: `assets/prop/{name}/prop-{name}-ortho-side-l.png`
-- Side right: `assets/prop/{name}/prop-{name}-ortho-side-r.png`
-- Top: `assets/prop/{name}/prop-{name}-ortho-top.png`
-- Bottom: `assets/prop/{name}/prop-{name}-ortho-bottom.png` *(include only if relevant)*
+- Front: `assets/prop/{name}/{show}_prop_{name}_ortho_front.png`
+- Back: `assets/prop/{name}/{show}_prop_{name}_ortho_back.png`
+- Side left: `assets/prop/{name}/{show}_prop_{name}_ortho_side_l.png`
+- Side right: `assets/prop/{name}/{show}_prop_{name}_ortho_side_r.png`
+- Top: `assets/prop/{name}/{show}_prop_{name}_ortho_top.png`
+- Bottom: `assets/prop/{name}/{show}_prop_{name}_ortho_bottom.png` *(include only if relevant)*
 
 Example (prop: revolver):
-- `assets/prop/revolver/prop-revolver-ortho-front.png`
-- `assets/prop/revolver/prop-revolver-ortho-side-l.png`
+- `assets/prop/revolver/sbw_prop_revolver_ortho_front.png`
+- `assets/prop/revolver/sbw_prop_revolver_ortho_side_l.png`
 
 **Alignment notes:** {camera distance, lens length, any axis alignment note — held
 constant across the ring}
@@ -47,19 +47,19 @@ constant across the ring}
 
 ### {Detail name — e.g., Barrel inscription}
 
-- **Image:** `assets/prop/{name}/prop-{name}-detail-01.png`
+- **Image:** `assets/prop/{name}/{show}_prop_{name}_detail_01.png`
 - **Derived from:** {ortho view this was cropped/enlarged from — e.g., ortho-front}
 - **What it shows:** {feature and production reason — e.g., maker's mark, legible in
   close-up insert}
 
 ### {Detail name — e.g., Clasp mechanism}
 
-- **Image:** `assets/prop/{name}/prop-{name}-detail-02.png`
+- **Image:** `assets/prop/{name}/{show}_prop_{name}_detail_02.png`
 - **Derived from:** {source ortho view}
 - **What it shows:** {feature and production reason}
 
 Example (prop: revolver):
-- `assets/prop/revolver/prop-revolver-detail-01.png`
+- `assets/prop/revolver/sbw_prop_revolver_detail_01.png`
 
 *(Add a section for each additional detail)*
 
@@ -69,30 +69,30 @@ Example (prop: revolver):
 
 ### {State name — e.g., Pristine}
 
-- **Image:** `assets/prop/{name}/prop-{name}-hero.png` *(the base anchor)*
+- **Image:** `assets/prop/{name}/{show}_prop_{name}_hero.png` *(the base anchor)*
 - **Notes:** {clean/unused condition — e.g., no wear, factory finish}
 
 ### {State name — e.g., Aged}
 
-- **Image:** `assets/prop/{name}/prop-{name}-hero-aged.png`
+- **Image:** `assets/prop/{name}/{show}_prop_{name}_hero_aged.png`
 - **Derived from:** {base state; denoise value used — e.g., pristine hero; denoise ~0.20}
 - **Notes:** {description of aging — e.g., oxidised barrel, stock wear at grip}
 
 ### {State name — e.g., Damaged}
 
-- **Image:** `assets/prop/{name}/prop-{name}-hero-damaged.png`
+- **Image:** `assets/prop/{name}/{show}_prop_{name}_hero_damaged.png`
 - **Derived from:** {base state; denoise value}
 - **Notes:** {damage spec — e.g., cracked stock, bent trigger guard; position + hex}
 
 ### {State name — e.g., Wet}
 
-- **Image:** `assets/prop/{name}/prop-{name}-hero-wet.png`
+- **Image:** `assets/prop/{name}/{show}_prop_{name}_hero_wet.png`
 - **Derived from:** {base state; denoise value}
 - **Notes:** {wet/soiled variation notes}
 
 Example (prop: revolver):
-- `assets/prop/revolver/prop-revolver-hero-aged.png`
-- `assets/prop/revolver/prop-revolver-hero-damaged.png`
+- `assets/prop/revolver/sbw_prop_revolver_hero_aged.png`
+- `assets/prop/revolver/sbw_prop_revolver_hero_damaged.png`
 
 *(Add a section for each additional state)*
 
@@ -105,12 +105,12 @@ frame — e.g., a pair of handcuffs, a rack of matching rifles.)*
 
 ### {Multiple label — e.g., Instance A}
 
-- **Image:** `assets/prop/{name}/prop-{name}-hero.png` *(same anchor; same ref strength)*
+- **Image:** `assets/prop/{name}/{show}_prop_{name}_hero.png` *(same anchor; same ref strength)*
 - **Notes:** {any positional or staging note for this instance}
 
 ### {Multiple label — e.g., Instance B}
 
-- **Image:** `assets/prop/{name}/prop-{name}-hero.png`
+- **Image:** `assets/prop/{name}/{show}_prop_{name}_hero.png`
 - **Notes:** {staging note}
 
 *All multiples must be derived from the same hero anchor at the same reference strength

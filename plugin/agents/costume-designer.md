@@ -56,11 +56,11 @@ reference and identity block before beginning.
 
 ## Output
 
-The **Turnaround** and **Wardrobe** sections of `char-{show}-{name}.md`:
+The **Turnaround** and **Wardrobe** sections of `{show}_char_{name}.md`:
 
-- **Turnaround images** and prompts: `assets/char/{name}/char-{name}-turn-front.png`,
-  `-turn-3q-l.png`, `-turn-side-l.png`, `-turn-side-r.png`, `-turn-3q-r.png`, `-turn-back.png`.
-- **Fit state images** (full-look by wardrobe state): `char-{name}-fit-hero.png`,
+- **Turnaround images** and prompts: `assets/char/{name}/{show}_char_{name}_turn_front.png`,
+  `-turn-3q_l.png`, `-turn-side_l.png`, `-turn-side_r.png`, `-turn-3q_r.png`, `-turn-back.png`.
+- **Fit state images** (full-look by wardrobe state): `{show}_char_{name}_fit_hero.png`,
   `-fit-action.png`, `-fit-distressed.png`, plus any show-specific fit images.
 - **Garment lock list** — every piece named, silhouette described, hex-coded.
 - **Wardrobe state table** — state name, delta from prior state, continuity note.
