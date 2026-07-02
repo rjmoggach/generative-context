@@ -120,6 +120,15 @@ the whole prompt loses what already worked. **Edit the chosen result** (pass it 
 the base) rather than starting over; for any progression (wound stages, aging), edit
 from the previous stage at low denoise.
 
+## Step 8 — Generate (optional)
+
+To actually render (not just hand off the prompt), follow
+[`references/guide-execution.md`](references/guide-execution.md): pick the model's
+`fal_endpoint`, upload the source still as the reference image, run — or **submit a
+batch** for a set of variants (e.g. recolor options A/B/C, multiple edit takes) — save
+each output next to the source per the asset taxonomy, and record the `.recipe`. Always
+confirm the cost estimate first.
+
 ## Critical rules
 
 1. Always state both halves: lock what's preserved, name the one thing that changes.
@@ -129,3 +138,5 @@ from the previous stage at low denoise.
 5. Prefer partial-denoise / inpaint over full regeneration for one-attribute changes;
    start low on the denoise dial and raise only if the change didn't take.
 6. Verify per-model reference-count/strength limits against `model-currency` before quoting.
+7. Rendering spends money — always confirm the `FAL_AI_GET_PRICING` estimate before
+   generating, and submit sets as a batch, not one at a time.
