@@ -48,11 +48,11 @@ prevent. See [`references/guide-production.md`](references/guide-production.md)
 
 Read the user's working folder in full before touching the manifest:
 
-- `*-project-context.md` and `*-art-bible.md` — the show's look and world spec, and
-  any budget figure recorded in project-context. Filenames lead with the lowercase
-  show code (`sbw_project_context.md`); the leading token IS the show code
-  (`references/guide-asset-reference.md` §9).
-- Every `{show}_char_*.md`, `{show}_prop_*.md`, and `{show}_set_*.md` spec file.
+- `context/*_project_context.md` and `context/*_art_bible.md` — the show's look and
+  world spec, in the scaffolded `context/` folder, plus any budget figure recorded in
+  project-context. Filenames lead with the lowercase show code (`sbw_project_context.md`).
+- Every `{show}_{type}_{name}.md` spec file under `assets/**` — each asset folder holds
+  its spec beside its images (`references/guide-asset-reference.md` §9).
 - Every `assets/**` folder — anchor images and generated renders at their
   taxonomy paths (`references/guide-asset-reference.md` §9).
 - Every `.recipe` sidecar next to a render — the provenance record
@@ -77,6 +77,11 @@ leads every filename and fields are underscore-separated — `{show}_{descriptor
   `production-SBW.json` → `sbw_production.json`, `char-sbw-eli.md` → `sbw_char_eli.md`,
   `char-eli-id-front.png` → `sbw_char_eli_id_front.png`.
 - any `-` between fields → `_`; any uppercase show code → lowercase.
+
+Also **relocate loose files into the scaffold** (`references/guide-asset-reference.md`
+§9): create `context/` and the `assets/{type}/` dirs if missing; move context docs
+(`{show}_project_context.md`, `{show}_art_bible.md`) into `context/`, and move any spec
+sitting outside its asset folder into `assets/{type}/{name}/` beside its images.
 
 Correcting legacy/mistaken filenames is in scope for reconcile — it's how the working
 folder and the manifest are kept in agreement. Renaming assets/specs is the **only**

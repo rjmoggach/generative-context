@@ -68,31 +68,35 @@ contrast/saturation), resolve. Decide which components carry the build.
 
 ## Step 6 — Write the shot list
 
-Produce a numbered shot list. For each shot specify: label, size, angle, lens,
+Produce a numbered shot list. For each shot specify: shot id, size, angle, lens,
 movement, the beat it serves, and its target intensity. Choose sizes/coverage via
 [`references/guide-shot-selection.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-shot-selection.md) and lenses
-via [`references/guide-lens-language.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-lens-language.md). Use the
-project's `{show-code}` and a sequence number for labels (e.g., `S2-03`).
+via [`references/guide-lens-language.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-lens-language.md).
+
+**Numbering** (`references/guide-asset-reference.md` §9): the sequence is a folder
+`sequences/{show}{NNNN}/` and each shot id is `{show}{NNNN}_{SSSS}`, both numbered in
+**tens** (`0010`, `0020`, `0030`…) so a later insert drops in cleanly (`0015`, `0025`).
+The shot id is the canonical handle used in `refs`, render filenames, and the manifest.
 
 Output format:
 
 ```
-SEQUENCE {code}-S{n}: {scene name}
+SEQUENCE {show}{NNNN}: {scene name}                    (e.g. sbw0010)
 Beat: {where/who/turn/exit}   Coverage: {mode}   Staging: {A/I/L}
 Line/direction: {A left looking right; B right looking left; travel L→R}
 Intensity arc: {open → peak at the turn → resolve}
 
-S{n}-01  Establishing — {size}, {angle}, {lens}, {move} — serves {beat} — intensity {low/med/high}
-S{n}-02  Master — ...
-S{n}-03  Coverage CU — {lens} — serves {beat} — intensity {x} — refs: char_eli, set_livingroom
+{show}{NNNN}_0010  Establishing — {size}, {angle}, {lens}, {move} — serves {beat} — intensity {low/med/high}
+{show}{NNNN}_0020  Master — ...
+{show}{NNNN}_0030  Coverage CU — {lens} — serves {beat} — intensity {x} — refs: char_eli, set_livingroom
 ...
 ```
 
 ## Step 7 — Attach asset references
 
 Per [`references/guide-asset-reference.md`](${CLAUDE_PLUGIN_ROOT}/context/guide-asset-reference.md) §10, scan
-the working folder for `char-`/`prop-`/`set-` spec files (`assets/` and any loose
-`{show}_{type}_{name}.md`). For each shot, append `refs: {id}[, {id}...]` naming the
+the working folder for `{show}_char_*`/`{show}_prop_*`/`{show}_set_*` spec files under
+`assets/**`. For each shot, append `refs: {id}[, {id}...]` naming the
 assets that beat needs — the character(s), prop(s), and set the shot must carry
 identity for. A shot with no locked assets in frame omits `refs:` entirely. This is
 the contract `shot-prompt` reads to attach the right anchor images and identity

@@ -150,6 +150,28 @@ and the `art-direction` skill — see that guide for the full production-design 
 
   Facets: `id` - `turn` - `fit` - `hmu` - `expr` - `pose` - `palette` - `hero` - `ortho` - `detail` - `360` - `plate` - `cov` - `tod`. Views: `front/back/side_l/side_r/3q_l/3q_r/top/bottom`.
   All lowercase; fields joined by `_`; `_vNN` version suffix optional. Show code always lowercase.
+
+  **Working-folder layout** — `project-context` scaffolds `context/` and the `assets/`
+  type dirs up front; `sequences/` and `renders/` are created when first needed:
+
+  ```
+  <show>/
+    {show}_production.json               manifest (index) at the root
+    context/
+      {show}_project_context.md          visual-language profile
+      {show}_art_bible.md                world bible
+    assets/{type}/{name}/                one folder per asset (spec beside its images)
+      {show}_{type}_{name}.md
+      {show}_{type}_{name}_{facet}_{view}.png
+    sequences/{show}{NNNN}/              sequence folder — show + 4-digit number, by 10s
+      {show}{NNNN}_{SSSS}.md             shot — 4-digit shot number, by 10s (insert: _0015)
+    renders/                             ad-hoc generations + their .recipe sidecars
+  ```
+
+  **Sequence & shot numbering:** sequence folders and shot stems are numbered in **tens**
+  (`0010`, `0020`, `0030`…) so a later insert drops in cleanly (`0015`, `0025`). The shot
+  stem `{show}{NNNN}_{SSSS}` (e.g. `sbw0010_0020`) is the canonical shot id used in shot
+  lists, `refs`, and render filenames.
 - **Watch-outs:** everything the model writes goes to the **user's working folder**,
   never the plugin repo; keep names ASCII and underscore-separated so tokens parse
   cleanly. **Legacy files** using a prior convention — show as a suffix, uppercase, or
@@ -172,12 +194,14 @@ and the `art-direction` skill — see that guide for the full production-design 
   is implied by the loaded project). Example:
 
   ```
-  S2-03  Coverage CU - 85mm - serves the turn - refs: char_eli, prop_revolver, set_livingroom
+  sbw0010_0030  Coverage CU - 85mm - serves the turn - refs: char_eli, prop_revolver, set_livingroom
   ```
 
-  Each id resolves to its spec (`{show}_char_{name}.md`) and anchor image
-  (`assets/char/{name}/{show}_char_{name}_id_front.png`, `assets/prop/{name}/{show}_prop_{name}_hero.png`,
-  `assets/set/{name}/{show}_set_{name}_plate.png`) via the taxonomy (§9). The ref id stays
+  Each id resolves to its spec (`assets/char/{name}/{show}_char_{name}.md`) and anchor
+  image (`assets/char/{name}/{show}_char_{name}_id_front.png`,
+  `assets/prop/{name}/{show}_prop_{name}_hero.png`,
+  `assets/set/{name}/{show}_set_{name}_plate.png`) via the taxonomy (§9) — spec and
+  images live together in the asset folder. The ref id stays
   show-less because the show is fixed by the loaded project; the resolved filenames carry it.
 - **Watch-outs:** a shot that needs an asset but omits `refs:` will re-derive
   identity from text and drift; an id with no matching spec is a broken reference —

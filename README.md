@@ -1,6 +1,6 @@
 # generative-wrangler
 
-**Version**: 1.1.0 · **Updated**: 2026-07-02
+**Version**: 1.2.0 · **Updated**: 2026-07-02
 
 A flexible plugin for getting **cinematic, model-optimized prompts** for generative
 image and video — at any level of structure. Ask for a great one-off still prompt,
@@ -59,8 +59,8 @@ skills' craft with a role's judgment.
 
 | Skill | Level | Does |
 |---|---|---|
-| `project-context` | Project | Visual-DNA interview → `project-context-{show-code}.md` |
-| `art-direction` | World bible / Project | PD interview → `art-bible-{show}.md`: palette, material/CMF, era, global style ref, asset index |
+| `project-context` | Project | Visual-DNA interview → `context/{show}_project_context.md` |
+| `art-direction` | World bible / Project | PD interview → `context/{show}_art_bible.md`: palette, material/CMF, era, global style ref, asset index |
 | `sequence-design` | Scene | Plan coverage, staging, screen direction, intensity arc → shot list; attaches asset `refs:` to each shot line |
 | `shot-prompt` | Shot | Six-layer, model-optimized prompts honoring the project look; consumes attached `refs:` (identity = reference, change = prompt) |
 | `footage-transform` | Shot (v2v) | Video-to-video prompts: preserve a real clip, change one thing (VFX, world swap, timed moves) |
@@ -69,7 +69,7 @@ skills' craft with a role's judgment.
 | `prop-turntable` | Asset | Build a persistent prop reference: hero anchor, orthographic ring, detail views, state variants/multiples |
 | `location-pack` | Asset | Build a location/set reference: master establishing plate, coverage, time-of-day/weather variants, continuity table |
 | `model-docs` | Library | Research + write/refresh a model doc; sync currency |
-| `production` | Production office | Build/reconcile `production-{show}.json` — the derived index of assets, generations, and cost, merged with persisted approvals — and report status/gaps |
+| `production` | Production office | Build/reconcile `{show}_production.json` — the derived index of assets, generations, and cost, merged with persisted approvals — and report status/gaps |
 
 ### Agents (the crew)
 
@@ -86,12 +86,12 @@ skills' craft with a role's judgment.
 | `makeup-hair` | Art dept | "Lock the HMU states" — clean/aged/wounded/wet state references per character |
 | `propmaster` | Art dept | "Build the prop turntable" — hero anchor, multi-angle ring, detail and state variants |
 | `location-scout` | Art dept | "Build the location pack" — master plate, coverage, time/weather variants |
-| `production-coordinator` | Production office | "Where are we / what's missing / what did it cost" — reconciles `production-{show}.json` against the working folder and reports status, cost rollups, and gaps |
+| `production-coordinator` | Production office | "Where are we / what's missing / what did it cost" — reconciles `{show}_production.json` against the working folder and reports status, cost rollups, and gaps |
 
 Typical flow: brief the **Director** → the **Production Designer** sets the world
 and delegates to the art-dept sub-roles (**casting director** → **costume
 designer** → **makeup & hair** → **propmaster** → **location scout**), each
-producing a locked asset (`char-`/`prop-`/`set-{show}-{name}.md`) → the **1st
+producing a locked asset (`{show}_char_{name}.md`) → the **1st
 AD** breaks down coverage and **attaches** the relevant asset `refs:` to each
 shot line → the **DP** **consumes** those refs — loading each anchor image and
 restating its identity block verbatim (identity = reference, change = prompt) —
@@ -120,7 +120,7 @@ capability the existing crew used, not a new role.
 ## Production office
 
 Once a show is generating, someone has to track it. The `production` skill
-builds and reconciles `production-{show}.json` — a derived index rebuilt from
+builds and reconciles `{show}_production.json` — a derived index rebuilt from
 the working folder (asset specs + `.recipe` sidecars) and merged with a
 persisted `human` block (approvals / needs-retake / notes), so it can always be
 rebuilt from the files and can't rot. The `production-coordinator` agent reads
@@ -130,7 +130,7 @@ refs, over-budget). It writes only the manifest, never the assets. See
 [`context/guide-production.md`](context/guide-production.md).
 
 To *review* the show visually, open [`dashboard/`](dashboard/) — a self-contained,
-read-only viewer that renders any `production-{show}.json` as a board (assets,
+read-only viewer that renders any `{show}_production.json` as a board (assets,
 sequences/shots with thumbnails, budget, gaps) with a clean click-to-view lightbox.
 No build step, no server; it is an isolated sibling app, not part of the plugin
 package. See [`context/guide-presentation.md`](context/guide-presentation.md).

@@ -37,9 +37,9 @@ indexes), and `guide-execution.md` (§6, the `.recipe` sidecar `generations[]` i
 built from), and `guide-presentation.md` (how to *show* the board when asked).
 Then run the `production` skill's scan/reconcile.
 
-1. **Scan** the working folder in full: `project-context-*` and `art-bible-*`
-   (the show's look and any recorded budget), every `char-`/`prop-`/
-   `{show}_set_{name}.md` spec, every `assets/**` folder, every `.recipe`
+1. **Scan** the working folder in full: `context/*_project_context.md` and
+   `context/*_art_bible.md` (the show's look and any recorded budget), every
+   `{show}_char_{name}.md`/`{show}_prop_{name}.md`/`{show}_set_{name}.md` spec under `assets/**`, every `assets/**` folder, every `.recipe`
    sidecar, and any shot lists for their `refs:`. If a `{show}_production.json`
    already exists there, read it — its `human` block is what reconcile must
    preserve.

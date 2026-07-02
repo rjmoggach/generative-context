@@ -121,8 +121,8 @@ from the image alone.
 
 ## Step 4 — Build the asset index
 
-Scan the user's working folder for existing `char-{show}-*`, `prop-{show}-*`, and
-`set-{show}-*` spec files. For each locked asset — anchored and spec-filed — add
+Scan the working folder for existing `{show}_char_*`, `{show}_prop_*`, and
+`{show}_set_*` spec files under `assets/**`. For each locked asset — anchored and spec-filed — add
 one row to the asset index. Do not list assets that are not yet locked; a partial
 asset in the index implies it is safe to reference, which it is not.
 
@@ -138,7 +138,8 @@ Spec-file names carry `{show}`; image-file names do not.
 
 ## Step 5 — Output
 
-Write `{show}_art_bible.md` to the **user's working folder** — never to the plugin
+Write the bible to **`context/{show}_art_bible.md`** in the user's working folder
+(the `context/` folder `project-context` scaffolds) — never to the plugin
 repo — using the structure in [`references/art-bible-template.md`](references/art-bible-template.md).
 The bible must be queryable: every field labeled, every palette entry hex-pinned,
 every CMF term explicitly defined, every world rule a checkable constraint, every

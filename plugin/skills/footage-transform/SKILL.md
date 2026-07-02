@@ -30,7 +30,7 @@ there is no clip to preserve, use `shot-prompt` instead.
 ## Step 1 — Load context
 
 1. **Project lock (if any).** If the user names a show code, read
-   `{show}_project_context.md` and hold its Standard Prompt Prefix, hex codes,
+   `context/{show}_project_context.md` and hold its Standard Prompt Prefix, hex codes,
    lighting, lens specs, atmosphere, and forbidden terms. A one-off with no project
    file is fine — say it won't be consistency-locked.
 2. **Load the craft guide:**

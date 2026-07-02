@@ -29,17 +29,17 @@ every output locked to the same look.
 
 | Skill | Does | Produces |
 |---|---|---|
-| `project-context` | Visual-DNA interview (the look) | `project-context-{show-code}.md` |
-| `art-direction` | PD interview (the world): palette, material/CMF, era, global style ref, asset index | `art-bible-{show}.md` |
+| `project-context` | Visual-DNA interview (the look) | `context/{show}_project_context.md` |
+| `art-direction` | PD interview (the world): palette, material/CMF, era, global style ref, asset index | `context/{show}_art_bible.md` |
 | `sequence-design` | Plan coverage, staging, intensity arc; attaches asset `refs:` to each shot line | a numbered shot list |
 | `shot-prompt` | Six-layer, model-optimized prompts; consumes attached `refs:` (identity = reference, change = prompt) | copy-paste shot prompts |
 | `footage-transform` | Video-to-video: preserve a real clip, change one thing | copy-paste v2v prompts |
 | `image-edit` | Image-to-image: preserve a real still, change one thing | copy-paste i2i prompts |
-| `character-sheet` | Build a persistent character reference: hero identity, turnaround, wardrobe + HMU states | `char-{show}-{name}.md` + `assets/char/{name}/` |
-| `prop-turntable` | Build a persistent prop reference: hero anchor, orthographic ring, detail views, state variants/multiples | `prop-{show}-{name}.md` + `assets/prop/{name}/` |
-| `location-pack` | Build a location/set reference: master establishing plate, coverage, time-of-day/weather variants, continuity table | `set-{show}-{name}.md` + `assets/set/{name}/` |
+| `character-sheet` | Build a persistent character reference: hero identity, turnaround, wardrobe + HMU states | `{show}_char_{name}.md` + `assets/char/{name}/` |
+| `prop-turntable` | Build a persistent prop reference: hero anchor, orthographic ring, detail views, state variants/multiples | `{show}_prop_{name}.md` + `assets/prop/{name}/` |
+| `location-pack` | Build a location/set reference: master establishing plate, coverage, time-of-day/weather variants, continuity table | `{show}_set_{name}.md` + `assets/set/{name}/` |
 | `model-docs` | Research + write/refresh a model doc | `model-{type}-{name}.md` |
-| `production` | Build/reconcile the show's manifest: assets, generations, cost, gaps | `production-{show}.json` |
+| `production` | Build/reconcile the show's manifest: assets, generations, cost, gaps | `{show}_production.json` |
 
 ## Agents (the crew you talk to)
 
@@ -58,12 +58,12 @@ Crew personas that apply the skills' craft with a role's judgment and voice.
 | `makeup-hair` | Art dept | "Lock the HMU states" — clean/aged/wounded/wet state references per character |
 | `propmaster` | Art dept | "Build the prop turntable" — hero anchor, multi-angle ring, detail and state variants |
 | `location-scout` | Art dept | "Build the location pack" — master plate, coverage, time/weather variants |
-| `production-coordinator` | Production office | "Where are we / what's missing / what did it cost" — reconciles `production-{show}.json` and reports status, cost, and gaps |
+| `production-coordinator` | Production office | "Where are we / what's missing / what did it cost" — reconciles `{show}_production.json` and reports status, cost, and gaps |
 
 Typical flow: you brief the **Director** → the **Production Designer** sets the
 world and delegates to the art-dept sub-roles (**casting director** → **costume
 designer** → **makeup & hair** → **propmaster** → **location scout**), each
-producing a locked asset (`char-`/`prop-`/`set-{show}-{name}.md`) → the **1st
+producing a locked asset (`{show}_char_{name}.md`) → the **1st
 AD** breaks down coverage and **attaches** the relevant asset `refs:` to each
 shot line → the **DP** **consumes** those refs — identity from the reference,
 change from the prompt — and hands back each shot's prompt → the **Script
@@ -84,7 +84,7 @@ a new role.
 
 ## Production office
 
-The `production` skill builds and reconciles `production-{show}.json` — a
+The `production` skill builds and reconciles `{show}_production.json` — a
 derived index rebuilt from the working folder (asset specs + `.recipe`
 sidecars) and merged with a persisted `human` block (approvals / needs-retake /
 notes), so it can always be rebuilt from the files and can't rot. The

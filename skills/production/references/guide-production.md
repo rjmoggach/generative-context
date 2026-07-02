@@ -31,7 +31,7 @@ Each entry uses the library's decision-unit format:
   new field belongs in a top-level block or inside `human`.
 - **Because:** `assets`, `generations`, `sequences`, `cost`, and the rollup `status`
   counts can all be reconstructed from the files on disk — the asset spec files
-  (`char-`/`prop-`/`{show}_set_{name}.md`), the anchor images under `assets/`, and
+  (`{show}_char_{name}.md`/`{show}_prop_{name}.md`/`{show}_set_{name}.md`), the anchor images under `assets/`, and
   the `.recipe` sidecars `guide-execution.md` §6 writes next to every render. Because
   they can always be rebuilt, they can never rot — a stale derived block is simply a
   manifest that hasn't been reconciled yet, and reconciling it (§3) fixes it for
@@ -67,7 +67,7 @@ Each entry uses the library's decision-unit format:
   reliably. A fixed vocabulary makes the rollup in `status` (§6) a trustworthy count,
   not a guess.
 - **Prompt translation:** assign status by what the scan finds, in this order:
-  - `specced` — the asset's spec file (`char-`/`prop-`/`{show}_set_{name}.md`)
+  - `specced` — the asset's spec file (`{show}_char_{name}.md`/`{show}_prop_{name}.md`/`{show}_set_{name}.md`)
     exists, nothing else does yet.
   - `built` — the spec exists **and** its anchor image exists at the taxonomy path
     (`guide-asset-reference.md` §9).
@@ -103,7 +103,7 @@ Each entry uses the library's decision-unit format:
   discarding every approval and retake note a producer has made — the single failure
   mode this guide exists to rule out.
 - **Prompt translation:** reconcile in two passes. First, **derive**: scan
-  `project-context-*`, `art-bible-*`, every `char-`/`prop-`/`{show}_set_{name}.md`
+  `context/*_project_context.md`, `context/*_art_bible.md`, every `{show}_char_{name}.md`/`{show}_prop_{name}.md`/`{show}_set_{name}.md`
   spec, every `assets/**` folder, every `.recipe` sidecar, and any shot lists; rebuild
   `assets`, `generations`, `sequences`, `cost`, and rollup `status` from what's found.
   Second, **merge**: read the manifest's *existing* `human` block before writing the
@@ -206,14 +206,14 @@ Each entry uses the library's decision-unit format:
   "show": "sbw",
   "updated": "2026-07-02",
   "assets": [
-    { "type": "char", "name": "eli", "spec_file": "sbw_char_eli.md", "anchor_image": "assets/char/eli/sbw_char_eli_id_front.png", "status": "built" },
-    { "type": "set", "name": "livingroom", "spec_file": "sbw_set_livingroom.md", "anchor_image": null, "status": "specced" }
+    { "type": "char", "name": "eli", "spec_file": "assets/char/eli/sbw_char_eli.md", "anchor_image": "assets/char/eli/sbw_char_eli_id_front.png", "status": "built" },
+    { "type": "set", "name": "livingroom", "spec_file": "assets/set/livingroom/sbw_set_livingroom.md", "anchor_image": null, "status": "specced" }
   ],
   "generations": [
     { "file": "assets/char/eli/sbw_char_eli_id_front.png", "fal_endpoint": "fal-ai/flux/schnell", "seed": 1278911897, "refs": [], "prompt": "...", "cost": 0.003, "rendered_at": "2026-07-02" }
   ],
   "sequences": [
-    { "label": "S2", "shots": [ { "label": "S2-03", "refs": ["char_eli", "set_livingroom"], "generated": false } ] }
+    { "label": "S2", "shots": [ { "label": "sbw0010_0030", "refs": ["char_eli", "set_livingroom"], "generated": false } ] }
   ],
   "cost": { "total": 0.003, "by_model": { "fal-ai/flux/schnell": 0.003 }, "by_sequence": {} },
   "status": { "specced": 2, "built": 1, "rendered": 1, "approved": 0, "missing": 0 },
@@ -228,11 +228,11 @@ Each entry uses the library's decision-unit format:
   (persisted — a person locked it; the derived `assets` entry never says
   `"status": "approved"` on its own). `livingroom` has `anchor_image: null` and
   `status: "specced"` — work defined, not built (§5's specced-but-unrendered case).
-  `S2-03` names both refs but `"generated": false` — a shot the coordinator should
+  `sbw0010_0030` names both refs but `"generated": false` — a shot the coordinator should
   flag as not yet rendered. `cost.by_sequence` is empty because no generation yet
   ties to `S2` — a valid state (§4), not an error. The rollup `status` counts (2
   specced, 1 built, 1 rendered, 0 approved-at-the-rollup-level, 0 missing - both of
-  `S2-03`'s refs resolve to specs) are derived sums; the one `approved` fact in the
+  `sbw0010_0030`'s refs resolve to specs) are derived sums; the one `approved` fact in the
   file lives only in `human`.
 - **Anchors:** §1 (the split this example demonstrates); `guide-execution.md` §6
   (the `.recipe` fields — `fal_endpoint`, `seed`, `refs`, `prompt`, `cost`,

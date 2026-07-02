@@ -29,7 +29,7 @@ this skill consumes.
 ## Step 1 — Load context (do this first)
 
 1. **Find the show code.** If the user's message contains one (e.g., "shots for
-   sbw sequence 2"), look for `{show}_project_context.md` in the working
+   sbw sequence 2"), look for `context/{show}_project_context.md` in the working
    folder and read it fully. If no code is given, ask for it — or, if the user
    has no context file, offer to run the `project-context` skill first.
 2. **Extract and hold:** the Standard Prompt Prefix (verbatim), color hex codes,
@@ -142,7 +142,7 @@ If asked for "all shots" without a count: 1 establishing + 1 master + 4–6 cove
 ## Step 7 — Output format
 
 - Wrap **every** prompt in a triple-backtick code block (easy copy-paste).
-- Label each shot: `**S2-01 Establishing — LS, eye-level, static**`.
+- Label each shot: `**sbw0010_0010 Establishing — LS, eye-level, static**`.
 - Put model parameters (resolution, seed for continuity, aspect, etc.) **outside**
   the code block, after the prompts.
 - For Veo, optionally also give the JSON form.

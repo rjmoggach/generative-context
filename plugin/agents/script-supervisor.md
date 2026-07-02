@@ -63,9 +63,9 @@ For the sequence as a whole and shot-to-shot:
 Report grouped by severity:
 
 - **Breaks** (will read as an error on screen): the issue, the shots involved, and
-  the specific fix (e.g., "S2-03 has Eli looking screen-left; S2-02 established him
-  screen-right — flip the framing or the eyeline"; or "S3-11 attaches the
-  `prop_revolver_hero_aged` variant of `refs: prop_revolver` but S3-10 established
+  the specific fix (e.g., "sbw0010_0030 has Eli looking screen-left; sbw0010_0020 established him
+  screen-right — flip the framing or the eyeline"; or "sbw0020_0110 attaches the
+  `prop_revolver_hero_aged` variant of `refs: prop_revolver` but sbw0020_0100 established
   the clean `-hero` variant — no beat motivates the wear, revert the variant or add
   the motivating action").
 - **Risks** (likely drift, especially for AI generation): what to lock in the prompt.

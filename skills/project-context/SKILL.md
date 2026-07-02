@@ -27,7 +27,7 @@ prefix).
 
 Use at the **start** of any generative project, before generating individual
 shots. The output is the foundational input for the `shot-prompt` skill. If the
-user already has a `project-context-*.md`, skip the interview and just refine it.
+user already has a `context/{show}_project_context.md`, skip the interview and just refine it.
 
 ## Core principle
 
@@ -91,11 +91,18 @@ Produce a complete `{show}_project_context.md` using the structure in
 - **Forbidden terms** — words/looks to never use (the consistency guardrail).
 - Optional **sequence breakdown** if the project already has one.
 
-### Step 5 — Save and hand off
+### Step 5 — Scaffold the project, then save and hand off
 
-Save as `{show}_project_context.md`. Tell the user this file is the input to
-the `shot-prompt` skill, and that the prompt prefix and forbidden terms are the
-two things that keep every later generation on-model.
+First, **scaffold the working folder** (once, at project start): create a `context/`
+folder and the asset type directories
+`assets/{char,prop,set,veh,cam,light,style,fx}/`. (`sequences/` and `renders/` are
+created later, when `sequence-design` and the execution step first need them.) This
+gives every later file a home from step one — see the working-folder layout in
+[`references/guide-asset-reference.md`](references/guide-asset-reference.md) §9.
+
+Save this profile as **`context/{show}_project_context.md`**. Tell the user this file
+is the input to the `shot-prompt` skill, and that the prompt prefix and forbidden terms
+are the two things that keep every later generation on-model.
 
 ## Critical rules
 

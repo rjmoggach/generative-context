@@ -2,6 +2,14 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.2.0 - 2026-07-02
+
+### Project scaffold + sequence numbering (#3, #4)
+
+- **Up-front scaffold (#3).** `project-context` now lays down the working-folder skeleton at project start — a `context/` folder (holding `{show}_project_context.md` + `{show}_art_bible.md`) and the `assets/{char,prop,set,veh,cam,light,style,fx}/` type dirs. `sequences/` and `renders/` are created lazily when first needed. Asset specs now live inside their asset folder beside the images. The `production` skill's reconcile relocates loose legacy files into the scaffold (on top of the v1.1.0 rename/normalize), and its scan globs + the manifest schema follow the new paths.
+- **Sequence/shot numbering (#4).** Sequences and shots use a VFX increment-by-10 convention: `sequences/{show}{NNNN}/{show}{NNNN}_{SSSS}.md`, numbered `0010, 0020, 0030…` so inserts drop in cleanly (`0015`). The shot stem `{show}{NNNN}_{SSSS}` is the canonical shot id in shot lists, `refs`, and render filenames (replacing ad-hoc `S2-03` labels). `sequence-design` emits on this numbering.
+- Swept up naming stragglers the v1.1.0 pass missed (bare `char-`/`prop-` prefixes in `guide-production` and both READMEs, old suffix scan globs, old shot labels).
+
 ## v1.1.0 - 2026-07-02
 
 ### Asset naming overhaul + reconcile governance
