@@ -152,6 +152,7 @@ MANIFEST = {
     ],
     "production": [
         ("guide-production.md", "references/guide-production.md"),
+        ("guide-presentation.md", "references/guide-presentation.md"),
         ("guide-asset-reference.md", "references/guide-asset-reference.md"),
         ("guide-execution.md", "references/guide-execution.md"),
         ("model-currency-2026-06.md", "references/model-currency-2026-06.md"),

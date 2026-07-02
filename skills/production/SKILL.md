@@ -128,6 +128,14 @@ current `fal_endpoint` ids used in cost rollups, verify against
 [`references/model-currency-2026-06.md`](references/model-currency-2026-06.md)
 before quoting any pricing figure.
 
+## Step 4 — Present (optional)
+
+When the ask is "show me" rather than "tell me", put the board in front of the
+human per [`references/guide-presentation.md`](references/guide-presentation.md):
+point them at the read-only dashboard (`dashboard/index.html` → *Open production
+folder*), assemble a contact sheet for one sequence, or render an on-demand board.
+Reconcile first so it is current; keep it read-only.
+
 ## Critical rules
 
 1. **Never drop the `human` block on rebuild.** Every reconcile reads the
@@ -144,6 +152,10 @@ before quoting any pricing figure.
 4. **`approved` and `needs-retake` are human-only.** A scan can report every
    other status; it can never promote an asset to `approved` or flag
    `needs-retake` on its own.
-5. **Report in chat; the dashboard is a later layer.** This skill's output is a
-   written manifest plus a status report in conversation — no visual dashboard
-   exists yet.
+5. **Report in chat; present visually on request.** This skill's core output is a
+   written manifest plus a status report in conversation. When the human wants to
+   *see* the board — thumbnails, coverage, the whole show — present it per
+   [`references/guide-presentation.md`](references/guide-presentation.md): the
+   read-only dashboard (`dashboard/index.html`), a contact sheet, or an on-demand
+   rendered board. Presentation is read-only; approvals still flow back through the
+   `human` block (rule 1).
