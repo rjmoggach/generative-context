@@ -45,3 +45,7 @@ skills/dist/
 
 # superpowers workflow scratch (specs/plans are committed under docs/)
 .superpowers/
+
+# dashboard app build artifacts
+dashboard/node_modules/
+dashboard/dist/

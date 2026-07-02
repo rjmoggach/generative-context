@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Production — generative-wrangler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: oklch(0.165 0.006 264); --surface: oklch(0.205 0.007 264); --surface-2: oklch(0.245 0.008 264);
+    --line: oklch(0.31 0.008 264); --line-soft: oklch(0.27 0.007 264);
+    --ink: oklch(0.965 0.004 264); --ink-2: oklch(0.80 0.008 264); --muted: oklch(0.66 0.010 264);
+    --accent: oklch(0.78 0.10 205); --ok: oklch(0.76 0.15 152); --warn: oklch(0.82 0.13 78);
+    --render: oklch(0.74 0.11 236); --miss: oklch(0.70 0.17 25);
+    --e1: 0 1px 0 oklch(0.30 0.01 264 / .5), 0 1px 2px oklch(0 0 0 / .35);
+    font-synthesis:none;
+  }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:radial-gradient(120% 80% at 100% 0%, oklch(0.22 0.02 240 / .35), transparent 60%),var(--bg);
+    color:var(--ink);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;min-height:100vh}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;letter-spacing:-0.01em}
+  .app{max-width:1360px;margin:0 auto;padding:0 28px 64px}
+  button{font-family:inherit}
+  .btn{appearance:none;border:1px solid var(--line);background:var(--surface-2);color:var(--ink-2);
+    font-size:12.5px;font-weight:500;padding:7px 13px;border-radius:9px;cursor:pointer;transition:border-color .15s,color .15s,background .15s}
+  .btn:hover{border-color:var(--accent);color:var(--ink)}
+  .btn.primary{background:oklch(0.78 0.10 205 / .14);border-color:oklch(0.78 0.10 205 / .4);color:oklch(0.88 0.06 205)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+
+  header{display:flex;align-items:center;gap:24px;padding:22px 0 20px;border-bottom:1px solid var(--line-soft);
+    position:sticky;top:0;background:linear-gradient(var(--bg),oklch(0.165 0.006 264 / .82));backdrop-filter:blur(6px);z-index:10}
+  .brand{display:flex;align-items:baseline;gap:12px;min-width:0}
+  .code{font-weight:700;font-size:13px;letter-spacing:.14em;color:var(--accent)}
+  .brand h1{margin:0;font-size:19px;font-weight:600;letter-spacing:-0.01em;white-space:nowrap}
+  .brand .sub{color:var(--muted);font-size:13px}
+  .spacer{flex:1}
+  .topstat{display:flex;align-items:center;gap:22px}
+  .kv{display:flex;flex-direction:column;gap:2px;text-align:right}
+  .kv .l{font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  .kv .v{font-size:15px;font-weight:600}
+  .updated{font-size:12px;color:var(--muted)} .updated b{color:var(--ink-2);font-weight:500}
+  .controls{display:flex;gap:8px;align-items:center}
+
+  .rail{display:flex;align-items:center;gap:14px;margin:20px 0 26px}
+  .bar{flex:1;height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden;box-shadow:inset 0 0 0 1px var(--line-soft)}
+  .bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--render),var(--accent))}
+  .rail .pct{font-size:13px;color:var(--ink-2)} .rail .pct b{color:var(--ink);font-weight:600} .mono.dim{color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:248px minmax(0,1fr) 296px;gap:24px;align-items:start}
+  section>.h{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px}
+  section>.h h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ink-2)}
+  section>.h .n{font-size:12px;color:var(--muted)}
+
+  .group{margin-bottom:20px} .group .gl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .asset{display:flex;align-items:center;gap:11px;padding:8px;border-radius:10px} .asset:hover{background:var(--surface)}
+  .thumb{width:40px;height:40px;border-radius:8px;flex:none;object-fit:cover;background:var(--surface-2);box-shadow:var(--e1)}
+  .thumb.click{cursor:zoom-in}
+  .thumb.ph{display:grid;place-items:center;border:1px dashed var(--line);background:repeating-linear-gradient(-45deg,transparent 0 6px, oklch(0.24 0.008 264 / .5) 6px 7px)}
+  .thumb.ph svg{width:16px;height:16px;color:var(--muted);opacity:.8}
+  .asset .nm{min-width:0} .asset .nm b{display:block;font-size:13.5px;font-weight:500} .asset .nm span{font-size:11.5px;color:var(--muted)}
+  .dot{width:7px;height:7px;border-radius:99px;flex:none;margin-left:auto}
+  .dot.ok{background:var(--ok)} .dot.spec{background:var(--muted)} .dot.miss{background:var(--miss)}
+
+  .seqhead{display:flex;align-items:baseline;gap:12px;margin:2px 0 14px}
+  .seqhead h2{margin:0;font-size:16px;font-weight:600;letter-spacing:-0.01em} .seqhead .loc{color:var(--muted);font-size:13px}
+  .seqhead+.strip{margin-bottom:30px}
+  .strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+  .shot{border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;background:var(--surface);box-shadow:var(--e1);transition:border-color .18s,transform .18s}
+  .shot:hover{border-color:var(--line);transform:translateY(-2px)}
+  .frame{aspect-ratio:16/9;position:relative;background:var(--surface-2);overflow:hidden}
+  .frame img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
+  .frame.empty{display:grid;place-items:center;background:radial-gradient(80% 80% at 50% 40%, oklch(0.235 0.008 264), var(--surface-2));border-bottom:1px dashed var(--line)}
+  .frame.empty .slate{display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--muted)}
+  .frame.empty .slate svg{width:20px;height:20px;opacity:.75} .frame.empty .slate span{font-size:11px;letter-spacing:.03em}
+  .frame .badge{position:absolute;left:9px;top:9px;font-size:11px;font-weight:600;letter-spacing:.03em;padding:3px 8px;border-radius:99px;background:oklch(0.16 0.01 264 / .78);backdrop-filter:blur(3px);color:var(--ink)}
+  .meta{padding:11px 12px 12px} .meta .row1{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .meta .lbl{font-size:13px;font-weight:600} .meta .lbl small{font-weight:500;color:var(--muted);margin-left:6px;font-size:11.5px}
+  .refs{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .ref{font-size:11px;padding:2px 7px;border-radius:6px;background:var(--surface-2);border:1px solid var(--line-soft);color:var(--ink-2)} .ref.mono{font-size:10.5px}
+
+  .chip{font-size:11px;font-weight:600;padding:3px 9px 3px 7px;border-radius:99px;display:inline-flex;align-items:center;gap:6px;border:1px solid transparent}
+  .chip::before{content:"";width:6px;height:6px;border-radius:99px;background:currentColor}
+  .chip.approved{color:var(--ok);background:oklch(0.76 0.15 152 / .12);border-color:oklch(0.76 0.15 152 / .28)}
+  .chip.rendered{color:var(--render);background:oklch(0.74 0.11 236 / .12);border-color:oklch(0.74 0.11 236 / .28)}
+  .chip.retake{color:var(--warn);background:oklch(0.82 0.13 78 / .12);border-color:oklch(0.82 0.13 78 / .28)}
+  .chip.pending{color:var(--muted);background:oklch(0.66 0.01 264 / .10);border-color:var(--line)}
+
+  .panel{background:var(--surface);border:1px solid var(--line-soft);border-radius:14px;padding:16px 16px 6px} .panel+.panel{margin-top:20px}
+  .panel h3{margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:.03em;color:var(--ink-2);text-transform:uppercase}
+  .spend{display:flex;align-items:baseline;gap:8px;margin-bottom:2px} .spend .big{font-size:26px;font-weight:600;letter-spacing:-0.02em} .spend .cur{font-size:14px;color:var(--muted)} .spend .of{font-size:12px;color:var(--muted);margin-left:auto}
+  .budgetbar{height:5px;border-radius:99px;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line-soft);overflow:hidden;margin:10px 0 16px} .budgetbar>i{display:block;height:100%;background:var(--ok);border-radius:99px}
+  .line{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid var(--line-soft);font-size:12.5px} .line .m{color:var(--muted)}
+  .gap{display:flex;gap:10px;padding:9px 0;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--ink-2)} .gap:first-of-type{border-top:0} .gap .g{width:6px;height:6px;border-radius:99px;margin-top:6px;flex:none} .gap .g.miss{background:var(--miss)} .gap .g.pend{background:var(--render)} .gap .g.spec{background:var(--muted)}
+  .gap code{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink);background:var(--surface-2);padding:1px 5px;border-radius:5px}
+  .foot{font-size:11px;color:var(--muted);padding:12px 2px 6px;border-top:1px solid var(--line-soft);margin-top:10px} .foot b{color:var(--ink-2);font-weight:500}
+
+  /* empty state */
+  .empty-state{min-height:64vh;display:grid;place-items:center;text-align:center}
+  .empty-state .card{max-width:440px}
+  .empty-state h2{font-size:22px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px}
+  .empty-state p{color:var(--muted);font-size:14px;margin:0 auto 22px;max-width:38ch}
+  .empty-state .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .drop-hint{margin-top:16px;font-size:12px;color:var(--muted)} .drop-hint code{font-family:"IBM Plex Mono",monospace;color:var(--ink-2)}
+  .glyph{width:46px;height:46px;color:var(--accent);opacity:.9;margin:0 auto 18px}
+  body.dragging::after{content:"Drop production-{show}.json";position:fixed;inset:14px;border:2px dashed var(--accent);border-radius:18px;display:grid;place-items:center;font-size:16px;color:var(--ink);background:oklch(0.165 0.006 264 / .7);z-index:80;pointer-events:none}
+  .err{color:var(--warn);font-size:13px;margin-top:14px;min-height:18px}
+
+  /* lightbox — just the image, no cruft */
+  .lb{position:fixed;inset:0;z-index:90;display:none;place-items:center;background:oklch(0.10 0.004 264 / .92);cursor:zoom-out;opacity:0;transition:opacity .18s ease}
+  .lb.on{display:grid;opacity:1}
+  .lb img{max-width:94vw;max-height:94vh;object-fit:contain;border-radius:6px;box-shadow:0 24px 80px oklch(0 0 0 / .6)}
+
+  @media (max-width:1080px){.grid{grid-template-columns:1fr;gap:28px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+<div class="lb" id="lb" aria-hidden="true"></div>
+
+<template id="empty-tpl">
+  <div class="empty-state"><div class="card">
+    <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5v14"/></svg>
+    <h2>Open a production</h2>
+    <p>Point at a working folder that contains a <code style="font-family:'IBM Plex Mono',monospace">production-{show}.json</code> and its <code style="font-family:'IBM Plex Mono',monospace">assets/</code>. Read-only.</p>
+    <div class="row">
+      <button class="btn primary" id="open-folder">Open production folder</button>
+      <button class="btn" id="load-sample">Load sample</button>
+    </div>
+    <div class="drop-hint">or drop a <code>production-{show}.json</code> anywhere</div>
+    <div class="err" id="err"></div>
+  </div></div>
+</template>
+
+<script>
+const $ = (s,r=document)=>r.querySelector(s);
+const el = (t,c,txt)=>{const n=document.createElement(t); if(c)n.className=c; if(txt!=null)n.textContent=txt; return n;};
+const app = $("#app");
+const lb = $("#lb");
+
+// ---- lightbox: click any image -> full view, no chrome ----
+function openLightbox(src, alt){ lb.innerHTML=""; const im=new Image(); im.src=src; im.alt=alt||""; lb.appendChild(im); lb.classList.add("on"); lb.setAttribute("aria-hidden","false"); }
+function closeLightbox(){ lb.classList.remove("on"); lb.setAttribute("aria-hidden","true"); lb.innerHTML=""; }
+lb.addEventListener("click", closeLightbox);
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeLightbox(); });
+function zoomable(imgEl, src, alt){ imgEl.addEventListener("click", ()=>openLightbox(src, alt)); }
+
+// ---- image resolution ----
+// returns a map: manifest-path -> displayable URL. sample paths are relative and load as-is.
+async function resolveImages(manifest, mode, dirHandle){
+  const paths = new Set();
+  (manifest.assets||[]).forEach(a=>a.anchor_image && paths.add(a.anchor_image));
+  (manifest.generations||[]).forEach(g=>g.file && paths.add(g.file));
+  (manifest.sequences||[]).forEach(s=>(s.shots||[]).forEach(sh=>sh.image && paths.add(sh.image)));
+  const map = new Map();
+  for(const p of paths){
+    if(mode==="sample" || /^https?:|^blob:|^data:/.test(p)){ map.set(p, p); continue; }
+    if(mode==="folder" && dirHandle){
+      try{
+        const parts=p.split("/"); let h=dirHandle;
+        for(let i=0;i<parts.length-1;i++) h=await h.getDirectoryHandle(parts[i]);
+        const file=await (await h.getFileHandle(parts[parts.length-1])).getFile();
+        map.set(p, URL.createObjectURL(file));
+      }catch{ /* unresolved -> placeholder */ }
+    }
+  }
+  return map;
+}
+
+// ---- render ----
+const TYPE_GLYPH = {
+  char:'<circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/>',
+  prop:'<path d="M4 13h9l4-4 3 1-2 3 1 3h-6l-2-2H4z"/>',
+  set:'<path d="M3 20V9l9-5 9 5v11"/><path d="M9 20v-6h6v6"/>'
+};
+function phThumb(type){ const d=el("div","thumb ph"); d.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">${TYPE_GLYPH[type]||TYPE_GLYPH.prop}</svg>`; return d; }
+function fmt(n){ return "$"+Number(n||0).toFixed(3); }
+
+function shotChip(sh, human){
+  const h = human && human[sh.image];
+  if(h && h.status==="approved") return {c:"approved",t:"approved"};
+  if(h && h.status==="needs-retake") return {c:"retake",t:"needs retake"};
+  if(sh.status==="rendered" || sh.image) return {c:"rendered",t:"rendered"};
+  return {c:"pending",t:sh.status||"specced"};
+}
+
+function render(manifest, imgMap){
+  const M=manifest, human=M.human||{};
+  const assets=M.assets||[], seqs=M.sequences||[];
+  const builtN=assets.filter(a=>a.status==="built").length;
+  const shots=seqs.flatMap(s=>s.shots||[]);
+  const renderedN=shots.filter(s=>s.image||s.status==="rendered").length;
+  const pct = assets.length? Math.round(builtN/assets.length*100):0;
+  const total = (M.cost&&M.cost.total)||0, budget=M.budget||null;
+  app.innerHTML="";
+
+  // header
+  const head=el("header");
+  head.innerHTML=`<div class="brand"><span class="code mono">${M.show||"—"}</span><h1>${M.title||"Production"}</h1><span class="sub">· ${seqs.length} sequence${seqs.length===1?"":"s"}</span></div><div class="spacer"></div>`;
+  const ts=el("div","topstat");
+  ts.innerHTML=`<div class="kv"><span class="l">Rendered</span><span class="v">${renderedN} <span style="color:var(--muted);font-weight:400">/ ${shots.length} shots</span></span></div>`+
+    `<div class="kv"><span class="l">Spend</span><span class="v mono">${fmt(total)}</span></div>`+
+    `<div class="updated">updated <b>${M.updated||"—"}</b></div>`;
+  const ctr=el("div","controls");
+  ctr.innerHTML=`<button class="btn" id="reopen">Change…</button>`;
+  ts.appendChild(ctr); head.appendChild(ts); app.appendChild(head);
+  $("#reopen").addEventListener("click", showEmpty);
+
+  // rail
+  const rail=el("div","rail");
+  rail.innerHTML=`<span class="pct"><b>${pct}%</b> of assets built</span><div class="bar"><i style="width:${pct}%"></i></div><span class="pct mono dim">${builtN} / ${assets.length} assets</span>`;
+  app.appendChild(rail);
+
+  const grid=el("div","grid");
+
+  // assets column
+  const aCol=el("section");
+  aCol.innerHTML=`<div class="h"><h2>Assets</h2><span class="n mono">${assets.length}</span></div>`;
+  const byType={char:[],prop:[],set:[]}; assets.forEach(a=>(byType[a.type]||(byType[a.type]=[])).push(a));
+  const LABELS={char:"Characters",prop:"Props",set:"Sets"};
+  for(const t of ["char","prop","set"]){ const list=byType[t]; if(!list||!list.length) continue;
+    const g=el("div","group"); g.appendChild(el("p","gl",LABELS[t]||t));
+    list.forEach(a=>{
+      const row=el("div","asset");
+      const url=a.anchor_image && imgMap.get(a.anchor_image);
+      if(url){ const im=el("img","thumb click"); im.src=url; im.alt=a.name; zoomable(im,url,a.name); row.appendChild(im); }
+      else row.appendChild(phThumb(a.type));
+      const nm=el("div","nm"); const b=el("b",null,a.name); const s=el("span",null, a.status==="built"?"built · has anchor":(a.status==="missing"?"missing":"specced · no anchor yet")); nm.append(b,s); row.appendChild(nm);
+      const approved = a.anchor_image && human[a.anchor_image] && human[a.anchor_image].status==="approved";
+      row.appendChild(el("span","dot "+(a.status==="missing"?"miss":(a.status==="built"?"ok":"spec"))));
+      g.appendChild(row);
+    });
+    aCol.appendChild(g);
+  }
+  grid.appendChild(aCol);
+
+  // sequences column
+  const sCol=el("section");
+  seqs.forEach(seq=>{
+    const sh=el("div","seqhead"); sh.innerHTML=`<h2>Sequence ${String(seq.label).replace(/^S/,'')}</h2><span class="loc">— ${seq.title||""}</span>`; sCol.appendChild(sh);
+    const strip=el("div","strip");
+    (seq.shots||[]).forEach(shot=>{
+      const card=el("div","shot");
+      const frame=el("div","frame");
+      const url=shot.image && imgMap.get(shot.image);
+      if(url){ frame.innerHTML=`<span class="badge mono">${shot.label}</span>`; const im=el("img"); im.src=url; im.alt=shot.label; zoomable(im,url,shot.label); frame.appendChild(im); }
+      else { frame.classList.add("empty"); frame.innerHTML=`<span class="badge mono">${shot.label}</span><div class="slate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="14" height="12" rx="2"/><path d="M17 10l4-2v8l-4-2"/></svg><span>${shot.size||"shot"} · not rendered</span></div>`; }
+      card.appendChild(frame);
+      const meta=el("div","meta");
+      const ch=shotChip(shot,human);
+      const r1=el("div","row1"); r1.innerHTML=`<span class="lbl">${shot.size||shot.label}${shot.lens?`<small>${shot.lens}</small>`:""}</span>`;
+      const chip=el("span","chip "+ch.c, ch.t); r1.appendChild(chip); meta.appendChild(r1);
+      if(shot.refs&&shot.refs.length){ const rf=el("div","refs"); shot.refs.forEach(r=>rf.appendChild(el("span","ref mono",r))); meta.appendChild(rf); }
+      card.appendChild(meta); strip.appendChild(card);
+    });
+    sCol.appendChild(strip);
+  });
+  grid.appendChild(sCol);
+
+  // budget + gaps column
+  const rCol=el("section");
+  const bModel=(M.cost&&M.cost.by_model)||{};
+  const bp=el("div","panel"); bp.innerHTML=`<h3>Budget</h3><div class="spend"><span class="big mono">${fmt(total)}</span><span class="cur">USD</span>${budget!=null?`<span class="of">of $${budget.toFixed(2)}</span>`:""}</div>`+
+    (budget?`<div class="budgetbar"><i style="width:${Math.min(100,total/budget*100).toFixed(1)}%"></i></div>`:"")+
+    Object.entries(bModel).map(([k,v])=>`<div class="line"><span class="m">${k}</span><span class="mono">${fmt(v)}</span></div>`).join("")+
+    `<div class="line"><span class="m">${(M.generations||[]).length} generation${(M.generations||[]).length===1?"":"s"}</span><span class="mono">rendered</span></div>`;
+  rCol.appendChild(bp);
+
+  // derive gaps
+  const gaps=[];
+  assets.filter(a=>a.status!=="built").forEach(a=>gaps.push({g:"spec",html:`<code>${a.type}-${a.name}</code> has no ${a.type==="set"?"plate":"anchor"} yet.`}));
+  const unrendered=shots.filter(s=>!(s.image||s.status==="rendered")).map(s=>s.label);
+  if(unrendered.length) gaps.push({g:"pend",html:`Shot${unrendered.length>1?"s":""} ${unrendered.map(l=>`<code>${l}</code>`).join(", ")} not rendered.`});
+  const gp=el("div","panel"); gp.innerHTML=`<h3>Gaps to close</h3>`+
+    (gaps.length?gaps.map(x=>`<div class="gap"><span class="g ${x.g}"></span><div>${x.html}</div></div>`).join(""):`<div class="gap"><span class="g" style="background:var(--ok)"></span><div>Nothing outstanding.</div></div>`)+
+    `<div class="foot">Continuity &amp; state-drift audited separately by <b>script-supervisor</b>.</div>`;
+  rCol.appendChild(gp);
+  grid.appendChild(rCol);
+
+  app.appendChild(grid);
+}
+
+// ---- loaders ----
+const SAMPLE = {
+  show:"SBW", title:"Snowbound", updated:"2026-07-02", budget:25.00,
+  assets:[
+    {type:"char",name:"eli",spec_file:"char-sbw-eli.md",anchor_image:"sample/char-eli-id-front.png",status:"built"},
+    {type:"char",name:"marguerite",spec_file:"char-sbw-marguerite.md",anchor_image:null,status:"specced"},
+    {type:"prop",name:"revolver",spec_file:"prop-sbw-revolver.md",anchor_image:null,status:"specced"},
+    {type:"set",name:"livingroom",spec_file:"set-sbw-livingroom.md",anchor_image:null,status:"specced"}
+  ],
+  generations:[{file:"sample/char-eli-id-front.png",fal_endpoint:"fal-ai/flux/schnell",seed:1278911897,refs:[],prompt:"Cinematic portrait, 85mm, weathered ironworker...",cost:0.003,rendered_at:"2026-07-02"}],
+  sequences:[{label:"S2",title:"Living Room, morning",shots:[
+    {label:"S2-01",size:"Establishing",lens:"LS · 24mm",refs:["set-livingroom"],image:null,status:"specced"},
+    {label:"S2-02",size:"Master",lens:"MS · 40mm",refs:["char-eli","set-livingroom"],image:null,status:"specced"},
+    {label:"S2-03",size:"Coverage",lens:"CU · 85mm",refs:["char-eli","set-livingroom"],image:"sample/char-eli-id-front.png",status:"rendered"}
+  ]}],
+  cost:{total:0.003,by_model:{"fal-ai/flux/schnell":0.003},by_sequence:{}},
+  status:{specced:4,built:1,rendered:1,approved:1,missing:0},
+  human:{"sample/char-eli-id-front.png":{status:"approved",note:"hero locked"}}
+};
+
+async function loadSample(){ render(SAMPLE, await resolveImages(SAMPLE,"sample")); }
+
+async function openFolder(){
+  if(!window.showDirectoryPicker){ setErr("This browser can't open a folder read-only (needs Chrome/Edge). Try “Load sample”, or drop the JSON."); return; }
+  let dir; try{ dir=await window.showDirectoryPicker(); }catch{ return; } // user cancelled
+  let manifest=null;
+  try{
+    for await (const [name,handle] of dir.entries()){
+      if(handle.kind==="file" && /^production-.*\.json$/.test(name)){ manifest=JSON.parse(await (await handle.getFile()).text()); break; }
+    }
+  }catch(e){ setErr("Couldn't read the folder: "+e.message); return; }
+  if(!manifest){ setErr("No production-{show}.json found in that folder."); return; }
+  render(manifest, await resolveImages(manifest,"folder",dir));
+}
+
+async function loadManifestFile(file){
+  try{ const m=JSON.parse(await file.text()); render(m, await resolveImages(m,"drop")); }
+  catch(e){ setErr("That doesn't look like a valid production manifest: "+e.message); showEmpty(); setErr("That doesn't look like a valid production manifest."); }
+}
+
+function setErr(msg){ const e=$("#err"); if(e) e.textContent=msg||""; }
+function showEmpty(){
+  app.innerHTML=""; app.appendChild(document.importNode($("#empty-tpl").content,true));
+  const of=$("#open-folder"); if(!window.showDirectoryPicker){ of.disabled=true; of.title="Needs Chrome or Edge"; }
+  of.addEventListener("click", openFolder);
+  $("#load-sample").addEventListener("click", loadSample);
+}
+
+// drag & drop a manifest anywhere
+let dragc=0;
+window.addEventListener("dragover", e=>{ e.preventDefault(); });
+window.addEventListener("dragenter", e=>{ e.preventDefault(); dragc++; document.body.classList.add("dragging"); });
+window.addEventListener("dragleave", e=>{ if(--dragc<=0) document.body.classList.remove("dragging"); });
+window.addEventListener("drop", e=>{ e.preventDefault(); dragc=0; document.body.classList.remove("dragging");
+  const f=[...(e.dataTransfer.files||[])].find(f=>f.name.endsWith(".json")); if(f) loadManifestFile(f); });
+
+showEmpty();
+</script>
+</body>
+</html>
