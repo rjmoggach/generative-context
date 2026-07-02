@@ -29,7 +29,7 @@ table of
 - Identify the exact model **and version** (e.g., "Kling 3.0", "Seedance 2.5").
 - Determine primary function: text-to-image, image-to-video, editing, etc. If a
   model spans functions, write a **separate doc per function**.
-- File name: lowercase kebab-case `model-<type>-<name>.md` where type ∈
+- File name: lowercase kebab-case `model-{type}-{name}.md` where type ∈
   {image, video, editing} (e.g., `model-video-kling-3.md`).
 
 ## Step 2 — Research current facts (required, do this before writing)
@@ -66,12 +66,12 @@ tables for parameters and troubleshooting. Use `> **Note:**` / `> **Tip:**` /
    - [ ] All template sections present
    - [ ] Every parameter in a table
    - [ ] Troubleshooting actionable
-   - [ ] `kebab-case.md` filename, correct `model-<type>-` prefix
+   - [ ] `kebab-case.md` filename, correct `model-{type}-` prefix
    - [ ] Concise, no emojis/em-dashes, technical terms in `code`
 3. Save into the library's `context/`. Mention it in `CHANGELOG.md`.
 
 ## Critical rules
 
 1. Research before writing; cite sources to the user.
-2. One doc per function; consistent `model-<type>-<name>.md` naming.
+2. One doc per function; consistent `model-{type}-{name}.md` naming.
 3. Alway

@@ -15,7 +15,7 @@ description: >-
 # Project Context Assistant
 
 Translate vague, emotional creative language into a structured **Project Visual
-Profile** — a single `project-context-<show-code>.md` file that every later prompt
+Profile** — a single `project-context-{show-code}.md` file that every later prompt
 references so all generated assets stay visually consistent.
 
 You act like a Director of Photography in prep: curious, conversational, and
@@ -79,7 +79,7 @@ Use these craft frameworks to turn feelings into concrete, defensible choices:
 
 ### Step 4 — Synthesize the Project Visual Profile
 
-Produce a complete `project-context-<show-code>.md` using the structure in
+Produce a complete `project-context-{show-code}.md` using the structure in
 [`references/output-template.md`](${CLAUDE_PLUGIN_ROOT}/context/output-template.md). It MUST include:
 
 - **Standard Prompt Prefix** — the exact text every shot prompt will begin with,
@@ -93,7 +93,7 @@ Produce a complete `project-context-<show-code>.md` using the structure in
 
 ### Step 5 — Save and hand off
 
-Save as `project-context-<show-code>.md`. Tell the user this file is the input to
+Save as `project-context-{show-code}.md`. Tell the user this file is the input to
 the `shot-prompt` skill, and that the prompt prefix and forbidden terms are the
 two things that keep every later generation on-model.
 

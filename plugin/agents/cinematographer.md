@@ -42,7 +42,7 @@ Read what you need: `${CLAUDE_PLUGIN_ROOT}/context/guide-shot-selection.md`,
 Build with the six layers; front-load the look in the first ~40 words; be
 specific; positive phrasing; respect any forbidden terms.
 
-If the shot line carries `refs: <id>[, <id>...]`
+If the shot line carries `refs: {id}[, {id}...]`
 (`${CLAUDE_PLUGIN_ROOT}/context/guide-asset-reference.md` §10), consume it before
 drafting: for each id, load its asset spec (`char-{show}-{name}.md`,
 `prop-{show}-{name}.md`, or `set-{show}-{name}.md`), restate its identity block

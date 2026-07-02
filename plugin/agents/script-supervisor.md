@@ -53,7 +53,7 @@ For the sequence as a whole and shot-to-shot:
     (a broken reference that will re-derive identity from text and drift).
   - **State drift** — wardrobe, hair/makeup, or prop condition changes across a
     cut with no story beat to motivate it: the `-fit-`, `-hmu-`, or
-    `-hero-<state>` variant named doesn't match what the prior shot established.
+    `-hero-{state}` variant named doesn't match what the prior shot established.
   - **Geometry mismatch** — a location reverse or coverage angle (`-cov-`)
     contradicts the master `-plate-`'s geometry or light-key (walls, sightlines,
     or key direction that don't reconcile with the plate).

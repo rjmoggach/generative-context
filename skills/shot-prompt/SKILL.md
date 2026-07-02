@@ -29,7 +29,7 @@ this skill consumes.
 ## Step 1 — Load context (do this first)
 
 1. **Find the show code.** If the user's message contains one (e.g., "shots for
-   SBW sequence 2"), look for `project-context-<show-code>.md` in the working
+   SBW sequence 2"), look for `project-context-{show-code}.md` in the working
    folder and read it fully. If no code is given, ask for it — or, if the user
    has no context file, offer to run the `project-context` skill first.
 2. **Extract and hold:** the Standard Prompt Prefix (verbatim), color hex codes,
@@ -94,7 +94,7 @@ positive phrasing, and respects the forbidden-terms list.
 
 ## Step 5 — Consume attached references
 
-If a shot line carries `refs: <id>[, <id>...]` (the notation defined in
+If a shot line carries `refs: {id}[, {id}...]` (the notation defined in
 [`references/guide-asset-reference.md`](references/guide-asset-reference.md) §10),
 resolve every id **before** finalizing that shot's prompt:
 

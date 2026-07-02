@@ -32,7 +32,7 @@ shot, skip straight to `shot-prompt`.
 
 ## Step 1 — Load the look
 
-If a `project-context-<show-code>.md` exists, read it and inherit the standard
+If a `project-context-{show-code}.md` exists, read it and inherit the standard
 prompt prefix, palette, lighting, lens signature, and forbidden terms. If none
 exists, offer `project-context` first, or proceed noting the plan won't be
 consistency-locked.
@@ -72,19 +72,19 @@ Produce a numbered shot list. For each shot specify: label, size, angle, lens,
 movement, the beat it serves, and its target intensity. Choose sizes/coverage via
 [`references/guide-shot-selection.md`](references/guide-shot-selection.md) and lenses
 via [`references/guide-lens-language.md`](references/guide-lens-language.md). Use the
-project's `<show-code>` and a sequence number for labels (e.g., `S2-03`).
+project's `{show-code}` and a sequence number for labels (e.g., `S2-03`).
 
 Output format:
 
 ```
-SEQUENCE <code>-S<n>: <scene name>
-Beat: <where/who/turn/exit>   Coverage: <mode>   Staging: <A/I/L>
-Line/direction: <A left looking right; B right looking left; travel L→R>
-Intensity arc: <open → peak at the turn → resolve>
+SEQUENCE {code}-S{n}: {scene name}
+Beat: {where/who/turn/exit}   Coverage: {mode}   Staging: {A/I/L}
+Line/direction: {A left looking right; B right looking left; travel L→R}
+Intensity arc: {open → peak at the turn → resolve}
 
-S<n>-01  Establishing — <size>, <angle>, <lens>, <move> — serves <beat> — intensity <low/med/high>
-S<n>-02  Master — ...
-S<n>-03  Coverage CU — <lens> — serves <beat> — intensity <x> — refs: char-eli, set-livingroom
+S{n}-01  Establishing — {size}, {angle}, {lens}, {move} — serves {beat} — intensity {low/med/high}
+S{n}-02  Master — ...
+S{n}-03  Coverage CU — {lens} — serves {beat} — intensity {x} — refs: char-eli, set-livingroom
 ...
 ```
 
@@ -92,7 +92,7 @@ S<n>-03  Coverage CU — <lens> — serves <beat> — intensity <x> — refs: ch
 
 Per [`references/guide-asset-reference.md`](references/guide-asset-reference.md) §10, scan
 the working folder for `char-`/`prop-`/`set-` spec files (`assets/` and any loose
-`{type}-{show}-{name}.md`). For each shot, append `refs: <id>[, <id>...]` naming the
+`{type}-{show}-{name}.md`). For each shot, append `refs: {id}[, {id}...]` naming the
 assets that beat needs — the character(s), prop(s), and set the shot must carry
 identity for. A shot with no locked assets in frame omits `refs:` entirely. This is
 the contract `shot-prompt` reads to attach the right anchor images and identity

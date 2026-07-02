@@ -34,14 +34,14 @@ Read `${CLAUDE_PLUGIN_ROOT}/context/guide-sequence-construction.md`,
 4. Plan the intensity arc; assign each shot a size, lens, move, and target intensity.
 5. Attach asset references (§10): scan the working folder for `char-`/`prop-`/
    `set-` spec files (`assets/` and any loose `{type}-{show}-{name}.md`) and
-   append `refs: <id>[, <id>...]` to each shot line that carries a locked asset's
+   append `refs: {id}[, {id}...]` to each shot line that carries a locked asset's
    identity — id is the spec stem only (`char-eli`, not `char-{show}-eli.md`). A
    shot with no locked assets in frame omits `refs:`.
 
 ## Output
 
 A numbered coverage shot list, labeled per shot
-(`S<n>-01 Establishing — LS, eye-level, static — serves <beat> — intensity low —
+(`S{n}-01 Establishing — LS, eye-level, static — serves {beat} — intensity low —
 refs: char-eli, set-livingroom`), with the line/direction and intensity arc stated
 at the top. Hand it to the `cinematographer` to turn each line into a prompt using
 the `refs:` to pull anchor images and identity blocks; flag it for the

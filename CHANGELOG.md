@@ -2,6 +2,13 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.0.3 - 2026-07-02
+
+### Fix: angle-bracket placeholders rejected as XML tags
+
+- The plugin loader rejects any `<...>` tag in a SKILL.md. Converted every angle-bracket placeholder (`<show-code>`, `<place>`, `<id>`, sequence-template fields, etc.) to the project's existing `{...}` convention across all skills, and applied the same conversion to three agents (`cinematographer`, `first-ad`, `script-supervisor`) as a precaution.
+- Extended the `assemble.py` gate to fail on any XML tag in a skill *or* agent body, alongside the 1024-char description check added in v1.0.2. Also audited every skill for name/dir match, kebab-case, and unexpected frontmatter keys — all clean.
+
 ## v1.0.2 - 2026-07-02
 
 ### Fix: skill description exceeded the loader's 1024-char cap

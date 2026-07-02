@@ -103,12 +103,20 @@ def validate():
                 dlen = len(re.sub(r"\s+", " ", val).strip())
                 if dlen > 1024:
                     print("FAIL %s: description %d > 1024 chars" % (name, dlen)); ok = False
+        # plugin loader rejects any XML/angle-bracket tag in SKILL.md (use {placeholder})
+        tags = re.findall(r"<[^>\n]+>", body)
+        if tags:
+            print("FAIL %s: SKILL.md contains XML tags %s" % (name, tags[:3])); ok = False
     # agents: frontmatter must be strict-YAML-parseable (no raw <example> tags)
     # with the required keys. The plugin loader parses this as strict YAML.
     for a in sorted((PLUGIN / "agents").glob("*.md")):
-        m = re.match(r"---\n(.*?)\n---\n", a.read_text(encoding="utf-8"), re.S)
+        atext = a.read_text(encoding="utf-8")
+        m = re.match(r"---\n(.*?)\n---\n", atext, re.S)
         if not m:
             print("FAIL agent (no frontmatter):", a.name); ok = False; continue
+        atags = re.findall(r"<[^>\n]+>", atext[m.end():])
+        if atags:
+            print("FAIL %s: body contains XML tags %s" % (a.name, atags[:3])); ok = False
         keys = set()
         for line in m.group(1).splitlines():
             if not line.strip() or line[0] in " \t":

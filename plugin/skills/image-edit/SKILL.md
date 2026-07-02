@@ -11,7 +11,7 @@ description: >-
   image to X", "swap the crowd/background/wardrobe", "give me a prompt to edit this
   photo", "recolor this costume", "rewrite
   this so it's Y instead of Z", "age this character", "add a scar", "remove the sign",
-  "relight this", "put this character in <place>". This is the i2i sibling of
+  "relight this", "put this character in {place}". This is the i2i sibling of
   footage-transform (which is video-to-video); for a brand-new scene with no source
   still to preserve, use shot-prompt instead.
 ---
@@ -34,7 +34,7 @@ the source is a video clip, use `footage-transform`.
 ## Step 1 — Load context
 
 1. **Project / world lock (if any).** If the user names a show code, read
-   `project-context-<show-code>.md` (and `art-bible-<show-code>.md` if present) and
+   `project-context-{show-code}.md` (and `art-bible-{show-code}.md` if present) and
    hold the Standard Prompt Prefix, hex codes, CMF lexicon, style reference, lighting,
    lens specs, atmosphere, and forbidden terms; construct prompts from those fields.
    A one-off with no project file is fine — say it won't be consistency-locked.
