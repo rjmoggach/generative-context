@@ -2,6 +2,16 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v0.11.0 - 2026-07-02
+
+### New: Production office - coordinator + manifest (v1.0 track)
+
+- Added the `production` skill and `production-coordinator` agent: build/reconcile `production-{show}.json` - the show's operational memory - and report where the production stands.
+- The manifest is a derived index rebuilt from the working folder (asset specs + `.recipe` sidecars) plus a persisted `human` block (approvals / needs-retake / notes) that a rebuild merge-preserves, so it can always be rebuilt from the files and can't rot.
+- Tracks assets (specced/built), generations (from recipes), cost rollups (by model/sequence), and gaps (specced-but-unrendered, orphans, missing refs, over-budget).
+- Added `context/guide-production.md` (the production-office craft + manifest schema); sources: Eve Light Honthaner, The Complete Film Production Handbook.
+- Second of the v1.0 track (execution -> production office -> presentation). Eleven skills / twelve agents.
+
 ## v0.10.0 - 2026-07-02
 
 ### New: Execution layer - closed render loop (v1.0 track)

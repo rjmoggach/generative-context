@@ -1,6 +1,6 @@
 # generative-wrangler
 
-**Version**: 0.10.0 · **Updated**: 2026-07-02
+**Version**: 0.11.0 · **Updated**: 2026-07-02
 
 A flexible plugin for getting **cinematic, model-optimized prompts** for generative
 image and video — at any level of structure. Ask for a great one-off still prompt,
@@ -69,6 +69,7 @@ skills' craft with a role's judgment.
 | `prop-turntable` | Asset | Build a persistent prop reference: hero anchor, orthographic ring, detail views, state variants/multiples |
 | `location-pack` | Asset | Build a location/set reference: master establishing plate, coverage, time-of-day/weather variants, continuity table |
 | `model-docs` | Library | Research + write/refresh a model doc; sync currency |
+| `production` | Production office | Build/reconcile `production-{show}.json` — the derived index of assets, generations, and cost, merged with persisted approvals — and report status/gaps |
 
 ### Agents (the crew)
 
@@ -85,6 +86,7 @@ skills' craft with a role's judgment.
 | `makeup-hair` | Art dept | "Lock the HMU states" — clean/aged/wounded/wet state references per character |
 | `propmaster` | Art dept | "Build the prop turntable" — hero anchor, multi-angle ring, detail and state variants |
 | `location-scout` | Art dept | "Build the location pack" — master plate, coverage, time/weather variants |
+| `production-coordinator` | Production office | "Where are we / what's missing / what did it cost" — reconciles `production-{show}.json` against the working folder and reports status, cost rollups, and gaps |
 
 Typical flow: brief the **Director** → the **Production Designer** sets the world
 and delegates to the art-dept sub-roles (**casting director** → **costume
@@ -110,8 +112,22 @@ Composio → FAL MCP directly: single images, i2i edits, and batch/video runs vi
 fal's async queue (submit the set, poll, collect). Follow
 [`context/guide-execution.md`](context/guide-execution.md) for the tool
 sequence, the cost gate, and where output + provenance land. Skill and agent
-counts are unchanged (ten skills / eleven agents) — this is a new capability
-the existing crew uses, not a new role.
+counts were unchanged at launch (ten skills / eleven agents) — this was a new
+capability the existing crew used, not a new role.
+
+---
+
+## Production office
+
+Once a show is generating, someone has to track it. The `production` skill
+builds and reconciles `production-{show}.json` — a derived index rebuilt from
+the working folder (asset specs + `.recipe` sidecars) and merged with a
+persisted `human` block (approvals / needs-retake / notes), so it can always be
+rebuilt from the files and can't rot. The `production-coordinator` agent reads
+it and answers "where are we": assets specced vs. built, generations and their
+cost (by model/sequence), and gaps (specced-but-unrendered, orphans, missing
+refs, over-budget). It writes only the manifest, never the assets. See
+[`context/guide-production.md`](context/guide-production.md).
 
 ---
 
@@ -173,7 +189,7 @@ style anchors (directors, cinematographers, commercial directors, photographers)
 .claude-plugin/marketplace.json   This repo as a Claude Code marketplace → ./plugin
 plugin/                           The installable generative-wrangler plugin (assembled)
   ├── .claude-plugin/plugin.json
-  ├── skills/   (10)   agents/ (11)   context/ (the bundled library)
+  ├── skills/   (11)   agents/ (12)   context/ (the bundled library)
   └── assemble.py                  Builds plugin/ from the repo-root sources
 context/                          Source of truth: model docs, craft guides, references
 skills/                           Source skill definitions (with bundled references/)

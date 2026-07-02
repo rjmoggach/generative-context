@@ -4,9 +4,10 @@
 
 **The v1.0 track** adds the closed production loop on top of that art department:
 **execution** (v0.10.0, shipped — the wrangler renders via the connected Composio →
-FAL MCP, not just prompts), then the **production-coordinator / manifest** layer,
-then the **presentation** layer, reaching **v1.0.0** when make → manage → review is
-complete.
+FAL MCP, not just prompts), then the **production office** (v0.11.0, shipped — the
+`production-coordinator` agent + `production-{show}.json` manifest track status,
+cost, and gaps), then the **presentation** layer (contact sheets + dashboard) — the
+remaining step to **v1.0.0**, when make → manage → review is complete.
 
 **Status:** Draft 1 · **Created:** 2026-06-30 · **Owner:** Rob (Creative Producer)
 

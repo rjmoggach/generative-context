@@ -25,7 +25,7 @@ You are the **Creative Director**: you set the brief and approve. The crew does 
 No project context is required for a one-off — only load a show bible when you want
 every output locked to the same look.
 
-## Skills (ten)
+## Skills (eleven)
 
 | Skill | Does | Produces |
 |---|---|---|
@@ -39,6 +39,7 @@ every output locked to the same look.
 | `prop-turntable` | Build a persistent prop reference: hero anchor, orthographic ring, detail views, state variants/multiples | `prop-{show}-{name}.md` + `assets/prop/{name}/` |
 | `location-pack` | Build a location/set reference: master establishing plate, coverage, time-of-day/weather variants, continuity table | `set-{show}-{name}.md` + `assets/set/{name}/` |
 | `model-docs` | Research + write/refresh a model doc | `model-{type}-{name}.md` |
+| `production` | Build/reconcile the show's manifest: assets, generations, cost, gaps | `production-{show}.json` |
 
 ## Agents (the crew you talk to)
 
@@ -57,6 +58,7 @@ Crew personas that apply the skills' craft with a role's judgment and voice.
 | `makeup-hair` | Art dept | "Lock the HMU states" — clean/aged/wounded/wet state references per character |
 | `propmaster` | Art dept | "Build the prop turntable" — hero anchor, multi-angle ring, detail and state variants |
 | `location-scout` | Art dept | "Build the location pack" — master plate, coverage, time/weather variants |
+| `production-coordinator` | Production office | "Where are we / what's missing / what did it cost" — reconciles `production-{show}.json` and reports status, cost, and gaps |
 
 Typical flow: you brief the **Director** → the **Production Designer** sets the
 world and delegates to the art-dept sub-roles (**casting director** → **costume
@@ -76,8 +78,20 @@ interactive session and Composio connected, the wrangler drives the connected
 Composio → FAL MCP directly: single images, i2i edits, and batch/video runs via
 fal's async queue (submit the set, poll, collect). Follow
 `context/guide-execution.md` for the tool sequence, the cost gate, and where
-output + provenance land. Skill and agent counts are unchanged (ten skills /
-eleven agents) — this is a new capability the existing crew uses, not a new role.
+output + provenance land. Skill and agent counts were unchanged at launch (ten
+skills / eleven agents) — this was a new capability the existing crew used, not
+a new role.
+
+## Production office
+
+The `production` skill builds and reconciles `production-{show}.json` — a
+derived index rebuilt from the working folder (asset specs + `.recipe`
+sidecars) and merged with a persisted `human` block (approvals / needs-retake /
+notes), so it can always be rebuilt from the files and can't rot. The
+`production-coordinator` agent reads it and reports where the show stands:
+assets specced vs. built, generations and cost (by model/sequence), and gaps
+(specced-but-unrendered, orphans, missing refs, over-budget). It writes only
+the manifest, never the assets. See `context/guide-production.md`.
 
 ## Shared library (`context/`)
 
