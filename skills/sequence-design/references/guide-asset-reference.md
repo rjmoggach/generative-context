@@ -132,7 +132,7 @@ and the `art-direction` skill — see that guide for the full production-design 
   Spec file     {show}_{type}_{name}.md          sbw_char_eli.md
   Asset folder  assets/{type}/{name}/            assets/char/eli/   (type-first, so
                                                   assets/char/ lists every character)
-  Image files   {show}_{type}_{name}_{facet}_{view}[_vNN].png
+  Image files   {show}_{type}_{name}_{facet}_{view}[_v001].png
     identity    sbw_char_eli_id_front.png   sbw_char_eli_id_3q_l.png
     turnaround  sbw_char_eli_turn_front.png  _side_l / _side_r / _back / _3q_l / _3q_r
     wardrobe    sbw_char_eli_fit_day1.png    sbw_char_eli_fit_day2_wet.png
@@ -149,7 +149,7 @@ and the `art-direction` skill — see that guide for the full production-design 
   ```
 
   Facets: `id` - `turn` - `fit` - `hmu` - `expr` - `pose` - `palette` - `hero` - `ortho` - `detail` - `360` - `plate` - `cov` - `tod`. Views: `front/back/side_l/side_r/3q_l/3q_r/top/bottom`.
-  All lowercase; fields joined by `_`; `_vNN` version suffix optional. Show code always lowercase.
+  All lowercase; fields joined by `_`; `_v001` version suffix (3-digit, standard on renders; increments `_v002`, `_v003`). Show code always lowercase.
 
   **Working-folder layout** — `project-context` scaffolds `context/`, the `assets/` type
   dirs, `sequences/`, and `refs/` up front; each sequence's own folder is created by
@@ -168,7 +168,7 @@ and the `art-direction` skill — see that guide for the full production-design 
     sequences/{show}{###}/                 one folder per sequence (the sequence entity)
       {show}{###}_shotlist.md              the shot list
       {show}{###}_context.md               per-sequence context (derived from a refs/ source)
-      {show}{###}_{SSSS}_vNN.png           shot renders + their .recipe sidecars
+      {show}{###}_{SSSS}_v001.png           shot renders + their .recipe sidecars
   ```
 
   **Sequence & shot ids.** A sequence id is `{show}{###}` — the show code plus a
@@ -176,7 +176,7 @@ and the `art-direction` skill — see that guide for the full production-design 
   the underscore rule: show and sequence number join with no separator, so the id is one
   clean token; every field after it uses `_`. A shot id is `{show}{###}_{SSSS}`
   (`sbw010_0010`). The shot id is the canonical handle in shot lists, `refs`, and render
-  filenames (`{show}{###}_{SSSS}_vNN.png`). Everything belonging to a sequence lives
+  filenames (`{show}{###}_{SSSS}_v001.png`). Everything belonging to a sequence lives
   **directly** inside its `sequences/{show}{###}/` folder — no `shots/` or `context/`
   subfolder — the same entity principle as `assets/{type}/{name}/`.
 

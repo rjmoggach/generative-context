@@ -1,0 +1,89 @@
+# Model Currency Snapshot — June 2026
+
+This file tracks the **current generation** of each documented model and the newer
+releases that have appeared since the individual `model-*.md` docs were written.
+The per-model docs still describe valid prompting *technique*; treat this file as
+the authority on **which version is current** and **what changed**. Re-verify
+quarterly — this space moves fast.
+
+> **How to use**: When recommending or documenting a model, check this table first.
+> If a doc's "Current Version" row disagrees with this file, this file wins.
+
+---
+
+## Image Generation
+
+> **Default target priority (fal-hosted):** Luma Uni-1 → Nano Banana / Nano Banana Pro
+> (Gemini Image) → FLUX.2 → Seedream. Lead with these when the user hasn't named a model.
+> **Midjourney is Discord-only — not available via fal**; suggest it only for pure
+> aesthetic exploration, never as a rendering default.
+
+| Doc | Version at doc-writing | Current (Jun 2026) | What changed |
+|---|---|---|---|
+| `model-image-flux-pro.md` | FLUX.1 Pro 1.1 (Nov 2024) | **FLUX.2 Pro** (Nov 25 2025); `[flex]`, `[dev]`, `[klein]` variants (Klein Jan 2026) | 32B params, Mistral-3 24B VLM + rectified-flow transformer. Stronger photorealism, typography, multi-image reference, character consistency. Up to 4MP. |
+| `model-image-gemini-flash.md` | Gemini 2.5 Flash Image ("Nano Banana") | **Nano Banana 2 = Gemini 3.1 Flash Image** (Feb 26 2026, now default); **Nano Banana Pro = Gemini 3 Pro Image** for hero/text work | 512px–4K, faster, better subject consistency and instruction following. Pro tier does advanced reasoning + high-fidelity text rendering. |
+| `model-image-midjourney-v7.md` | v7 (2025) | **v8.1** (default Jun 10 2026); v8.0 alpha Mar 2026 — **Discord-only, not on fal** | ~4–5× faster, better prompt adherence + small-detail retention, native HD 2K (no upscale), Draft mode, `--preview`. Not a rendering default; aesthetic exploration only. |
+| `model-image-seedream-4.md` | 4.0 (Aug 2025) | **Seedream 5.0 Lite** (Apr 9 2026); v5 Lite (Feb 24 2026); 4.5 (Dec 2025) | v5 adds Chain-of-Thought reasoning + real-time web search before generating; 4K; higher consistency/fidelity. |
+| `model-image-luma-uni-1.md` | new doc (Jul 2026) | **Luma Uni-1 / Uni-1.1 API** (Uni-1 Mar 5 2026; Uni-1.1 API GA May 5 2026) | Luma's first unified-intelligence model: decoder-only autoregressive image generation that reasons through intent before rendering. 9-reference role system (STYLE/CHARACTER/COMPOSITION/etc.); `uni-1` $0.04 / `uni-1-max` $0.10 per image; 2048px; REST `create_image` + `modify_image`. ~31s/image (latency is the trade-off). |
+
+## Video Generation
+
+> **Default target priority (fal-hosted):** Seedance → Veo → Luma Ray → Kling. Lead with
+> these when the user hasn't named a model. Sora 2 and Wan 2.6 are secondary (Sora API
+> sunsets Sep 2026; Wan is self-host open-weights); Runway has no confirmed fal endpoint
+> (verify via `FAL_AI_GET_MODELS`).
+>
+> **Audio is opt-in and roughly doubles cost.** Native-audio models (Veo, Sora, Wan, and
+> Kling with audio) bill markedly more with sound on. Default audio **off** unless the
+> shot needs dialogue/SFX/music, and always confirm the audio setting in the
+> `FAL_AI_GET_PRICING` estimate before rendering (see `guide-execution.md`).
+
+| Doc | Version at doc-writing | Current (Jun 2026) | What changed |
+|---|---|---|---|
+| `model-video-seedance-pro.md` | Seedance 1.0 Pro | **Seedance 2.5** (announced Jun 23 2026); 2.0 prior | 2.5 generates 30s in a single pass (vs 10s). Multi-shot strengths retained. |
+| `model-video-runway-gen4-turbo.md` | Gen-4 Turbo (Apr 2025) | **Gen-4.5** (Dec 2025) | Revamped motion engine: more lifelike physics, object interaction, camera moves; SOTA motion quality + prompt adherence. Still strongest end-to-end production UI (motion brush, director mode). |
+| `model-video-google-veo-3-1.md` | Veo 3.1 (Oct 2025) | **Veo 3.1** still current — family is 3.1 / 3.1 Fast / 3.1 Lite | No Veo 4 as of Jun 2026. Lite is most cost-effective (720p/1080p, 4/6/8s). This doc is largely accurate. |
+| `model-video-luma-ray3.md` | Ray3 (Sep 2025) | **Ray3.2** (Jun 9 2026, now with API); Ray3.14 (Jan 26 2026) | Ray3.2: up to 16 keyframes/clip for frame-level direction, native HDR + 16-bit EXR export (composites in Resolve/Nuke), full API. Ray3.14 added native 1080p, 4× faster/3× cheaper (drops char-ref + audio). |
+
+## Image Editing
+
+| Doc | Version at doc-writing | Current (Jun 2026) | What changed |
+|---|---|---|---|
+| `model-editing-flux-kontext.md` | Kontext 1.0 (Max/Pro/Dev) | Kontext still available; **FLUX.2** now unifies generation + in-context editing + multi-ref natively | For new work, evaluate FLUX.2 editing and Nano Banana 2 (excellent conversational editor) alongside Kontext. |
+
+---
+
+## Reference-count & strength caveats (per model)
+
+The asset layer's reference-count guidance is version-sensitive - verify here before quoting.
+
+| Model | Effective reference capacity | Notes |
+|---|---|---|
+| Nano Banana Pro (Gemini 3 Pro Image) | ~14 objects / ~5 characters | strongest multi-subject holder |
+| FLUX.2 | up to ~10 references | strong multi-image reference |
+| Seedream 5 | up to ~10 references | multi-reference identity |
+| Luma Uni-1 | up to 9 references (explicit roles) | STYLE/CHARACTER/COMPOSITION role system |
+
+General: ~4-6 references is the consistency sweet spot; reference strength ~0.7 (workable 0.6-0.8). These numbers move with model versions - the `researcher` / `model-docs` loop keeps them current.
+
+Each generative `model-*.md` carries a `fal_endpoint` for rendering via the Composio -> FAL MCP (see `guide-execution.md`); verify ids with `FAL_AI_GET_MODELS`.
+
+## Recently documented (Jun 2026)
+
+These were prior coverage gaps and now have full `model-*.md` docs:
+
+| Doc | Current (Jun 2026) | Notes |
+|---|---|---|
+| `model-video-kling-3.md` | **Kling 3.0 / 3.0 Pro** (Feb 5 2026, Kuaishou) | Only major model with native 4K; most fluid motion; Motion Control + Motion Brush. |
+| `model-video-sora-2.md` | **Sora 2 / Sora 2 Pro** (OpenAI) | Multi-shot storytelling + physics; native dialogue; **API sunsets Sep 24 2026** — verify endpoint. |
+| `model-video-wan-2-6.md` | **Wan 2.6** (Dec 2025, Alibaba) | Major open-weights option; native audio/lip-sync; 24GB+ VRAM to self-host. |
+
+No outstanding documentation gaps among the models the framework references.
+
+---
+
+## Maintenance
+
+- Update this file when a documented model ships a new major version.
+- When you write/refresh a full `model-*.md`, sync its "Current Version" row here.
+- Convert relative dates to absolute (e.g., "last month" → "May 2026").

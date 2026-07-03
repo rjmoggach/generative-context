@@ -2,6 +2,17 @@
 
 All notable changes to the Generative AI Context Library will be documented in this file.
 
+## v1.3.2 - 2026-07-02
+
+### Execution + dailies: render skill, dailies skill, DIT agent (#7)
+
+- **`render` skill (new).** Fires a batch of prompts or a sequence's shot list over the **Composio → FAL** MCP: discovers the connection, runs the cost gate (`FAL_AI_GET_PRICING`), submits the async batch, polls, saves each output to its sequence/asset folder with a `.recipe` sidecar and a `v001` version, and reconciles the manifest.
+- **`dailies` skill (new).** Reviews rendered shots against their specs — identity block, screen direction/eyeline, palette/grade, refs — and produces a per-shot pass/flag list, routing approve/needs-retake to the `production-coordinator` (read-only; the human decides).
+- **`dit` agent (new).** Digital Imaging Technician — the crew persona that ingests source, manages media and versions, drives `render` and `dailies`, and hands the tally to the coordinator. Thirteen skills, thirteen agents.
+- **Composio discovery.** `guide-execution.md` now states explicitly that fal is reached via the **Composio** MCP (composio.dev) — no native fal connector; find the Composio connection and its `FAL_AI_*` tools.
+- **`v001` versioning.** The render/image version suffix is now a standard 3-digit `_v001` (increment `_v002`…), replacing the optional 2-digit `_vNN`.
+- Restored the repo root `README.md` (a linter truncated it during the v1.3.1 release; the plugin itself was unaffected).
+
 ## v1.3.1 - 2026-07-02
 
 ### Sequence taxonomy refinements (#6)

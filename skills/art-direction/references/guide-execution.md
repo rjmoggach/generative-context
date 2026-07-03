@@ -13,6 +13,13 @@ requires an **interactive session with Composio connected** — it does not work
 headless or from a cron job, because the tools are agent-facing (no local API key,
 no secret in the repo; auth lives in the user's Composio connection).
 
+**Discovery — there is no native fal connector.** The fal models are reached only through
+the **Composio** MCP (composio.dev). Find the Composio connection and use its fal tools,
+namespaced `FAL_AI_*` (`FAL_AI_GET_MODELS`, `FAL_AI_SUBMIT_ASYNC_JOB`, …), executed via
+`mcp__composio__COMPOSIO_MULTI_EXECUTE_TOOL` — discover them with `COMPOSIO_SEARCH_TOOLS`
+if they aren't already loaded. If you don't see fal tools, you're looking for the wrong
+connector: it is Composio, not a standalone "fal" MCP.
+
 Each entry uses the library's decision-unit format:
 **Decision / Use when / Because / Prompt translation / Watch-outs / Anchors.**
 

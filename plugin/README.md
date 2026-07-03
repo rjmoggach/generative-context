@@ -25,7 +25,7 @@ You are the **Creative Director**: you set the brief and approve. The crew does 
 No project context is required for a one-off — only load a show bible when you want
 every output locked to the same look.
 
-## Skills (eleven)
+## Skills (thirteen)
 
 | Skill | Does | Produces |
 |---|---|---|
@@ -40,6 +40,8 @@ every output locked to the same look.
 | `location-pack` | Build a location/set reference: master establishing plate, coverage, time-of-day/weather variants, continuity table | `{show}_set_{name}.md` + `assets/set/{name}/` |
 | `model-docs` | Research + write/refresh a model doc | `model-{type}-{name}.md` |
 | `production` | Build/reconcile the show's manifest: assets, generations, cost, gaps | `{show}_production.json` |
+| `render` | Fire prompts / a shot list via Composio → FAL: cost gate, async batch, save with `.recipe` + `v001`, reconcile | rendered images/video |
+| `dailies` | Review renders against specs (identity, screen direction, palette, refs) | per-shot pass/flag → coordinator |
 
 ## Agents (the crew you talk to)
 
@@ -59,6 +61,7 @@ Crew personas that apply the skills' craft with a role's judgment and voice.
 | `propmaster` | Art dept | "Build the prop turntable" — hero anchor, multi-angle ring, detail and state variants |
 | `location-scout` | Art dept | "Build the location pack" — master plate, coverage, time/weather variants |
 | `production-coordinator` | Production office | "Where are we / what's missing / what did it cost" — reconciles `{show}_production.json` and reports status, cost, and gaps |
+| `dit` | Digital Imaging Technician | "Render this / run dailies / ingest these" — fires renders over Composio → FAL, files outputs with `.recipe` + `v001`, runs first-pass QC, reconciles |
 
 Typical flow: you brief the **Director** → the **Production Designer** sets the
 world and delegates to the art-dept sub-roles (**casting director** → **costume

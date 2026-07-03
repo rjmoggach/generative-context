@@ -157,6 +157,18 @@ MANIFEST = {
         ("guide-execution.md", "references/guide-execution.md"),
         ("model-currency-2026-06.md", "references/model-currency-2026-06.md"),
     ],
+    "render": [
+        ("guide-execution.md", "references/guide-execution.md"),
+        ("guide-asset-reference.md", "references/guide-asset-reference.md"),
+        ("guide-production.md", "references/guide-production.md"),
+        ("model-currency-2026-06.md", "references/model-currency-2026-06.md"),
+    ],
+    "dailies": [
+        ("guide-asset-reference.md", "references/guide-asset-reference.md"),
+        ("guide-continuity-rules.md", "references/guide-continuity-rules.md"),
+        ("guide-production.md", "references/guide-production.md"),
+        ("guide-presentation.md", "references/guide-presentation.md"),
+    ],
 }
 
 EXCLUDE_NAMES = {".DS_Store"}
